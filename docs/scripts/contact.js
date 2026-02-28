@@ -2,7 +2,7 @@ const form = document.getElementById('contactForm');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
-  
+
   // Validate email before proceeding
   const emailField = form.querySelector('input[name="email"]');
   if (!validateEmail(emailField.value)) {
@@ -11,16 +11,20 @@ form.addEventListener('submit', function(event) {
   }
 
   const formData = new FormData(form);
-  
-  fetch('https://script.google.com/macros/s/AKfycbzNJy61gWrfFNBB_cZsK46YBzeQVDRN4V4pV7JkGulIUa_LfLUZ7mTF47BGjcZYIJejlA/exec', {
+
+  fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: formData
   })
-  .then(response => response.text())
+  .then(response => response.json())
   .then(data => {
-    form.reset(); // Clear the form after successful submission
-    alert('Form submitted successfully!');
-    window.location.href = './thanktyoupage.html'; // Redirect to thank you page
+    if (data.success) {
+      form.reset();
+      window.location.href = './thanktyoupage.html';
+    } else {
+      console.error('Submission error:', data);
+      alert('There was an error submitting the form. Please try again.');
+    }
   })
   .catch(error => {
     console.error('Error:', error);

@@ -26,14 +26,14 @@ docs/
 ├── hobbies.html        ← Personal / hobby projects (separate from professional work)
 ├── journal.html        ← Blog / notes (future content)
 ├── about.html          ← Personal bio and background
-├── contact.html        ← Contact form (posts to Google Sheets via Apps Script)
+├── contact.html        ← Contact form (posts to Web3Forms API)
 ├── sitemap.html        ← Site map
 ├── thanktyoupage.html  ← Form submission redirect
 ├── css/
 │   ├── styles.css      ← All global styles (navbar, footer, grid, cards, forms)
 │   └── project.css     ← Layout for individual project detail pages
 ├── scripts/
-│   └── contact.js      ← Form submit handler with Google Apps Script endpoint
+│   └── contact.js      ← Form submit handler posting to Web3Forms API endpoint
 ├── images/
 │   ├── favicon_brand.png
 │   ├── thumbnails/     ← Homepage and listing card thumbnails (webp preferred)
@@ -161,6 +161,7 @@ Planning notes and content drafts live in `_planning/` at the repo root (not ser
 | 2026-02 | `images/valkery/` → `images/projects/hapicFinger/` | Folder name should match project, not client codename |
 | 2026-02 | Background colour kept as `#a0a0a0` | User preference |
 | 2026-02 | `portfolio/` folder renamed to `projects/` | Neutral name; classification (professional vs hobby) belongs in listing pages, not the URL. Avoids file moves if a project changes category. |
+| 2026-02 | Switched contact form backend to Web3Forms | The previous Google Apps Script URL was publicly visible in JS source, exposing a spam-able endpoint. Web3Forms replaces it with an opaque access key — the owner's email is never in the code. Includes built-in honeypot spam protection. Free with no submission limit. |
 
 ---
 
