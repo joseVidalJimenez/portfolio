@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "checkJs": false,
+    "strict": false,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {},
+    "types": ["@playwright/test"]
+  },
+  "include": ["tests/**/*.js", "docs/scripts/**/*.js"],
+  "exclude": ["node_modules"]
+}
