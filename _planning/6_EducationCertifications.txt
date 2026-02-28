@@ -1,0 +1,70 @@
+Education
+BEng (Hons)
+Institution: Open University, UK
+Year of Completion: 2016
+Major/Focus: [Add specific focus or specialization if applicable, e.g., Mechanical Engineering or Mechatronics]
+
+Acoustics Engineering
+Institution: Universidad Austral de Chile
+Details: [You can mention any significant projects or focus areas if applicable]
+
+Computer Maintenance & Repair
+Institution: City & Islington College
+Details: [Optional - Include any relevant projects or experiences if applicable]
+
+
+Certifications
+Certified SolidWorks Professional (CSWP)
+Issued by: Dassault Systèmes
+Year: [Year of Certification]
+Details: Demonstrates advanced proficiency in SolidWorks, including design, assembly, and simulation skills.
+
+Certified SOLIDWORKS Associate (CSWA)
+Issued by: Dassault Systèmes
+Year: [Year of Certification]
+Details: Validates foundational knowledge and skills in SolidWorks, including part modeling and assembly creation.
+
+Machine Design Part I
+Issued by: Georgia Tech
+Year: [Year of Certification]
+Details: Covers fundamental principles of machine design, focusing on stress analysis and material selection.
+
+Introduction to Engineering Simulations using ANSYS
+Issued by: Cornell University
+Year: [Year of Certification]
+Details: Provides foundational knowledge in using ANSYS for engineering simulations, including thermal and stress analysis.
+
+Embedded Systems Multi-Threaded Interfacing
+Issued by: University of Texas
+Year: [Year of Certification]
+Details: Covers advanced topics in embedded systems, focusing on multi-threading and interfacing techniques.
+
+Embedded Systems Microcontroller Input/Output
+Issued by: University of Texas
+Year: [Year of Certification]
+Details: Specializes in programming and interfacing microcontrollers for embedded applications.
+
+Introduction to Geometrical Tolerancing
+Issued by: National Physical Laboratory (NPL)
+Year: [Year of Certification]
+Details: Provides understanding of geometric tolerancing techniques for precise mechanical design.
+
+Introduction to TRIZ
+Issued by: Oxford Creativity
+Year: [Year of Certification]
+Details: Introduces TRIZ (Theory of Inventive Problem Solving) methodologies for innovative design solutions.
+
+Introduction to Programming with MATLAB
+Issued by: Vanderbilt University  (via Coursera)
+Year: [Year of Certification]
+Details: Focuses on programming techniques in MATLAB, with applications in engineering and data analysis.
+
+C# Programming
+Issued by: Microsoft (DEV204x)
+Year: [Year of Certification]
+Details: Provides proficiency in C# programming, including application development and software engineering concepts.
+
+CompTIA A+
+Issued by: CompTIA
+Year: [Year of Certification]
+Details: Validates skills in computer maintenance, troubleshooting, and repair, with a focus on hardware and operating systems.

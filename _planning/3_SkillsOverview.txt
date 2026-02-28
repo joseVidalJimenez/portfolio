@@ -1,0 +1,27 @@
+1. Mechanical Design & CAD Modelling
+	Expertise: Specialized in early-stage product development, focusing on problem-solving and generating creative ideas that translate into robust designs. Proficient in 3D CAD modelling using industry-standard software like SolidWorks and Fusion 360, with experience in creating complex assemblies that prioritize ease of assembly and functionality.
+	Applications: Early-stage product development, assembly design for manufacturability, and prototype creation.
+
+2. Prototyping & Fabrication
+	Expertise: Extensive experience in transforming concepts into functional prototypes through various methods, including 3D printing (SLA), CNC machining, EDM (with partners), and manual crafting. Familiar with lathe and milling operations, as well as injection moulding (with partners), ensuring prototypes accurately reflect design intentions and functionality.
+	Applications: Developing and refining prototypes, validating mechanical and electronic integrations.
+
+3. Mechatronics & System Integration
+	Expertise: Experienced in integrating mechanical systems with electronic components, focusing on temperature sensors, end-stop switches, motors, and heaters for system control. Understanding how these systems interact to create cohesive and efficient designs.
+	Applications: Developing automated systems and designing intelligent systems that enhance functionality and efficiency.
+
+4. Embedded Systems Programming
+	Expertise: Experienced in programming microcontrollers using Embedded C on Texas Instruments platforms and Arduino. Proficient with Python for debugging through GDB, developing scripts on Raspberry Pi, and interacting with APIs. As a hobbyist, I have used Python to interact with the ChatGPT API to create an AI Query Engine, as well as automate data gathering from various sources.
+	Applications: Implementing basic control systems, such as closed-loop on/off heat control with hysteresis using SSR drivers.
+
+5. Material Optimization & Selection
+	Expertise: Experienced in selecting and optimizing materials to meet specific performance, durability, and cost-effectiveness requirements. Worked with high-performance materials like PEEK plastic and specialized aluminium alloys.
+	Applications: Enhancing product longevity, reducing manufacturing costs, and optimizing material use for specific applications.
+	
+6. Simulation and Modelling Software
+	Expertise: Proficient in MATLAB, with experience gained through courses and practical application in projects. Familiar with Octave as an alternative to MATLAB. Completed coursework in ANSYS, though primarily utilized SolidWorks for thermal and stress analysis in professional settings. Have foundational knowledge of Simulink concepts, with hands-on experience using LabVIEW for data acquisition and processing.
+	Applications: Performing thermal and stress analysis using SolidWorks, simulating mechanical systems to gain insights for design optimization, and generating engineering reports based on simulation data.
+
+7. Project Collaboration
+	Expertise: Strong collaborative skills, with experience working closely with cross-functional teams to achieve project goals. Skilled in managing timelines, resources, and ensuring that mechanical and electronic components are integrated effectively.
+	Applications: Coordinating with clients and suppliers, contributing to design projects from concept to implementation.

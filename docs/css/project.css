@@ -1,0 +1,110 @@
+/* General container for the project */
+.project-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Main project section */
+.main-project {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.main-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+/* Section for alternating image and text */
+.project-section {
+    clear: both;
+    margin-bottom: 40px;
+}
+
+.image-left {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+}
+
+.text-right {
+    float: right;
+    width: 45%;
+    font-size: 1em;
+}
+
+.text-left {
+    float: left;
+    width: 45%;
+    font-size: 1em;
+    margin-right: 5%;
+}
+
+.image-right {
+    float: right;
+    width: 45%;
+}
+
+/* Clearfix to handle float elements */
+.project-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Ensure images never exceed their container */
+.image-left,
+.image-right {
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   Mobile responsive overrides for project pages
+   ========================================================================== */
+@media (max-width: 600px) {
+
+    .project-container {
+        width: 90%;
+    }
+
+    /* Stack floated image+text vertically on mobile */
+    .image-left,
+    .image-right {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+    }
+
+    .text-left,
+    .text-right {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+
+    .project-section {
+        margin-bottom: 24px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .project-container {
+        width: 90%;
+    }
+
+    .image-left,
+    .image-right {
+        width: 40%;
+    }
+
+    .text-left,
+    .text-right {
+        width: 55%;
+    }
+}
