@@ -1,3 +1,55 @@
+/* Novel mechanism tagline */
+.project-tagline {
+    font-style: italic;
+    color: #111;
+    margin: -8px 0 32px 0;
+    font-size: 0.95em;
+    border-left: 3px solid #333;
+    padding-left: 12px;
+}
+
+/* Mechanical analysis grid */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.analysis-card {
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 20px 24px;
+}
+
+.analysis-card h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.analysis-card p {
+    color: #222;
+    margin: 0;
+}
+
+/* Section headings and body text sit on the gray page background */
+.project-section h3 {
+    color: #111;
+}
+
+.project-section p,
+.project-section li {
+    color: #111;
+}
+
+/* Prototyping ordered list */
+.proto-steps {
+    padding-left: 20px;
+    line-height: 1.9;
+    margin-top: 16px;
+}
+
 /* General container for the project */
 .project-container {
     width: 80%;
@@ -67,6 +119,10 @@
    Mobile responsive overrides for project pages
    ========================================================================== */
 @media (max-width: 600px) {
+
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
 
     .project-container {
         width: 90%;

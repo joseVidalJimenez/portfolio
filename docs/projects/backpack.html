@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>BackPack Arm &ndash; José Vidal</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="BackPack Arm — a human-powered mechanical arm with a novel single-input dual-joint mechanism. Designed by José Vidal.">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/project.css">
 	</head>
@@ -28,6 +30,7 @@
 
 		<div class="project-container">
 			<h2>BackPackArm</h2>
+			<p class="project-tagline">Novel mechanism: Single Input, Dual Joint Movement with Integrated, Self-Contained Motion Control</p>
 
 			<div class="project-section right-image">
 				<img src="../images/projects/backpack/backpackArmDecription2.png" alt="BackPack Arm mechanical design" class="image-right">
@@ -37,6 +40,38 @@
 					<p><b>My Role:</b> I translated the client&#39;s vision into a functional, mechanical design that operated entirely without external power sources. The challenge was to fit the mechanism within the physical constraints of an existing backpack while ensuring smooth, controlled movement. Through multiple iterations of CAD modeling and prototypes, I refined the design, overcoming the limitations of 3D printing and ensuring precise movement.</p>
 					<p><b>Outcome:</b> Delivered a functional robotic arm system with a self-contained control mechanism. The design featured a novel shoulder joint that used human power to coordinate complex movements of both the arm and forearm, without the need for electrical controllers. This innovative solution demonstrated the potential for mechanical systems in applications where mechatronic control is typically used, expanding possibilities for power-independent robotic designs.</p>
 				</div>
+			</div>
+
+			<div class="project-section">
+				<h3>Mechanical Analysis</h3>
+				<div class="analysis-grid">
+					<div class="analysis-card">
+						<h4>1. Single Input, Dual Joint Movement</h4>
+						<p>Most robotic mechanisms require independent actuators for each joint. Here, a single internal pulley at the shoulder simultaneously controls both the shoulder and elbow joints — reducing mechanical complexity, saving weight and space, and improving energy efficiency by powering one actuator instead of two.</p>
+					</div>
+					<div class="analysis-card">
+						<h4>2. Pulley&#8211;Belt Synchronisation</h4>
+						<p>A GT2 belt connects the shoulder and elbow pulleys, directly translating arm rotation into forearm movement. This creates a natural &#8220;orbiting&#8221; effect at the elbow and allows precise control over range of motion through pulley size ratio &#8212; without a dedicated motor at the elbow.</p>
+					</div>
+					<div class="analysis-card">
+						<h4>3. Fixed Pulley, Dynamic Elbow</h4>
+						<p>A static external pulley at the shoulder drives forearm orbit purely through belt interaction as the arm rotates &#8212; an effect that typically requires gear trains or multi-link kinematic systems. This passive coordination across joints is a key novelty of the design.</p>
+					</div>
+					<div class="analysis-card">
+						<h4>4. Gravity-Assisted Return</h4>
+						<p>Rather than a dedicated return actuator, gravity handles the reset passively. This reduces energy consumption, simplifies control logic, and provides a self-balancing feature without sacrificing control during the actuation phase.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="project-section">
+				<h3>Prototyping Process</h3>
+				<ol class="proto-steps">
+					<li>Basic 2D mechanism using cardboard and pushpins to validate the concept.</li>
+					<li>Functional cardboard mockup for initial movement testing.</li>
+					<li>CAD modelling and 3D printing for rapid design iteration.</li>
+					<li>Wooden test rig to validate the final mechanism&#39;s functionality.</li>
+				</ol>
 			</div>
 		</div>
 
