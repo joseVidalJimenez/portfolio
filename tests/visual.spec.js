@@ -46,6 +46,23 @@ async function waitForPageReady(page) {
   await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {});
   // Hide scrollbar for consistent screenshots
   await page.addStyleTag({ content: '::-webkit-scrollbar { display: none; } * { scrollbar-width: none; }' });
+  // Scroll through the full page so lazy-loaded iframes and images initialise
+  await page.evaluate(async () => {
+    await new Promise(resolve => {
+      const distance = 400;
+      const delay = 80;
+      const timer = setInterval(() => {
+        window.scrollBy(0, distance);
+        if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+          window.scrollTo(0, 0);
+          clearInterval(timer);
+          resolve();
+        }
+      }, delay);
+    });
+  });
+  // Extra pause for iframes (YouTube) to render after scrolling into view
+  await page.waitForTimeout(1500);
 }
 
 /** Ensure screenshots directory exists */

@@ -1,4 +1,93 @@
-/* Novel mechanism tagline */
+/* ==========================================================================
+   Project page design system
+   Accent: #cb4444  |  Dark hero: #111  |  Body bg: #f2f2f2  |  Card: #fff
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+
+.project-hero {
+    background: #111;
+    color: #fff;
+    padding: 110px 0 64px;
+}
+
+.project-hero__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(auto, 380px);
+    gap: 56px;
+    align-items: center;
+}
+
+.project-hero__text {
+    min-width: 0;
+}
+
+.project-hero__label {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #cb4444;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.project-hero__title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: 0 0 20px;
+}
+
+.project-hero__tagline {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #aaa;
+    margin: 0;
+    max-width: 520px;
+}
+
+.project-hero__img-wrap {
+    position: relative;
+    background: #1c1c1c;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 32px 72px rgba(0, 0, 0, 0.65);
+}
+
+.project-hero__img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.project-hero__img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+/* ── Page body ───────────────────────────────────────────────────────────── */
+
+.project-body {
+    background: #f2f2f2;
+    padding: 72px 0 96px;
+}
+
+/* ── Tagline (legacy - kept for non-hero pages) ──────────────────────────── */
 .project-tagline {
     font-style: italic;
     color: #111;
@@ -8,198 +97,302 @@
     padding-left: 12px;
 }
 
-/* Mechanical analysis grid */
+/* ── Container ───────────────────────────────────────────────────────────── */
+
+.project-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+
+.project-section {
+    margin-bottom: 72px;
+}
+
+.project-section:last-child {
+    margin-bottom: 0;
+}
+
+.project-section h2 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #111 !important;
+    margin: 0 0 32px;
+    padding-bottom: 0;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left !important;
+}
+
+.project-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 1.7rem;
+    background: #cb4444;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+/* ── Overview 3-col grid ─────────────────────────────────────────────────── */
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.overview-block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 26px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+}
+
+.overview-block h4 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #cb4444;
+    margin: 0 0 10px;
+}
+
+.overview-block p {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.91rem;
+    line-height: 1.72;
+    color: #333;
+    margin: 0;
+}
+
+/* ── Mechanical analysis grid ────────────────────────────────────────────── */
+
 .analysis-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 16px;
+    gap: 20px;
 }
 
 .analysis-card {
-    background: #f5f5f5;
-    border-radius: 6px;
-    padding: 20px 24px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    border-left: 4px solid #cb4444;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
 }
 
 .analysis-card h4 {
-    margin-top: 0;
-    margin-bottom: 8px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 10px;
     color: #111;
 }
 
 .analysis-card p {
-    color: #222;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.72;
+    color: #444;
     margin: 0;
 }
 
-/* Section headings and body text sit on the gray page background */
-.project-section h3 {
-    color: #111;
-}
+/* ── Prototyping steps ───────────────────────────────────────────────────── */
 
-.project-section p,
-.project-section li {
-    color: #111;
-}
-
-/* Prototyping ordered list */
 .proto-steps {
-    padding-left: 20px;
-    line-height: 1.9;
-    margin-top: 16px;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 0 0 32px;
 }
 
-/* General container for the project */
-.project-container {
-    width: 80%;
-    margin: 0 auto;
+.proto-steps li {
+    counter-increment: steps;
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 20px 16px 58px;
+    position: relative;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.91rem;
+    line-height: 1.6;
+    color: #333;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
 }
 
-/* Main project section */
-.main-project {
-    text-align: center;
-    margin-bottom: 40px;
+.proto-steps li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    background: #111;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0;
 }
 
-.main-image {
-    max-width: 100%;
-    height: auto;
-}
+/* ── Image pair ──────────────────────────────────────────────────────────── */
 
-.main-text {
-    margin-top: 20px;
-    font-size: 1.2em;
-}
-
-/* Section for alternating image and text */
-.project-section {
-    clear: both;
-    margin-bottom: 40px;
-}
-
-.image-left {
-    float: left;
-    width: 45%;
-    margin-right: 5%;
-}
-
-.text-right {
-    float: right;
-    width: 45%;
-    font-size: 1em;
-}
-
-.text-left {
-    float: left;
-    width: 45%;
-    font-size: 1em;
-    margin-right: 5%;
-}
-
-.image-right {
-    float: right;
-    width: 45%;
-}
-
-/* Clearfix to handle float elements */
-.project-section::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Ensure images never exceed their container */
-.image-left,
-.image-right {
-    max-width: 100%;
-}
-
-/* ==========================================================================
-   Mobile responsive overrides for project pages
-   ========================================================================== */
-@media (max-width: 600px) {
-
-    .analysis-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-container {
-        width: 90%;
-    }
-
-    /* Stack floated image+text vertically on mobile */
-    .image-left,
-    .image-right {
-        float: none;
-        width: 100%;
-        margin: 0 0 16px 0;
-    }
-
-    .text-left,
-    .text-right {
-        float: none;
-        width: 100%;
-        margin: 0;
-    }
-
-    .project-section {
-        margin-bottom: 24px;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-
-    .project-container {
-        width: 90%;
-    }
-
-    .image-left,
-    .image-right {
-        width: 40%;
-    }
-
-    .text-left,
-    .text-right {
-        width: 55%;
-    }
-}
-
-/* ==========================================================================
-   Media embeds — image pairs and videos
-   ========================================================================== */
-
-/* Two images / videos side by side */
 .image-pair {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
+    gap: 20px;
 }
 
-.pair-img,
-.pair-video {
+/* Fixed-ratio image frame — consistent cropping */
+.img-frame {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.13);
+    background: #1c1c1c;
+    position: relative;
+}
+
+.img-frame--portrait {
+    aspect-ratio: 3 / 4;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.img-frame--wide {
+    aspect-ratio: 16 / 9;
+}
+
+.pair-img {
+    width: 100%;
+    height: 100%;
     display: block;
-    border-radius: 4px;
     object-fit: cover;
 }
 
-/* Responsive YouTube iframe wrappers */
+/* ── Deployed 2-col layout ───────────────────────────────────────────────── */
+
+.deployed-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.deployed-text p {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.78;
+    color: #444;
+    margin: 0 0 16px;
+}
+
+.deployed-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Standalone section images ───────────────────────────────────────────── */
+
+.section-image {
+    display: block;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.13);
+}
+
+/* ── Closing CTA ─────────────────────────────────────────────────────────── */
+
+.project-cta {
+    background: #111;
+    border-radius: 14px;
+    padding: 48px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-top: 80px;
+}
+
+.project-cta__text h3 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+}
+
+.project-cta__text p {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+}
+
+.project-cta__btn {
+    display: inline-block;
+    background: #cb4444;
+    color: #fff;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+}
+
+.project-cta__btn:hover {
+    background: #b33;  
+    transform: translateY(-1px);
+}
+
+.project-cta__btn:visited {
+    color: #fff;
+}
+
+/* ── Captions ────────────────────────────────────────────────────────────── */
+
+.media-caption {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* ── Video wrappers ──────────────────────────────────────────────────────── */
+
 .video-wrapper-16x9 {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    margin-top: 16px;
 }
 
 .video-wrapper-9x16 {
     position: relative;
     width: 100%;
-    max-width: 360px;
+    max-width: 340px;
     aspect-ratio: 9 / 16;
-    margin: 16px auto 0;
+    margin: 0 auto;
 }
 
 .video-wrapper-16x9 iframe,
@@ -210,28 +403,131 @@
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
-/* Optional small caption below media */
-.media-caption {
-    font-size: 0.85em;
-    color: #555;
-    text-align: center;
-    margin-top: 6px;
+/* ── Lite YouTube facade ─────────────────────────────────────────────────── */
+
+.yt-facade {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.2);
 }
 
-/* Inline design image below analysis grid */
-.section-image {
-    display: block;
+.yt-thumb {
     width: 100%;
-    max-width: 640px;
-    margin: 20px auto 0;
-    border-radius: 4px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.82;
+    transition: opacity 0.2s;
+}
+
+.yt-facade:hover .yt-thumb {
+    opacity: 1;
+}
+
+.yt-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(203, 68, 68, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    transition: background 0.2s, transform 0.2s;
+    pointer-events: none;
+}
+
+.yt-facade:hover .yt-play {
+    background: #cb4444;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+
+    .project-hero__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .project-hero__img-wrap {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proto-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .image-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .deployed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .img-frame--portrait {
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .project-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 36px 28px;
+    }
 }
 
 @media (max-width: 600px) {
-    .image-pair {
-        grid-template-columns: 1fr;
+
+    .project-hero {
+        padding: 88px 0 48px;
+    }
+
+    .project-hero__inner,
+    .project-container {
+        padding: 0 20px;
+    }
+
+    .project-body {
+        padding: 48px 0 64px;
+    }
+
+    .project-section {
+        margin-bottom: 56px;
+    }
+
+    .project-section h2 {
+        font-size: 1.35rem;
+    }
+
+    .project-cta {
+        margin-top: 56px;
     }
 }
