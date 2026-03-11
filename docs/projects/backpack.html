@@ -91,13 +91,14 @@
 							<div class="img-frame img-frame--portrait">
 								<img src="../images/projects/backpack/backpackArmDecription.webp" alt="BackPack Arm annotated design" class="pair-img" style="object-fit: contain; background: #fff; transform: scale(1.20); transform-origin: center;" loading="lazy">
 							</div>
-							<p class="media-caption">Annotated design diagram</p>
+							<p class="media-caption">Transparent assembly view</p>
 						</div>
 						<div>
 							<div class="img-frame img-frame--portrait">
 								<img src="../images/projects/backpack/backpackArmAssem.webp" alt="BackPack Arm CAD assembly" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
 							</div>
-							<p class="media-caption">CAD assembly view</p>
+							<p class="media-caption">Wearable — full assembly
+</p>
 						</div>
 					</div>
 				</div>
@@ -107,36 +108,36 @@
 					<div class="analysis-grid">
 						<div class="analysis-card">
 							<h4>1. Single Input, Dual Joint Movement</h4>
-						<p>The shoulder uses a coaxial rotor system: two concentric shafts nested within a single joint. The first shaft provides the revolute joint that raises the arm. The second shaft connects to a driven pulley that transmits motion downward through the arm. This arrangement gives the shoulder two independent degrees of freedom within a single compact housing, eliminating the need for separate actuators at each joint.</p>
+						<p>The shoulder uses a coaxial arrangement: two concentric shafts sharing a single axis. One shaft seats on a bearing, forming the revolute joint the arm rotates around. The second shaft carries the driving pulley, positioned so the arm sits sandwiched between the pulley and the shoulder — transferring motion directly into the arm without additional linkages. Two degrees of freedom, one compact joint.</p>
 						</div>
 						<div class="analysis-card">
 						<h4>2. Pulley-Belt Synchronisation</h4>
-						<p>A toothed timing belt connects two toothed pulleys: one at the elbow (1 DOF) and one fixed externally at the shoulder (0 DOF). Because the shoulder pulley cannot rotate, when the arm raises, the elbow pulley is forced to orbit around it, and since the elbow pulley is locked to the forearm, the forearm rises synchronously with the arm. One cable pull. Two joints move. No elbow actuator required.</p>
+						<p>A toothed timing belt connects two toothed pulleys: one fixed at the shoulder (0 DOF), one at the elbow (1 DOF). The fixed shoulder pulley acts as an orientation lock — the belt constrains the elbow pulley to maintain a constant angular relationship with it. As the arm sweeps upward, the elbow pulley orbits the fixed point while the belt enforces that lock, rotating the forearm synchronously. One cable pull coordinates both joints. No elbow actuator required.</p>
 						</div>
 						<div class="analysis-card">
 							<h4>3. Fixed Pulley, Dynamic Elbow</h4>
-						<p>The external shoulder pulley is fixed: it has zero degrees of freedom and never rotates. This is the key to the orbital motion: as the arm sweeps upward, the elbow pulley is constrained by the timing belt to roll against the static shoulder pulley, generating forearm rotation as a direct consequence of arm rotation. A motion that conventional systems achieve through gear trains or multi-link kinematic chains here emerges passively from a single fixed point.</p>
+						<p>Most mechanisms that coordinate two joints require active control at each — gear trains, multi-link kinematic chains, or independent actuators. Here, fixing the shoulder pulley eliminates all of that. The forearm's rotation is not commanded — it is a passive consequence of the arm's position, enforced entirely by geometry. The fixed point does the work that a motor would otherwise do — no power, no signal, no moving parts beyond the belt itself.</p>
 						</div>
 						<div class="analysis-card">
 						<h4>4. Gravity-Assisted Return + Magnetic Damper</h4>
-						<p>Gravity returns the arm to rest without any actuator input. But the final phase (the moment before the arm reaches the body) is caught by a magnetic damper at the shoulder. This serves two functions: it prevents the arm from slamming against the backpack's body on descent, and it locks the arm in place when the wearer is moving, stopping the arms from swinging freely if the backpack wearer runs or changes direction suddenly.</p>
+						<p>Gravity returns the arm to rest without any actuator input — the return phase requires no dedicated motor or control logic. A magnetic damper at the shoulder catches the arm in the final moment before it reaches the body, serving two distinct functions: absorbing the descent to prevent impact against the wearer, and locking the arm in place during dynamic movement so it cannot swing freely when the wearer runs or changes direction. Passive return, active hold.</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="project-section">
 					<h2>Prototyping Process</h2>
-					<p class="section-intro">To bring the BackPack Arm to life, I used an iterative rapid prototyping approach, starting from a basic 2D concept and progressively validating each stage before moving to the next.</p>
+					<p class="section-intro">Each stage had one job: prove the concept, then move on. From dozens of sketches to a settled design, through multiple cardboard mockups, through print after print refining tolerances and geometry, to a final wooden rig built to take real load. Each stage advanced only when mature enough to earn the next.</p>
 					<ol class="proto-steps">
-						<li>Basic 2D mechanism using cardboard and pushpins to validate the core concept and joint relationships.</li>
-						<li>Functional cardboard mockup to test initial movement, timing, and the single-input dual-joint behaviour.</li>
-						<li>CAD modelling and 3D printing for rapid design iteration, refining geometry and overcoming the dimensional limitations of printed parts.</li>
-						<li>Wooden test rig to validate the final mechanism&#39;s functionality under realistic load conditions.</li>
+						<li>Basic 2D mechanism using cardboard and pushpins. The goal was to confirm the single-input dual-joint principle before committing to any physical structure.</li>
+						<li>Functional cardboard mockup to test movement timing and joint coordination in three dimensions. This revealed how the orbital forearm motion behaved under the fixed pulley constraint.</li>
+						<li>CAD modelling and 3D printing for rapid geometry iteration. Each print tested specific tolerances — pulley fit, belt tension, and shaft concentricity — progressively resolving the dimensional limitations of each previous version.</li>
+						<li>Wooden test rig to validate the final mechanism under realistic load. The rigidity of wood eliminated flex from the equation, isolating the mechanical behaviour of the joints from material compliance.</li>
 					</ol>
 					<div class="image-pair">
 						<div>
 							<div class="img-frame img-frame--wide">
-								<img src="../images/projects/backpack/IMAG0202.webp" alt="Early physical prototype" class="pair-img" loading="lazy">
+								<img src="../images/projects/backpack/Cardbox_prototype.webp" alt="Card box prototype" class="pair-img" loading="lazy">
 								<button class="img-expand-btn" aria-label="View full image">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 										<polyline points="15 3 21 3 21 9"></polyline>
@@ -146,7 +147,7 @@
 									</svg>
 								</button>
 							</div>
-							<p class="media-caption">Early physical prototype</p>
+							<p class="media-caption">Card box prototype</p>
 						</div>
 						<div>
 							<div class="img-frame img-frame--wide">
@@ -162,41 +163,40 @@
 
 				<div class="project-section">
 					<h2>Electronics Integration</h2>
-					<p class="section-intro">The camera system was the arm's end-effector, the functional payload the entire mechanism was designed to carry and position. Integrating it required treating the arm not just as a mechanical structure, but as a housing for a live electronics system.</p>
-					<div class="img-frame img-frame--wide" style="margin-bottom: 28px; aspect-ratio: 16 / 5;">
-						<img src="../images/projects/backpack/electronics.webp" alt="Electronics integration inside the BackPack Arm" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
+					<p class="section-intro">The camera was the arm's end-effector: the functional payload the entire mechanism was designed to carry and position. Integrating it meant treating the arm not just as a mechanical structure, but as a purpose-built housing for a live electronics system.</p>
+					<div class="img-frame img-frame--wide" style="margin-bottom: 60px; aspect-ratio: 16 / 5;">
+						<img src="../images/projects/backpack/electronics_integration.webp" alt="Electronics integration inside the BackPack Arm" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
 					</div>
 					<div class="elec-grid">
 						<div class="elec-card">
 							<h4>Camera System</h4>
-							<p>A wireless, battery-powered pan-tilt camera head serves as the arm's end-effector. Being wireless eliminated signal cable routing through the arm joints, a significant simplification given the forearm's orbital motion.</p>
+							<p>An off-the-shelf wireless pan-tilt camera head serves as the arm's end-effector. Being wireless eliminated signal cable routing through the arm joints entirely, a significant simplification given the forearm's orbital motion.</p>
 						</div>
 						<div class="elec-card">
 							<h4>Internal PCB Housing</h4>
 							<p>The camera's PCB is housed internally within the 3D printed arm structure. This required the arm geometry to be designed around the electronics from the outset, not retrofitted after.</p>
 						</div>
 						<div class="elec-card">
-							<h4>Power Routing &amp; Cable Management</h4>
-							<p>A single power cable runs from the arm to the battery pack in the backpack, managed with a Flexible Spiral Sheath. This allows the cable to extend, compress, and twist freely across the arm's full range of motion without tangling or fatiguing at the joints.</p>
+							<h4>Power Routing</h4>
+							<p>A single power cable runs from the arm to the backpack battery pack, managed with a Flexible Spiral Sheath that accommodates the arm's full range of motion without tangling or fatiguing at the joints.</p>
 						</div>
 					</div>
-					<p class="elec-closing">The backpack carries the battery, the arm positions the camera, the spiral-sheathed cable bridges the two, invisible in operation.</p>
+					<p class="elec-closing">The backpack carries the battery, the arm positions the camera, the spiral-sheathed cable bridges the two.</p>
 				</div>
 
 				<div class="project-section">
 					<h2>Arm in Action</h2>
-					<p class="section-intro">Full mechanism test demonstrating coordinated shoulder and elbow movement driven by a single human input.</p>
-					<div class="deployed-grid">
-						<div class="video-wrapper-9x16">
+					<p class="section-intro">Full mechanism test demonstrating coordinated shoulder and elbow movement driven by a single pull.</p>
+					<div class="deployed-grid" style="align-items: stretch;">
+						<div class="arm-in-action-video">
 							<div class="yt-facade" data-id="YSjmipVDlxs">
 								<img src="https://i.ytimg.com/vi/YSjmipVDlxs/hqdefault.jpg" alt="BackPack Arm plastic prototype test" class="yt-thumb" loading="lazy">
 								<span class="yt-play">&#9654;</span>
 							</div>
 						</div>
 						<div class="deployed-text">
-							<p>The plastic prototype replaced the cardboard mockup for this stage. Stiffer linkages and tighter tolerances let the dual-joint action be evaluated under realistic load conditions.</p>
-							<p>The test validates the core novelty of the mechanism: a single actuated pulley driving two joints simultaneously, coordinated entirely through fixed-pulley and belt interaction: no motors, no electronics, no independent elbow control.</p>
-							<p>Unlike conventional robotic systems that require dedicated actuators for each joint, this mechanism achieves coordinated multi-joint movement through passive mechanical linkages alone. The gravity-assisted return eliminates the need for a dedicated reset actuator, further reducing complexity without sacrificing control.</p>
+							<p>The plastic prototype was the first build evaluated under realistic load conditions. It revealed how the dual-joint behaviour held up under dynamic movement, and confirmed the timing belt drive maintained synchronisation throughout the arm's full range.</p>
+							<p>This test validated the mechanism as viable beyond proof-of-concept: coordinated shoulder and forearm movement, driven by a single pull, performing consistently enough for on-set wearable use.</p>
 						</div>
 					</div>
 				</div>
@@ -204,9 +204,10 @@
 				<div class="project-section">
 					<h2>Key Innovation</h2>
 					<div class="innovation-body">
-						<p>The BackPack Arm is built around a coaxial shoulder joint: two concentric shafts, one providing the revolute arm motion, the other driving the pulley system that controls the forearm. At the shoulder, a fixed external pulley (0 DOF) is connected to a toothed elbow pulley (1 DOF) via a timing belt drive. Because the shoulder pulley cannot rotate, raising the arm forces the elbow pulley to orbit around it, and since that pulley is locked to the forearm, the forearm rises in perfect synchrony. Two degrees of freedom. One cable pull. No elbow actuator.</p>
-						<p>The return is handled by gravity, caught at the final moment by a magnetic damper that prevents impact against the backpack's body and locks the arms in place during dynamic movement, stopping the arms from swinging when the wearer runs or accelerates.</p>
-						<p>The result replaces what would conventionally require independent actuators, encoders, and control logic at each joint, using only a mechanical timing belt drive, a fixed pulley, and a magnet.</p>
+						<p>In conventional pulley systems, both pulleys rotate — one drives, one follows. The BackPack Arm inverts this: the shoulder pulley is fixed, with zero degrees of freedom. It never rotates. That immobility is the mechanism.</p>
+						<p>As the arm raises, the elbow pulley is forced to orbit the fixed point. Because the timing belt maintains a constant angular relationship between them, and the elbow pulley is locked to the forearm, the forearm rises in perfect synchrony — not because it was commanded to, but because geometry demands it.</p>
+						<p>The input is handled by a coaxial shoulder joint: two concentric shafts sharing a single axis, one defining the arm's rotation, the other carrying the driving pulley. A single cable pull sets everything in motion. Gravity returns the arm to rest, caught at the final moment by a magnetic damper.</p>
+						<p>The result replaces independent actuators, encoders, and control logic at each joint — with a fixed pulley, a timing belt, and a magnet.</p>
 					</div>
 				</div>
 
@@ -249,6 +250,13 @@
 			<img class="lightbox__img" src="" alt="">
 		</div>
 
+		<div class="video-lightbox" id="video-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+			<button class="lightbox__close" aria-label="Close">&times;</button>
+			<div class="video-lightbox__wrap">
+				<iframe id="video-lightbox__iframe" src="" title="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+
 	</body>
 
 	<script>
@@ -281,17 +289,35 @@
 			}
 		});
 
+		const videoLightbox = document.getElementById('video-lightbox');
+		const videoIframe = document.getElementById('video-lightbox__iframe');
+
+		function closeVideoLightbox() {
+			videoLightbox.classList.remove('is-open');
+			videoIframe.src = '';
+			document.body.style.overflow = '';
+		}
+
 		document.querySelectorAll('.yt-facade').forEach(el => {
 			el.addEventListener('click', () => {
 				const id = el.dataset.id;
-				const iframe = document.createElement('iframe');
-				iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-				iframe.title = el.querySelector('.yt-thumb').alt;
-				iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-				iframe.allowFullscreen = true;
-				iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:4px;';
-				el.replaceWith(iframe);
+				videoIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+				videoIframe.title = el.querySelector('.yt-thumb').alt;
+				videoLightbox.classList.add('is-open');
+				document.body.style.overflow = 'hidden';
 			});
+		});
+
+		videoLightbox.addEventListener('click', e => {
+			if (e.target === videoLightbox || e.target.classList.contains('lightbox__close')) {
+				closeVideoLightbox();
+			}
+		});
+
+		document.addEventListener('keydown', e => {
+			if (e.key === 'Escape' && videoLightbox.classList.contains('is-open')) {
+				closeVideoLightbox();
+			}
 		});
 	</script>
 </html>

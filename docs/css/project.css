@@ -443,6 +443,23 @@
     aspect-ratio: 9 / 16;
 }
 
+.arm-in-action-video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+}
+
+.arm-in-action-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
 .video-wrapper-16x9 iframe,
 .video-wrapper-9x16 iframe {
     position: absolute;
@@ -625,6 +642,38 @@
 
 .lightbox__close:hover {
     opacity: 1;
+}
+
+/* ── Video lightbox overlay ─────────────────────────────────────────────── */
+
+.video-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.video-lightbox.is-open {
+    display: flex;
+}
+
+.video-lightbox__wrap {
+    position: relative;
+    height: min(90vh, 900px);
+    aspect-ratio: 9 / 16;
+}
+
+.video-lightbox__wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
 }
 
 @media (max-width: 600px) {
