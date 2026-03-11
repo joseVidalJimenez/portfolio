@@ -560,11 +560,11 @@
 
 .img-expand-btn {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     width: 34px;
     height: 34px;
-    background: rgba(0, 0, 0, 0.52);
+    background: #cb4444;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -578,7 +578,7 @@
 }
 
 .img-expand-btn:hover {
-    background: rgba(0, 0, 0, 0.82);
+    background: #b33;
 }
 
 .img-expand-btn svg {
