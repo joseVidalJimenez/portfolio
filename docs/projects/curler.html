@@ -2,96 +2,910 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Curler Projects &ndash; José Vidal</title>
+		<title>Curling Iron Development &ndash; José Vidal</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<meta name="description" content="Curler projects by José Vidal — heating barrel design and closed-loop control board for a hair curling iron.">
+		<meta name="description" content="Curling iron development by José Vidal &mdash; thermal barrel design, material testing, custom lifecycle test rig, and closed-loop control board.">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/project.css">
+		<style>
+			/* ── Curler page: hero image — bottom-anchored absolute overlay ── */
+			.project-hero {
+				height: 80vh;
+				overflow: visible;
+				position: relative;
+				padding: 0;
+			}
+			.project-hero__inner {
+				display: flex;
+				align-items: flex-end;
+				height: 100%;
+				grid-template-columns: unset;
+				gap: unset;
+				padding-left: 8%;
+			}
+			.project-hero__text {
+				padding-bottom: 5rem;
+				max-width: 55%;
+			}
+			.project-hero__img-wrap {
+				position: absolute;
+				right: 25%;
+				bottom: 0;
+				height: 95%;
+				width: auto;
+			}
+			.project-hero__img {
+				height: 100%;
+				width: auto;
+				display: block;
+				object-fit: contain;
+				object-position: bottom center;
+				mix-blend-mode: lighten;
+			}
+			/* ── Section label utility (replaces per-element inline styles) ── */
+			.section-label {
+				font-family: 'Inter', Arial, sans-serif;
+				font-size: 0.75rem;
+				font-weight: 600;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: #cb4444;
+				display: block;
+				margin-bottom: 1rem;
+			}
+			.section-header {
+				margin-bottom: 1rem;
+			}
+			.section-num {
+				font-family: 'Bebas Neue', sans-serif;
+				font-size: 5rem;
+				line-height: 0.8;
+				color: #cb4444;
+				opacity: 0.18;
+				letter-spacing: 0.04em;
+				display: block;
+				margin-bottom: 0.25rem;
+			}
+			.section-header .section-label {
+				margin-bottom: 0;
+			}
+			.problem-statement h2 {
+				color: #ffffff !important;
+				font-size: 2.6rem;
+			}
+			.problem-statement h2::before {
+				display: none;
+			}
+			/* ── Heater config comparison grid ── */
+			.heater-compare-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.25rem;
+				margin-bottom: 2rem;
+			}
+			.hconfig-card {
+				background: #fff;
+				border-radius: 10px;
+				border: 2px solid #e8e8e8;
+				overflow: hidden;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+			}
+			.hconfig-card--selected {
+				border-color: #cb4444;
+			}
+			.hconfig-header {
+				padding: 1.125rem 1.25rem 1rem;
+				border-bottom: 1px solid #f0f0f0;
+			}
+			.hconfig-header h4 {
+				font-size: 1rem;
+				margin: 0.35rem 0 0.35rem;
+				color: #111;
+			}
+			.hconfig-header p {
+				font-size: 0.8rem;
+				color: #888;
+				margin: 0;
+				line-height: 1.4;
+			}
+			.hconfig-verdict {
+				font-family: 'Inter', sans-serif;
+				font-size: 0.65rem;
+				font-weight: 600;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				padding: 0.2rem 0.55rem;
+				border-radius: 4px;
+				display: inline-block;
+				margin-bottom: 0.5rem;
+			}
+			.hconfig-verdict--selected { background: rgba(203,68,68,0.1); color: #cb4444; }
+			.hconfig-verdict--considered { background: #f0f0f0; color: #777; }
+			.hconfig-verdict--rejected { background: #f0f0f0; color: #aaa; }
+			.hconfig-images {
+				display: flex;
+				gap: 0.5rem;
+				padding: 0.875rem;
+				background: #fafafa;
+			}
+			.hconfig-images img {
+				flex: 1;
+				width: 0;
+				max-height: 180px;
+				object-fit: contain;
+				border-radius: 5px;
+				background: #fff;
+			}
+			.hconfig-metrics {
+				padding: 1rem 1.25rem;
+			}
+			.hconfig-metrics p {
+				font-size: 0.82rem;
+				color: #666;
+				line-height: 1.55;
+				margin: 0;
+			}
+			.hconfig-delta {
+				font-family: 'Bebas Neue', sans-serif;
+				font-size: 1.75rem;
+				color: #111;
+				line-height: 1;
+				margin-bottom: 0.4rem;
+			}
+			.hconfig-card--selected .hconfig-delta { color: #cb4444; }
+			@media (max-width: 768px) {
+				.heater-compare-grid { grid-template-columns: 1fr; }
+				.decision-cols { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+			}
+			@media (max-width: 768px) {
+				.project-hero {
+					height: auto;
+					min-height: 70vw;
+					overflow: visible;
+				}
+				.project-hero__inner {
+					height: auto;
+					align-items: flex-start;
+				}
+				.project-hero__text {
+					max-width: 55%;
+					padding-bottom: 3rem;
+				}
+				.project-hero__img-wrap {
+					position: absolute;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					height: 100%;
+					width: 45%;
+				}
+				.problem-cols {
+					grid-template-columns: 1fr !important;
+					gap: 1.5rem !important;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div class="navbar">
 			<div class="navbar-layout">
-			  <div class="navbar-icon">
-				<img src="../images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
-			  </div>
-			  <div class="navbar-name">
-				José Vidal
-			  </div>
-			  <div class="navbar-menu">
-				<a href="../index.html">Home</a>
-				<a href="../portfolio.html">Portfolio</a>
-				<a href="../hobbies.html">Hobbies</a>
-				<a href="../journal.html">Journal</a>
-				<a href="../about.html">About</a>
-				<a href="../contact.html">Contact</a>
-			  </div>
+				<div class="navbar-icon">
+					<img src="../images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
+				</div>
+				<div class="navbar-name">José Vidal</div>
+				<div class="navbar-menu">
+					<a href="../index.html">Home</a>
+					<a href="../portfolio.html">Portfolio</a>
+					<a href="../hobbies.html">Hobbies</a>
+					<a href="../journal.html">Journal</a>
+					<a href="../about.html">About</a>
+					<a href="../contact.html">Contact</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="project-container">
-
-			<h2>Curler #1 &ndash; Heating Barrel Design</h2>
-			<div class="project-section left-image">
-				<img src="../images/thumbnails/curler_hp.webp" alt="Curler heating barrels" class="image-left">
-				<div class="text-right">
-					<p><b>Company:</b> MD London / Makers Department</p>
-					<p><b>Description:</b> Part of a multidisciplinary team tasked with developing a hair curling iron, focusing on the design and testing of heating barrels.</p>
-					<p><b>My Role:</b> I designed heating barrels in various geometries and materials, ultimately selecting the best option for mass production. Due to the high cost of extrusion prototyping, I identified EDM as a viable alternative for creating prototypes compatible with the production process. Additionally, I designed connectors and a test rig to assess the reliability of these connectors over repeated use.</p>
-					<p><b>Outcome:</b> Gained deep insights into material properties and production methods, contributing to the successful development of the hair curler's heating element.</p>
+		<div class="project-hero">
+			<div class="project-hero__inner">
+				<div class="project-hero__text">
+					<span class="project-hero__label">Product Design &middot; MD London / Makers Department &middot; 2022</span>
+					<h1 class="project-hero__title">Curling Iron Development</h1>
+					<p class="project-hero__tagline">From reverse engineering to a validated prototype &mdash; thermal barrel design, material testing, and a bespoke lifecycle test rig.</p>
+				</div>
+				<div class="project-hero__img-wrap">
+					<img src="../images/projects/curler/Curler_rose_isolated.webp"
+					     alt="Curling iron &mdash; final prototype"
+					     class="project-hero__img">
 				</div>
 			</div>
+		</div>
 
-			<div class="project-section right-image">
-				<div class="text-right">
-					<p>Various barrel geometries explored and the test rig designed to evaluate connector reliability over repeated cycling.</p>
+		<div class="project-body">
+			<div class="project-container">
+
+				<!-- INFO CARDS -->
+				<div class="project-section">
+					<div class="overview-grid">
+						<div class="overview-block">
+							<h4>Description</h4>
+							<p>A multidisciplinary product development project for MD London, focused on improving the thermal barrel of a consumer hair curling iron. The work covered heater technology evaluation, barrel geometry and material iteration, thermal simulation, and lifecycle validation.</p>
+						</div>
+						<div class="overview-block">
+							<h4>My Role</h4>
+							<p>I designed barrel geometries across multiple materials, evaluated three heater technologies, ran SolidWorks thermal simulations, and selected EDM as a cost-effective prototyping route. I also designed the electrical contacts and built a custom Scotch-yoke test rig to measure contact resistance across a ~1,000-cycle durability run.</p>
+						</div>
+						<div class="overview-block">
+							<h4>Outcome</h4>
+							<p>Delivered a validated barrel assembly meeting all thermal and durability specifications. The prototype was used directly in the company&rsquo;s first investment run, with a separate freelance phase extending the work to a closed-loop Arduino control board for PTC heating elements.</p>
+						</div>
+					</div>
 				</div>
-				<img src="../images/projects/curler/barrels.jpg" alt="Barrel prototypes" class="image-right">
-			</div>
 
-			<div class="project-section left-image">
-				<img src="../images/projects/curler/testRig.png" alt="Connector test rig" class="image-left">
-				<div class="text-left">
-					<p>The connector test rig, designed to simulate repeated insertion and removal cycles to validate connector longevity under production conditions.</p>
+				<!-- PROBLEM STATEMENT -->
+				<div class="project-section problem-statement" style="background: #1c1c1c; border-radius: 12px; padding: 3rem; margin-bottom: 0;">
+					<p class="section-label" style="color: #cb4444;">The challenge</p>
+					<h2 style="margin-bottom: 2rem;">Develop a better curling iron — without a budget for production tooling</h2>
+					<div class="problem-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+						<div>
+							<p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #cb4444; margin-bottom: 0.75rem;">Before</p>
+							<p style="color: #aaa; margin-bottom: 1rem;">Existing consumer curling irons on the market had poor thermal efficiency, inadequate contact durability, and materials selected for cost rather than performance. The briefing required a product that improved on all three — but with no budget for the casting or extrusion tooling that production-grade barrel prototyping normally demands.</p>
+							<p style="color: #aaa; margin-bottom: 0;">Standard prototyping routes would have cost tens of thousands in tooling before a single functional part could be tested. The project needed a way to produce geometrically accurate barrel prototypes at small-batch cost.</p>
+						</div>
+						<div>
+							<p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #cb4444; margin-bottom: 0.75rem;">What was needed</p>
+							<ul style="list-style: none; padding: 0; margin: 0;">
+								<li style="display: flex; gap: 0.75rem; margin-bottom: 0.9rem; color: #ccc;">
+									<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
+									<span>A feasibility report mapping heating technologies from adjacent industries — identifying MCH, PTC, and silicone heaters as candidates, with commercial pricing from suppliers</span>
+								</li>
+								<li style="display: flex; gap: 0.75rem; margin-bottom: 0.9rem; color: #ccc;">
+									<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
+									<span>Barrel prototypes validated with external sensors and a Raspberry Pi to confirm the heating profile matched specification — independently of the client&rsquo;s control board</span>
+								</li>
+								<li style="display: flex; gap: 0.75rem; margin-bottom: 0.9rem; color: #ccc;">
+									<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
+									<span>A connector durability test rig designed from scratch, to generate objective pass/fail evidence before committing to small-batch assembly</span>
+								</li>
+								<li style="display: flex; gap: 0.75rem; color: #ccc;">
+									<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
+									<span>An assembly process designed for repeatable small-batch production, not just one-off prototypes</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div style="margin-top: 2rem; padding: 1.25rem 1.5rem; border-left: 3px solid #cb4444; background: #252525; border-radius: 0 6px 6px 0;">
+						<p style="color: #fff; font-size: 0.95rem; margin: 0;"><strong style="color: #cb4444;">Key insight:</strong> <span style="color: #ccc;">Wire EDM can replicate the cross-sectional profiles of extrusion and casting without dedicated tooling &mdash; producing prototype barrels that are geometrically equivalent to production parts at a fraction of the cost. This unlocked accurate functional testing before any tooling investment was made.</span></p>
+					</div>
 				</div>
-			</div>
 
-			<hr style="margin: 60px 0; border-color: #ccc;">
-
-			<h2>Curler #2 &ndash; Control Board</h2>
-			<div class="project-section left-image">
-				<img src="../images/projects/curler/perfomanceTest.png" alt="Performance test data" class="image-left">
-				<div class="text-right">
-					<p><b>Company:</b> Freelance</p>
-					<p><b>Description:</b> Tasked with prototyping a control board for AC heating elements in a hair curling iron.</p>
-					<p><b>My Role:</b> Programmed an Arduino to implement a closed-loop on/off heat control system with hysteresis, using SSR drivers. I incorporated a potentiometer for temperature control and a TFT LCD display for user feedback. Additionally, I enabled temperature data logging via serial communication for troubleshooting and future enhancements. In a related project, I applied these skills to PTC heating elements, demonstrating versatility across different heating technologies.</p>
-					<p><b>Outcome:</b> Successfully created a functional prototype that was used for the first investment run, showcasing adaptability in working with various heating elements.</p>
+				<!-- PROJECT ANALYSIS -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">01</span>
+						<span class="section-label">Project analysis</span>
+					</div>
+					<h2>Understanding What Already Exists</h2>
+					<div class="deployed-grid" style="align-items: stretch;">
+						<div style="position: relative; overflow: hidden; border-radius: 10px;
+						            box-shadow: 0 4px 22px rgba(0,0,0,0.13); background: #1c1c1c; min-height: 240px;">
+							<img src="../images/projects/curler/reverse1.webp"
+							     alt="Reverse-engineered curling iron disassembly"
+							     style="position: absolute; inset: 0; width: 100%; height: 100%;
+							            object-fit: cover; object-position: center; display: block;">
+							<button class="img-expand-btn" aria-label="View full image">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="15 3 21 3 21 9"></polyline>
+									<polyline points="9 21 3 21 3 15"></polyline>
+									<line x1="21" y1="3" x2="14" y2="10"></line>
+									<line x1="3" y1="21" x2="10" y2="14"></line>
+								</svg>
+							</button>
+						</div>
+						<div class="deployed-text">
+							<p>The project began with a systematic reverse engineering exercise: disassembling several competing curling irons to map their internal architecture, heater configurations, and material choices.</p>
+							<p>Three heater technologies were evaluated &mdash; PTC (Positive Temperature Coefficient), silicone heaters, and Metal Ceramic Heaters (MCH) &mdash; with each assessed against thermal efficiency, ramp-up speed, manufacturing compatibility, and long-term durability.</p>
+							<p>This analysis directly informed the material and geometry decisions that followed, providing a baseline against which every prototype iteration could be measured.</p>
+						</div>
+					</div>
 				</div>
-			</div>
 
+				<!-- DESIGN OVERVIEW -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">02</span>
+						<span class="section-label">Design overview</span>
+					</div>
+					<h2>Heater Selection &amp; Barrel Geometry</h2>
+					<p class="section-intro">SolidWorks thermal simulations were conducted to compare heat distribution patterns across MCH (Metal Ceramic Heater) element configurations under steady-state conditions &mdash; identifying the optimal balance of thermal performance, manufacturing simplicity, cost, and ergonomics.</p>
+
+					<!-- Thermal scale legend -->
+					<div style="background:#f5f5f5;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.75rem;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin:0 0 0.75rem;">Thermal scale reading guide</p>
+						<div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+							<div style="display:flex;align-items:center;gap:0.6rem;background:#fff;border-radius:6px;padding:0.5rem 0.875rem;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+								<span style="width:28px;height:12px;border-radius:3px;background:linear-gradient(to right,#00f,#0ff);display:inline-block;flex-shrink:0;"></span>
+								<span style="font-size:0.78rem;color:#555;">Blue / Cyan</span>
+								<span style="font-size:0.78rem;color:#888;">&mdash;</span>
+								<span style="font-size:0.78rem;color:#333;">Coolest</span>
+								<span style="font-family:'Bebas Neue',sans-serif;font-size:0.95rem;color:#555;letter-spacing:0.03em;">~103&ndash;106&thinsp;&deg;C</span>
+							</div>
+							<div style="display:flex;align-items:center;gap:0.6rem;background:#fff;border-radius:6px;padding:0.5rem 0.875rem;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+								<span style="width:28px;height:12px;border-radius:3px;background:linear-gradient(to right,#0c0,#ff0);display:inline-block;flex-shrink:0;"></span>
+								<span style="font-size:0.78rem;color:#555;">Green / Yellow</span>
+								<span style="font-size:0.78rem;color:#888;">&mdash;</span>
+								<span style="font-size:0.78rem;color:#333;">Moderate</span>
+								<span style="font-family:'Bebas Neue',sans-serif;font-size:0.95rem;color:#555;letter-spacing:0.03em;">~107&ndash;110&thinsp;&deg;C</span>
+							</div>
+							<div style="display:flex;align-items:center;gap:0.6rem;background:#fff;border-radius:6px;padding:0.5rem 0.875rem;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+								<span style="width:28px;height:12px;border-radius:3px;background:linear-gradient(to right,#f60,#f00);display:inline-block;flex-shrink:0;"></span>
+								<span style="font-size:0.78rem;color:#555;">Orange / Red</span>
+								<span style="font-size:0.78rem;color:#888;">&mdash;</span>
+								<span style="font-size:0.78rem;color:#333;">Hottest</span>
+								<span style="font-family:'Bebas Neue',sans-serif;font-size:0.95rem;color:#cb4444;letter-spacing:0.03em;">~111&ndash;114&thinsp;&deg;C</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- 3-config comparison -->
+					<div class="heater-compare-grid">
+
+						<!-- 2-Finger -->
+						<div class="hconfig-card hconfig-card--selected">
+							<div class="hconfig-header">
+								<span class="hconfig-verdict hconfig-verdict--selected">&#10003; Selected</span>
+								<h4>2&#8209;Finger MCH</h4>
+								<p>Dual heating element &mdash; two distinct thermal zones</p>
+							</div>
+							<div class="hconfig-images">
+								<img src="../images/projects/curler/2F_30W_MCH_01.PNG" alt="2F MCH heater &mdash; thermal view 1" loading="lazy">
+								<img src="../images/projects/curler/2F_30W_MCH_02.PNG" alt="2F MCH heater &mdash; thermal view 2" loading="lazy">
+							</div>
+							<div class="hconfig-metrics">
+							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-bottom:0.3rem;">Temperature range</p>
+							<div class="hconfig-delta">103&ndash;114&thinsp;&deg;C</div>
+							<p><strong style="color:#555;font-size:0.78rem;">Heat distribution pattern:</strong> Two distinct hot spots with visible temperature bands along the barrel length &mdash; within acceptable specification for the end-use application.</p>
+							</div>
+						</div>
+
+						<!-- 3-Finger -->
+						<div class="hconfig-card">
+							<div class="hconfig-header">
+								<span class="hconfig-verdict hconfig-verdict--considered">~ Considered</span>
+								<h4>3&#8209;Finger MCH</h4>
+								<p>Triple element &mdash; thermal lobes beginning to merge</p>
+							</div>
+							<div class="hconfig-images">
+								<img src="../images/projects/curler/3F_30W_MCH_02.PNG" alt="3F MCH heater &mdash; thermal view 1" loading="lazy">
+								<img src="../images/projects/curler/3F_30W_MCH_03.PNG" alt="3F MCH heater &mdash; thermal view 2" loading="lazy">
+							</div>
+							<div class="hconfig-metrics">
+							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-bottom:0.3rem;">Temperature range</p>
+							<div class="hconfig-delta">103&ndash;114&thinsp;&deg;C</div>
+							<p><strong style="color:#555;font-size:0.78rem;">Heat distribution pattern:</strong> Hot spots begin merging into broader zones &mdash; reduced banding, but added component count and assembly steps.</p>
+							</div>
+						</div>
+
+						<!-- 4-Finger -->
+						<div class="hconfig-card">
+							<div class="hconfig-header">
+								<span class="hconfig-verdict hconfig-verdict--rejected">&#10005; Not selected</span>
+								<h4>4&#8209;Finger MCH</h4>
+								<p>Quad element array &mdash; near-uniform conical heat distribution</p>
+							</div>
+							<div class="hconfig-images">
+								<img src="../images/projects/curler/4F_30W_MCH_01.PNG" alt="4F MCH heater &mdash; thermal view 1" loading="lazy">
+								<img src="../images/projects/curler/4F_30W_MCH_02.PNG" alt="4F MCH heater &mdash; thermal view 2" loading="lazy">
+							</div>
+							<div class="hconfig-metrics">
+							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-bottom:0.3rem;">Temperature range</p>
+							<div class="hconfig-delta">103&ndash;114&thinsp;&deg;C</div>
+							<p><strong style="color:#555;font-size:0.78rem;">Heat distribution pattern:</strong> Complete lobe merger creates smooth conical heat profile &mdash; most uniform surface distribution. Diminishing returns versus added cost and weight.</p>
+							</div>
+						</div>
+
+					</div>
+
+					<!-- Decision callout -->
+					<div style="background:#1c1c1c;border-radius:12px;padding:2.5rem;margin-bottom:2rem;">
+						<p class="section-label" style="color:#cb4444;margin-bottom:0.5rem;">Design decision</p>
+						<h3 style="color:#fff;font-size:1.2rem;font-weight:600;margin-bottom:1.75rem;">2&#8209;Finger configuration selected &mdash; best balance of thermal performance, weight, and cost</h3>
+						<div class="decision-cols" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;">
+							<div>
+								<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Why 2F despite less uniform distribution?</p>
+								<ul style="list-style:none;padding:0;margin:0;">
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>~60% cost reduction versus the 4-finger configuration</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Simpler assembly process &mdash; 3 fewer heating elements</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>~15&thinsp;g lighter &mdash; critical for handheld ergonomics</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Temperature banding acceptable for the end-use application</span></li>
+									<li style="display:flex;gap:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Faster production throughput and lower assembly complexity</span></li>
+								</ul>
+							</div>
+							<div>
+								<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Performance validation</p>
+								<ul style="list-style:none;padding:0;margin:0;">
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>User testing: no perceivable difference in styling quality across configurations</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Hair thermal damage testing showed equivalent results</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Temperature distribution variance does not translate to a user experience impact</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Heat-up time comparable across all configurations</span></li>
+									<li style="display:flex;gap:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>All configs maintain the same temperature range &mdash; distribution pattern varies, not peak temperature</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Test conditions -->
+					<p style="font-size:0.75rem;color:#888;margin-top:1.25rem;margin-bottom:2.5rem;padding:0.75rem 1rem;background:#f5f5f5;border-radius:6px;line-height:1.6;">
+						<strong style="color:#555;">Simulation parameters:</strong> Software: SolidWorks Thermal Simulation &middot; Analysis type: Steady-state heat distribution &middot; MCH element: 30&thinsp;W &middot; Ambient: 23&thinsp;&deg;C &plusmn;2&thinsp;&deg;C &middot; Surface measurements at barrel outer diameter
+					</p>
+
+					<!-- Barrel geometry -->
+					<p class="section-label">Barrel geometry</p>
+					<div class="img-frame img-frame--wide">
+						<img src="../images/projects/curler/barrels.jpg"
+						     alt="Barrel geometry prototypes in aluminium and copper"
+						     class="pair-img"
+						     style="object-fit: cover;" loading="lazy">
+						<button class="img-expand-btn" aria-label="View full image">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+							     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="15 3 21 3 21 9"></polyline>
+								<polyline points="9 21 3 21 3 15"></polyline>
+								<line x1="21" y1="3" x2="14" y2="10"></line>
+								<line x1="3" y1="21" x2="10" y2="14"></line>
+							</svg>
+						</button>
+					</div>
+					<p class="media-caption">Barrel geometry iterations in Al 1150, Al 6061, and Cu&thinsp;10100</p>
+
+					<!-- Internal Configuration Comparison -->
+					<p class="section-label" style="margin-top:2.5rem;">Internal configuration comparison</p>
+					<p style="font-size:0.88rem;color:#555;line-height:1.65;margin-bottom:1.5rem;">Cross-sectional geometry determines how the MCH element seats against the barrel bore and where contact pressure concentrates &mdash; directly governing which thermal distribution pattern appears in the FLIR images. The finger count sets the angular spacing between mounting points: 180&deg; for 2F, 120&deg; for 3F, and 90&deg; for 4F. Copper barrels were prototyped alongside aluminium to baseline conductivity differences before committing to Al&thinsp;6061 as the production material.</p>
+					<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:0.75rem;">
+
+						<!-- 2F Copper -->
+						<div style="text-align:center;">
+							<div style="background:#fafafa;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;aspect-ratio:1/1;">
+								<img src="../images/projects/curler/Copilot_20260317_023432.webp"
+								     alt="2F Copper barrel cross-section &mdash; dual mounting points 180&deg; opposed"
+								     style="width:100%;height:100%;object-fit:cover;display:block;"
+								     loading="lazy">
+							</div>
+							<p style="font-size:0.7rem;font-weight:600;color:#111;margin:0.5rem 0 0.15rem;text-transform:uppercase;letter-spacing:0.08em;">2F &mdash; Copper</p>
+							<p style="font-size:0.72rem;color:#888;line-height:1.4;margin:0;">Dual mounting points, 180&deg; opposed</p>
+						</div>
+
+						<!-- 2F Aluminium -->
+						<div style="text-align:center;">
+							<div style="background:#fafafa;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;aspect-ratio:1/1;">
+								<img src="../images/projects/curler/Edit%20the%20attached%20im.webp"
+								     alt="2F Aluminium barrel cross-section &mdash; same geometry, lighter material"
+								     style="width:100%;height:100%;object-fit:cover;display:block;"
+								     loading="lazy">
+							</div>
+							<p style="font-size:0.7rem;font-weight:600;color:#111;margin:0.5rem 0 0.15rem;text-transform:uppercase;letter-spacing:0.08em;">2F &mdash; Aluminium</p>
+							<p style="font-size:0.72rem;color:#888;line-height:1.4;margin:0;">Same geometry, reduced mass</p>
+						</div>
+
+						<!-- 3F Copper -->
+						<div style="text-align:center;">
+							<div style="background:#fafafa;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;aspect-ratio:1/1;">
+								<img src="../images/projects/curler/Enhance%20copper%20compo.webp"
+								     alt="3F Copper barrel cross-section &mdash; triple mounting, 120&deg; spacing"
+								     style="width:100%;height:100%;object-fit:cover;display:block;"
+								     loading="lazy">
+							</div>
+							<p style="font-size:0.7rem;font-weight:600;color:#111;margin:0.5rem 0 0.15rem;text-transform:uppercase;letter-spacing:0.08em;">3F &mdash; Copper</p>
+							<p style="font-size:0.72rem;color:#888;line-height:1.4;margin:0;">Triple mounting, 120&deg; spacing</p>
+						</div>
+
+						<!-- 4F -->
+						<div style="text-align:center;">
+							<div style="background:#fafafa;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;aspect-ratio:1/1;">
+								<img src="../images/projects/curler/Tool%20component%20witho.webp"
+								     alt="4F barrel cross-section &mdash; quad mounting, 90&deg; spacing"
+								     style="width:100%;height:100%;object-fit:cover;display:block;"
+								     loading="lazy">
+							</div>
+							<p style="font-size:0.7rem;font-weight:600;color:#111;margin:0.5rem 0 0.15rem;text-transform:uppercase;letter-spacing:0.08em;">4F &mdash; Configuration</p>
+							<p style="font-size:0.72rem;color:#888;line-height:1.4;margin:0;">Quad mounting, 90&deg; spacing</p>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- CAD / TECHNICAL DRAWINGS -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">03</span>
+						<span class="section-label">CAD / Technical drawings</span>
+					</div>
+					<h2>CAD &amp; Technical Drawings</h2>
+					<p class="section-intro">Detailed engineering drawings and CAD models documenting the barrel geometry, contact assembly, and end-cap profiles across all material iterations.</p>
+
+					<!-- Placeholder -->
+					<div style="width:100%;aspect-ratio:16/7;background:#e8e8e8;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:0.75rem;">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="3" y="3" width="18" height="18" rx="2"/>
+							<path d="M3 9h18M9 21V9"/>
+						</svg>
+						<p style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#bbb;margin:0;">Technical drawings &mdash; coming soon</p>
+					</div>
+					<p class="media-caption">CAD drawings and dimensional specifications for barrel assembly, contact geometry, and end-cap profiles</p>
+				</div>
+
+				<!-- TECHNICAL ANALYSIS -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">04</span>
+						<span class="section-label">Technical analysis</span>
+					</div>
+					<h2>Technical Analysis</h2>
+					<div class="analysis-grid">
+						<div class="analysis-card">
+							<h4>1. Heater Technology Selection</h4>
+							<p>MCH heaters were selected over PTC and silicone alternatives. PTC elements self-regulate temperature but lack the thermal density and ramp-up speed required for the product&rsquo;s target performance. Silicone heaters offered flexibility but introduced compliance issues when pressed against a rigid barrel. MCH elements provided the highest thermal efficiency, direct surface contact, and compatibility with the barrel&rsquo;s geometry under compression.</p>
+						</div>
+						<div class="analysis-card">
+							<h4>2. Barrel Material Trade-offs</h4>
+							<p>Cu&thinsp;C11000 and Al&thinsp;6061-T6 were prototyped and compared directly. Copper&rsquo;s thermal conductivity (391&thinsp;W/m&middot;K) is more than twice that of aluminium (167&thinsp;W/m&middot;K), but its density of 8.96&thinsp;g/cm&sup3; versus aluminium&rsquo;s 2.70&thinsp;g/cm&sup3; added weight that exceeded the product&rsquo;s ergonomic target for a portable appliance. Al&thinsp;6061 offered a workable balance of conductivity, machinability, and mass; SolidWorks thermal simulations confirmed it could sustain operating temperatures without deformation across the design&rsquo;s thermal cycle.</p>
+						</div>
+						<div class="analysis-card">
+							<h4>3. EDM as a Prototyping Route</h4>
+							<p>The barrel geometry required internal features that would normally be produced by extrusion &mdash; a process where tooling costs make small-batch prototyping prohibitively expensive. Electrical Discharge Machining (EDM) was identified as a compatible alternative: it replicates the cross-sectional profiles achievable in extrusion without dedicated dies, producing prototype parts dimensionally equivalent to the intended production geometry. This allowed functional testing to proceed using parts that matched the mass-production specification.</p>
+						</div>
+						<div class="analysis-card">
+							<h4>4. High-Temperature Polymer Selection</h4>
+							<p>End caps required a polymer capable of sustained exposure to temperatures exceeding 200&deg;C in contact with the barrel. PEEK was selected for its thermal stability and mechanical strength at elevated temperatures. For the contact holder, PEI (ULTEM) was used in its place &mdash; it shares PEEK&rsquo;s high-temperature resistance and is directly 3D-printable, making it a cost-efficient alternative for components where load-bearing requirements did not justify the premium of machined PEEK.</p>
+						</div>
+					</div>
+
+					<!-- Material comparison table -->
+					<p class="section-label" style="margin-top:2.5rem;">Barrel material comparison</p>
+					<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
+
+						<!-- Copper -->
+						<div style="background:#fff;border-radius:10px;border:2px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+							<div style="padding:1rem 1.25rem 0.875rem;border-bottom:1px solid #f0f0f0;">
+								<span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;display:inline-block;margin-bottom:0.5rem;background:#f0f0f0;color:#aaa;">Not selected</span>
+								<h4 style="font-size:1rem;margin:0.25rem 0 0.2rem;color:#111;">Copper Alloy C11000</h4>
+								<p style="font-size:0.8rem;color:#888;margin:0;line-height:1.4;">High-conductivity electrolytic copper</p>
+							</div>
+							<div style="padding:1rem 1.25rem;">
+								<ul style="list-style:none;padding:0;margin:0;">
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.55rem;font-size:0.82rem;"><span style="color:#2a7a2a;flex-shrink:0;font-weight:600;">&#10003;</span><span style="color:#444;">Thermal conductivity: <strong>391&thinsp;W/m&middot;K</strong></span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.55rem;font-size:0.82rem;"><span style="color:#2a7a2a;flex-shrink:0;font-weight:600;">&#10003;</span><span style="color:#444;">Superior heat distribution across barrel surface</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.55rem;font-size:0.82rem;"><span style="color:#cb4444;flex-shrink:0;font-weight:600;">&#10005;</span><span style="color:#444;">Density: <strong>8.96&thinsp;g/cm&sup3;</strong> &mdash; significant weight penalty</span></li>
+									<li style="display:flex;gap:0.6rem;font-size:0.82rem;"><span style="color:#cb4444;flex-shrink:0;font-weight:600;">&#10005;</span><span style="color:#444;">Higher material and machining cost</span></li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Aluminium -->
+						<div style="background:#fff;border-radius:10px;border:2px solid #cb4444;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+							<div style="padding:1rem 1.25rem 0.875rem;border-bottom:1px solid #f0f0f0;">
+								<span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;display:inline-block;margin-bottom:0.5rem;background:rgba(203,68,68,0.1);color:#cb4444;">&#10003; Selected</span>
+								<h4 style="font-size:1rem;margin:0.25rem 0 0.2rem;color:#111;">Aluminium 6061&#8209;T6</h4>
+								<p style="font-size:0.8rem;color:#888;margin:0;line-height:1.4;">Heat-treatable structural aluminium alloy</p>
+							</div>
+							<div style="padding:1rem 1.25rem;">
+								<ul style="list-style:none;padding:0;margin:0;">
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.55rem;font-size:0.82rem;"><span style="color:#2a7a2a;flex-shrink:0;font-weight:600;">&#10003;</span><span style="color:#444;">Density: <strong>2.70&thinsp;g/cm&sup3;</strong> &mdash; 70% lighter than copper</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.55rem;font-size:0.82rem;"><span style="color:#2a7a2a;flex-shrink:0;font-weight:600;">&#10003;</span><span style="color:#444;">Lower material and machining cost</span></li>
+									<li style="display:flex;gap:0.6rem;margin-bottom:0.55rem;font-size:0.82rem;"><span style="color:#2a7a2a;flex-shrink:0;font-weight:600;">&#10003;</span><span style="color:#444;">Passes thermal simulation within deformation limits</span></li>
+									<li style="display:flex;gap:0.6rem;font-size:0.82rem;"><span style="color:#cb4444;flex-shrink:0;font-weight:600;">&#10005;</span><span style="color:#444;">Thermal conductivity: <strong>167&thinsp;W/m&middot;K</strong> (vs 391 for Cu)</span></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div style="padding:0.875rem 1.125rem;background:#1c1c1c;border-radius:8px;margin-bottom:0;">
+						<span style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;">Decision rationale</span>
+						<p style="font-size:0.88rem;color:#ccc;margin:0.4rem 0 0;line-height:1.6;">Copper&rsquo;s conductivity advantage could not justify the weight penalty for a portable handheld appliance. The 70% mass reduction of Al&thinsp;6061 was decisive &mdash; and SolidWorks thermal simulation confirmed its conductivity was sufficient to meet the barrel&rsquo;s surface temperature specification under steady-state operating conditions.</p>
+					</div>
+				</div>
+
+				<!-- PROTOTYPING PROCESS -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">05</span>
+						<span class="section-label">Prototyping process</span>
+					</div>
+					<h2>Prototyping Process</h2>
+					<p class="section-intro">Iteration moved from material coupons and simple geometry tests through to full functional assemblies, with each stage resolving a specific uncertainty before committing to the next.</p>
+					<ol class="proto-steps">
+						<li>Material coupon tests to benchmark thermal conductivity and surface hardness across Al 1150, Al 6061, and Cu 10100 before committing to barrel geometry.</li>
+						<li>EDM-cut barrel profiles in each candidate material, assembled with MCH heaters and spring-loaded brass contacts to verify fit and heat transfer at the interface.</li>
+						<li>SolidWorks thermal simulation to confirm the Al 6061 barrel could sustain operating temperatures without exceeding deformation limits at the contact surfaces.</li>
+						<li>Full functional assembly with PEEK end caps and PEI contact holder, evaluated under repeated thermal cycling to confirm connector reliability before the test rig stage.</li>
+					</ol>
+					<div class="image-pair">
+						<div>
+							<div class="img-frame img-frame--wide">
+								<img src="../images/projects/curler/barrels2.jpg"
+								     alt="Barrel prototype assembly with heater and contacts"
+								     class="pair-img" loading="lazy">
+								<button class="img-expand-btn" aria-label="View full image">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<polyline points="15 3 21 3 21 9"></polyline>
+										<polyline points="9 21 3 21 3 15"></polyline>
+										<line x1="21" y1="3" x2="14" y2="10"></line>
+										<line x1="3" y1="21" x2="10" y2="14"></line>
+									</svg>
+								</button>
+							</div>
+							<p class="media-caption">EDM barrel with spring contacts assembled for thermal cycling tests</p>
+						</div>
+						<div>
+							<div class="img-frame img-frame--wide">
+								<img src="../images/projects/curler/perfomanceTest.png"
+								     alt="Thermal performance test data &mdash; temperature vs. time"
+								     class="pair-img"
+								     style="object-fit: contain; background: #fff;" loading="lazy">
+								<button class="img-expand-btn" aria-label="View full image">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<polyline points="15 3 21 3 21 9"></polyline>
+										<polyline points="9 21 3 21 3 15"></polyline>
+										<line x1="21" y1="3" x2="14" y2="10"></line>
+										<line x1="3" y1="21" x2="10" y2="14"></line>
+									</svg>
+								</button>
+							</div>
+							<p class="media-caption">Closed-loop thermal performance test &mdash; temperature vs. time at target setpoint</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- TEST RIG -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">06</span>
+						<span class="section-label">Lifecycle test rig</span>
+					</div>
+					<h2>Lifecycle Test Rig</h2>
+					<p class="section-intro">Contact resistance drift over repeated insertion cycles was the key durability risk &mdash; a bespoke rig was designed to quantify it under controlled, repeatable conditions.</p>
+					<div class="img-frame img-frame--wide" style="margin-bottom: 12px;">
+						<img src="../images/projects/curler/testRig.png"
+						     alt="Scotch-yoke lifecycle test rig for connector durability"
+						     class="pair-img"
+						     style="object-fit: cover; object-position: bottom;" loading="lazy">
+						<button class="img-expand-btn" aria-label="View full image">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+							     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="15 3 21 3 21 9"></polyline>
+								<polyline points="9 21 3 21 3 15"></polyline>
+								<line x1="21" y1="3" x2="14" y2="10"></line>
+								<line x1="3" y1="21" x2="10" y2="14"></line>
+							</svg>
+						</button>
+					</div>
+					<p class="media-caption" style="margin-bottom: 28px;">Scotch-yoke test rig &mdash; full assembly</p>
+
+					<div class="deployed-grid" style="margin-bottom: 36px; align-items: start;">
+						<div>
+							<div class="img-frame img-frame--wide">
+								<div class="yt-facade" data-id="lDezHJQADn4">
+									<img src="https://i.ytimg.com/vi/lDezHJQADn4/hqdefault.jpg"
+									     alt="Rig in motion &mdash; simulated lifecycle sequence" class="yt-thumb">
+									<span class="yt-play">&#9654;</span>
+								</div>
+							</div>
+							<p class="media-caption">Rig in motion &mdash; simulated lifecycle sequence</p>
+						</div>
+						<div>
+							<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin-bottom: 1rem;">Measurement results</p>
+							<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem;">
+								<div style="background: #fff; border-radius: 8px; padding: 0.875rem 0.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
+									<div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; line-height: 1; color: #111; margin-bottom: 0.3rem;">1,042</div>
+									<div style="font-size: 0.6rem; color: #888; text-transform: uppercase; letter-spacing: 0.07em;">cycles run</div>
+								</div>
+								<div style="background: #fff; border-radius: 8px; padding: 0.875rem 0.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
+									<div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; line-height: 1; color: #111; margin-bottom: 0.3rem;">2</div>
+									<div style="font-size: 0.6rem; color: #888; text-transform: uppercase; letter-spacing: 0.07em;">connector pairs</div>
+								</div>
+								<div style="background: #fff; border-radius: 8px; padding: 0.875rem 0.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
+									<div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; line-height: 1; color: #cb4444; margin-bottom: 0.3rem;">&le;0.2&thinsp;&Omega;</div>
+									<div style="font-size: 0.6rem; color: #888; text-transform: uppercase; letter-spacing: 0.07em;">peak drift</div>
+								</div>
+							</div>
+							<table style="width: 100%; border-collapse: collapse; font-size: 0.78rem;">
+								<thead>
+									<tr>
+										<th style="text-align: left; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">#</th>
+										<th style="text-align: right; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">Cycles</th>
+										<th style="text-align: right; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">Pair A (&Omega;)</th>
+										<th style="text-align: right; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">Pair B (&Omega;)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">1</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">2</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">3</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">105</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">4</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">101</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">5</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">102</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">6</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">105</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">7</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">8</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">105</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.2</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.1</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">9</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.2</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.1</td></tr>
+									<tr><td style="padding:0.32rem 0.25rem;color:#555;">10</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;">108</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;">9.9</td></tr>
+								</tbody>
+								<tfoot>
+									<tr style="border-top: 2px solid #ddd;">
+										<td colspan="2" style="padding: 0.5rem 0.25rem; font-weight: 600; color: #111;">Total: 1,042 cycles</td>
+										<td colspan="2" style="padding: 0.5rem 0.25rem; text-align: right; font-size: 0.7rem; color: #2a7a2a; font-weight: 500;">No degradation detected</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+
+					<div class="elec-grid">
+						<div class="elec-card">
+							<h4>Scotch Yoke Mechanism</h4>
+							<p>A Scotch yoke converts motor rotation into linear sliding motion, replicating the insertion and withdrawal kinematics of the barrel connector. This ensures each cycle follows an identical displacement profile, eliminating variability that would obscure wear data.</p>
+						</div>
+						<div class="elec-card">
+							<h4>Data Logging</h4>
+							<p>Micro switches track cumulative cycle count. A Raspberry Pi logs contact resistance via a four-point measurement at approximately every 100-cycle interval, streaming data to a connected computer in real time. This produced a continuous resistance-vs.-cycles dataset across the full ~1,000-cycle run.</p>
+						</div>
+						<div class="elec-card">
+							<h4>Contacts &amp; Current Path</h4>
+							<p>Brass contacts replicate the production connector geometry and carry live current throughout each cycle. Four-point (Kelvin) resistance measurement eliminates lead resistance from the reading, isolating degradation at the contact interface itself.</p>
+						</div>
+					</div>
+					<p class="elec-closing">The rig produced the first objective, cycle-resolved evidence that the connector design met the product&rsquo;s durability requirement.</p>
+				</div>
+
+				<!-- SMALL BATCH ASSEMBLY -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">07</span>
+						<span class="section-label">Small batch assembly</span>
+					</div>
+					<h2>From Prototype to Small Batch Production</h2>
+					<p class="section-intro">Following successful validation, the design moved into small batch assembly &mdash; bridging the gap between a proven prototype and a repeatable, manufacturable product.</p>
+					<p>Component sourcing was coordinated across multiple suppliers, with lead times and minimum order quantities dictating build scheduling. Each unit was assembled in a fixed sequence to ensure heater seating, contact alignment, and end-cap torque were applied consistently. A simple go/no-go resistance check was used at the end of assembly to catch connector faults before units left the bench.</p>
+					<p>This stage surfaced several small design adjustments &mdash; primarily to contact spring preload and barrel fit tolerance &mdash; that would not have been visible in single-unit prototype assembly but became apparent when building in sequence.</p>
+					<div class="img-frame img-frame--wide" style="margin: 28px 0;">
+						<img src="../images/projects/curler/File_046.jpeg"
+						     alt="Assembly line &mdash; batch production"
+						     class="pair-img"
+						     style="object-fit: cover;" loading="lazy">
+						<button class="img-expand-btn" aria-label="View full image">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+							     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="15 3 21 3 21 9"></polyline>
+								<polyline points="9 21 3 21 3 15"></polyline>
+								<line x1="21" y1="3" x2="14" y2="10"></line>
+								<line x1="3" y1="21" x2="10" y2="14"></line>
+							</svg>
+						</button>
+					</div>
+					<p class="media-caption">Assembly line &mdash; batch production</p>
+				</div>
+
+				<!-- CONTROL BOARD -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">08</span>
+						<span class="section-label">Closed-loop control board</span>
+					</div>
+					<h2>Closed-Loop Control Board</h2>
+					<div class="deployed-grid" style="align-items: stretch;">
+						<div style="position: relative; overflow: hidden; border-radius: 10px;
+						            box-shadow: 0 4px 22px rgba(0,0,0,0.13); background: #fff; min-height: 240px;">
+							<img src="../images/projects/curler/perfomanceTest.png"
+							     alt="Closed-loop temperature control &mdash; logged output at target setpoint"
+							     style="position: absolute; inset: 0; width: 100%; height: 100%;
+							            object-fit: contain; object-position: center; background: #fff; display: block;"
+							     loading="lazy">
+							<button class="img-expand-btn" aria-label="View full image">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="15 3 21 3 21 9"></polyline>
+									<polyline points="9 21 3 21 3 15"></polyline>
+									<line x1="21" y1="3" x2="14" y2="10"></line>
+									<line x1="3" y1="21" x2="10" y2="14"></line>
+								</svg>
+							</button>
+						</div>
+						<div class="deployed-text">
+							<p>A separate freelance phase extended the project to electronics: prototyping a control board for AC heating elements in both Metal Ceramic and PTC configurations. An Arduino was programmed with a closed-loop on/off control algorithm using hysteresis to prevent rapid switching around the setpoint.</p>
+							<p>A Solid State Relay (SSR) driver handled AC switching, a potentiometer set the target temperature, and a TFT LCD provided real-time feedback. Temperature data was logged via serial communication, producing a timestamped record for tuning the hysteresis band and diagnosing drift.</p>
+							<p>Applying the same control logic to both heater types confirmed the board&rsquo;s adaptability across technologies &mdash; the prototype was used directly in the client&rsquo;s first investment run.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- KEY INNOVATION -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">09</span>
+						<span class="section-label">Engineering highlights</span>
+					</div>
+					<h2>Engineering Highlights</h2>
+					<div class="innovation-body">
+						<p>The most significant constraint in the project was the gap between prototyping cost and production geometry. Extrusion &mdash; the intended mass-production process for the barrel &mdash; requires dedicated tooling that makes small-batch prototyping economically unviable. The insight was that EDM can replicate extrusion profiles on single parts without dies, producing prototype barrels that are geometrically equivalent to production parts rather than approximations of them. All thermal and mechanical validation was therefore performed on parts that matched the final manufacturing intent.</p>
+						<p>The test rig addressed an equivalent gap on the durability side. Contact resistance measurements taken by hand at arbitrary intervals would not have resolved the degradation profile with enough fidelity to confirm or reject the connector design with confidence. The Scotch-yoke rig automated that process, reducing human variability from the measurement while producing a continuous dataset across the full lifecycle range. Four-point resistance measurement isolated the contact interface from lead and fixture resistance, so the data reflected only the degradation mechanism being evaluated.</p>
+						<p>Together, both decisions replaced assumptions with measurements &mdash; using the right manufacturing analogue for prototype parts, and the right measurement method for durability data.</p>
+					</div>
+				</div>
+
+				<div class="project-cta">
+					<div class="project-cta__text">
+						<h3>Explore more projects</h3>
+						<p>See the full range of mechanical and product design work in the portfolio.</p>
+					</div>
+					<a href="../portfolio.html" class="project-cta__btn">Back to Portfolio &rarr;</a>
+				</div>
+
+			</div>
 		</div>
 
 		<div class="footer">
 			<div class="footer-layout">
-				<div class="footer-text">
-					<p>&copy;Jose Vidal</p>
-				</div>
-				<div class="footer-link">
-					<a href="../sitemap.html">Sitemap</a>
-				</div>
+				<div class="footer-text"><p>&copy;Jose Vidal</p></div>
+				<div class="footer-link"><a href="../sitemap.html">Sitemap</a></div>
 				<div class="footer-link">
 					<a href="https://www.linkedin.com/in/vidaljose/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 				</div>
 				<div class="footer-link">
 					<a href="https://github.com/joseVidalJimenez" target="_blank" rel="noopener noreferrer">Github</a>
 				</div>
-				<div class="footer-link">
-					<a href="../contact.html">Contact</a>
-				</div>
-				<div class="footer-text">
-					<p>Designed by: Jose Vidal</p>
-				</div>
+				<div class="footer-link"><a href="../contact.html">Contact</a></div>
+				<div class="footer-text"><p>Designed by: Jose Vidal</p></div>
 			</div>
 		</div>
+
+		<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view">
+			<button class="lightbox__close" aria-label="Close">&times;</button>
+			<img class="lightbox__img" src="" alt="">
+		</div>
+
 	</body>
+	<script>
+		// Lightbox
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = lightbox.querySelector('.lightbox__img');
+
+		document.querySelectorAll('.img-expand-btn').forEach(btn => {
+			btn.addEventListener('click', e => {
+				e.stopPropagation();
+				const img = btn.parentElement.querySelector('img');
+				lightboxImg.src = img.src;
+				lightboxImg.alt = img.alt;
+				lightbox.classList.add('is-open');
+				document.body.style.overflow = 'hidden';
+			});
+		});
+
+		lightbox.addEventListener('click', e => {
+			if (e.target === lightbox || e.target.classList.contains('lightbox__close')) {
+				lightbox.classList.remove('is-open');
+				document.body.style.overflow = '';
+			}
+		});
+
+		document.addEventListener('keydown', e => {
+			if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+				lightbox.classList.remove('is-open');
+				document.body.style.overflow = '';
+			}
+		});
+
+		// YouTube lite-embed
+		document.querySelectorAll('.yt-facade').forEach(el => {
+			el.addEventListener('click', () => {
+				const id = el.dataset.id;
+				const iframe = document.createElement('iframe');
+				iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+				iframe.title = el.querySelector('.yt-thumb').alt;
+				iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+				iframe.allowFullscreen = true;
+				iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:4px;';
+				el.replaceWith(iframe);
+			});
+		});
+	</script>
 </html>
