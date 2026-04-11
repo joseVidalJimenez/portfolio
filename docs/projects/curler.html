@@ -38,7 +38,6 @@
 				height: 100%;
 				width: auto;
 				display: block;
-				object-fit: contain;
 				object-position: bottom center;
 				mix-blend-mode: lighten;
 			}
@@ -56,22 +55,8 @@
 			.section-header {
 				margin-bottom: 1rem;
 			}
-			.section-num {
-				font-family: 'Bebas Neue', sans-serif;
-				font-size: 5rem;
-				line-height: 0.8;
-				color: #cb4444;
-				opacity: 0.18;
-				letter-spacing: 0.04em;
-				display: block;
-				margin-bottom: 0.25rem;
-			}
 			.section-header .section-label {
 				margin-bottom: 0;
-			}
-			.problem-statement h2 {
-				color: #ffffff !important;
-				font-size: 2.6rem;
 			}
 			.problem-statement h2::before {
 				display: none;
@@ -234,8 +219,15 @@
 							<p>I designed barrel geometries across multiple materials, evaluated three heater technologies, ran SolidWorks thermal simulations, and selected EDM as a cost-effective prototyping route. I also designed the electrical contacts and built a custom Scotch-yoke test rig to measure contact resistance across a ~1,000-cycle durability run.</p>
 						</div>
 						<div class="overview-block">
-							<h4>Outcome</h4>
-							<p>Delivered a validated barrel assembly meeting all thermal and durability specifications. The prototype was used directly in the company&rsquo;s first investment run, with a separate freelance phase extending the work to a closed-loop Arduino control board for PTC heating elements.</p>
+							<h4>Skills Applied</h4>
+							<ul style="list-style: none; padding: 0; margin: 0;">
+								<li style="margin-bottom: 0.5rem;">&#10003; Thermal-mechanical design</li>
+								<li style="margin-bottom: 0.5rem;">&#10003; Design for prototyping &amp; low-volume production (EDM workflows)</li>
+								<li style="margin-bottom: 0.5rem;">&#10003; Custom test rig development &amp; embedded automation</li>
+								<li style="margin-bottom: 0.5rem;">&#10003; Data acquisition, sensor integration &amp; Python analysis</li>
+								<li style="margin-bottom: 0.5rem;">&#10003; Materials selection &amp; lifecycle validation</li>
+								<li style="margin-bottom: 0;">&#10003; Mechatronic systems integration (mechanical + electrical + software)</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -513,26 +505,6 @@
 					</div>
 				</div>
 
-				<!-- CAD / TECHNICAL DRAWINGS -->
-				<div class="project-section">
-					<div class="section-header">
-						<span class="section-num">03</span>
-						<span class="section-label">CAD / Technical drawings</span>
-					</div>
-					<h2>CAD &amp; Technical Drawings</h2>
-					<p class="section-intro">Detailed engineering drawings and CAD models documenting the barrel geometry, contact assembly, and end-cap profiles across all material iterations.</p>
-
-					<!-- Placeholder -->
-					<div style="width:100%;aspect-ratio:16/7;background:#e8e8e8;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:0.75rem;">
-						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="3" y="3" width="18" height="18" rx="2"/>
-							<path d="M3 9h18M9 21V9"/>
-						</svg>
-						<p style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#bbb;margin:0;">Technical drawings &mdash; coming soon</p>
-					</div>
-					<p class="media-caption">CAD drawings and dimensional specifications for barrel assembly, contact geometry, and end-cap profiles</p>
-				</div>
-
 				<!-- TECHNICAL ANALYSIS -->
 				<div class="project-section">
 					<div class="section-header">
@@ -636,12 +608,24 @@
 							</div>
 							<p class="media-caption">EDM barrel with spring contacts assembled for thermal cycling tests</p>
 						</div>
-						<div>
-							<div class="img-frame img-frame--wide">
-								<img src="../images/projects/curler/perfomanceTest.png"
+					</div>
+				</div>
+
+				<!-- TEST RIG -->
+				<div class="project-section">
+					<div class="section-header">
+						<span class="section-num">06</span>
+						<span class="section-label">Validation infrastructure — two rigs, two failure modes</span>
+					</div>
+					<h2>Rig 1 — Thermal performance validation</h2>
+					<p class="section-intro">The ST microcontroller arrived pre-programmed by the electrical engineer. Validation required connecting the board to barrel-mounted thermocouples and confirming the closed-loop control delivered the specified heating curve in hardware — bridging the electrical and thermal domains.</p>
+					<div class="deployed-grid" style="align-items: center;">
+						<div style="grid-column: 1 / -1;">
+							<div class="img-frame img-frame--wide" style="aspect-ratio: 3544 / 1912;">
+								<img src="../images/projects/curler/perfomanceTest_2.png"
 								     alt="Thermal performance test data &mdash; temperature vs. time"
 								     class="pair-img"
-								     style="object-fit: contain; background: #fff;" loading="lazy">
+								     style="object-fit: cover;" loading="lazy">
 								<button class="img-expand-btn" aria-label="View full image">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
 									     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -652,109 +636,113 @@
 									</svg>
 								</button>
 							</div>
-							<p class="media-caption">Closed-loop thermal performance test &mdash; temperature vs. time at target setpoint</p>
+							<p class="media-caption">Closed-loop thermal response — barrel temperature vs. time at target setpoint. Confirms control stability and ramp rate within spec.</p>						<div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+							<div style="flex:1;min-width:180px;background:#f9f9f9;border-radius:8px;padding:0.85rem 1.1rem;border-left:3px solid #cb4444;">
+								<p style="margin:0;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:#888;">Time to steady state</p>
+								<p style="margin:0.3rem 0 0;font-size:1.15rem;font-weight:600;color:#111;">~230 s</p>
+							</div>
+							<div style="flex:1;min-width:180px;background:#f9f9f9;border-radius:8px;padding:0.85rem 1.1rem;border-left:3px solid #cb4444;">
+								<p style="margin:0;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:#888;">Setpoint</p>
+								<p style="margin:0.3rem 0 0;font-size:1.15rem;font-weight:600;color:#111;">180°C — no overshoot</p>
+							</div>
+						</div>						</div>
+						<div class="deployed-text">
+							<ul style="list-style:none;padding:0;margin:0;">
+								<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#000;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10003;</span><span>Connected the ST board to thermocouples positioned on the barrel</span></li>
+								<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#000;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10003;</span><span>Logged temperature vs. time against the target setpoint</span></li>
+								<li style="display:flex;gap:0.6rem;color:#000;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10003;</span><span>Confirmed the control loop was stable and hit target within spec</span></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 
-				<!-- TEST RIG -->
 				<div class="project-section">
-					<div class="section-header">
-						<span class="section-num">06</span>
-						<span class="section-label">Lifecycle test rig</span>
-					</div>
-					<h2>Lifecycle Test Rig</h2>
-					<p class="section-intro">Contact resistance drift over repeated insertion cycles was the key durability risk &mdash; a bespoke rig was designed to quantify it under controlled, repeatable conditions.</p>
-					<div class="img-frame img-frame--wide" style="margin-bottom: 12px;">
-						<img src="../images/projects/curler/testRig.png"
-						     alt="Scotch-yoke lifecycle test rig for connector durability"
-						     class="pair-img"
-						     style="object-fit: cover; object-position: bottom;" loading="lazy">
-						<button class="img-expand-btn" aria-label="View full image">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-							     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-								<polyline points="15 3 21 3 21 9"></polyline>
-								<polyline points="9 21 3 21 3 15"></polyline>
-								<line x1="21" y1="3" x2="14" y2="10"></line>
-								<line x1="3" y1="21" x2="10" y2="14"></line>
-							</svg>
-						</button>
-					</div>
-					<p class="media-caption" style="margin-bottom: 28px;">Scotch-yoke test rig &mdash; full assembly</p>
+					<h2>Rig 2 — Connector reliability: 1,024-cycle automated test</h2>
+					<p class="section-intro">A separate rig was built to isolate connector degradation — critical to long-term reliability.</p>
 
-					<div class="deployed-grid" style="margin-bottom: 36px; align-items: start;">
+					<!-- Architecture diagram — full width -->
+					<p class="section-label" style="margin-top: 2rem; margin-bottom: 0.5rem;">System Architecture Diagram</p>
+					<div style="background: #f9f9f9; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; overflow: auto;">
+						<img src="../diagrams/curler-test-rig.svg"
+						     alt="System architecture diagram showing top-aligned motor drive and Raspberry Pi control units with feedback measurement below"
+						     width="900" height="448"
+						     style="display: block; width: 100%; height: auto; min-width: 560px; aspect-ratio: 225/112;">
+					</div>
+
+					<!-- Scotch-yoke photo 40% | Subsystem text 60% -->
+					<div style="display: grid; grid-template-columns: 50fr 50fr; gap: 1.5rem; align-items: start; margin-bottom: 2rem;">
 						<div>
 							<div class="img-frame img-frame--wide">
-								<div class="yt-facade" data-id="lDezHJQADn4">
-									<img src="https://i.ytimg.com/vi/lDezHJQADn4/hqdefault.jpg"
-									     alt="Rig in motion &mdash; simulated lifecycle sequence" class="yt-thumb">
-									<span class="yt-play">&#9654;</span>
-								</div>
+								<img src="../images/projects/curler/testRig.png"
+								     alt="Scotch-yoke lifecycle test rig for connector durability"
+								     class="pair-img"
+								     style="object-fit: cover; object-position: bottom;" loading="lazy">
+								<button class="img-expand-btn" aria-label="View full image">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<polyline points="15 3 21 3 21 9"></polyline>
+										<polyline points="9 21 3 21 3 15"></polyline>
+										<line x1="21" y1="3" x2="14" y2="10"></line>
+										<line x1="3" y1="21" x2="10" y2="14"></line>
+									</svg>
+								</button>
 							</div>
-							<p class="media-caption">Rig in motion &mdash; simulated lifecycle sequence</p>
+							<p class="media-caption">Scotch-yoke test rig &mdash; full assembly</p>
 						</div>
-						<div>
-							<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin-bottom: 1rem;">Measurement results</p>
-							<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem;">
-								<div style="background: #fff; border-radius: 8px; padding: 0.875rem 0.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
-									<div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; line-height: 1; color: #111; margin-bottom: 0.3rem;">1,042</div>
-									<div style="font-size: 0.6rem; color: #888; text-transform: uppercase; letter-spacing: 0.07em;">cycles run</div>
-								</div>
-								<div style="background: #fff; border-radius: 8px; padding: 0.875rem 0.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
-									<div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; line-height: 1; color: #111; margin-bottom: 0.3rem;">2</div>
-									<div style="font-size: 0.6rem; color: #888; text-transform: uppercase; letter-spacing: 0.07em;">connector pairs</div>
-								</div>
-								<div style="background: #fff; border-radius: 8px; padding: 0.875rem 0.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
-									<div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; line-height: 1; color: #cb4444; margin-bottom: 0.3rem;">&le;0.2&thinsp;&Omega;</div>
-									<div style="font-size: 0.6rem; color: #888; text-transform: uppercase; letter-spacing: 0.07em;">peak drift</div>
-								</div>
+						<div style="display: flex; flex-direction: column; gap: 1.25rem;">
+							<div>
+								<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin: 0 0 0.35rem 0;">Actuation</p>
+								<p style="font-size: 0.88rem; color: #333; margin: 0; line-height: 1.6;">Scotch-yoke mechanism converts motor rotation to consistent linear stroke &mdash; no encoder or position feedback required.</p>
 							</div>
-							<table style="width: 100%; border-collapse: collapse; font-size: 0.78rem;">
-								<thead>
-									<tr>
-										<th style="text-align: left; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">#</th>
-										<th style="text-align: right; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">Cycles</th>
-										<th style="text-align: right; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">Pair A (&Omega;)</th>
-										<th style="text-align: right; padding: 0.4rem 0.25rem; color: #888; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #e0e0e0;">Pair B (&Omega;)</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">1</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">2</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">3</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">105</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">4</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">101</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">5</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">102</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">6</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">105</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">7</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;border-bottom:1px solid #f0f0f0;">9.9</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">8</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">105</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.2</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.1</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;border-bottom:1px solid #f0f0f0;">9</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;border-bottom:1px solid #f0f0f0;">104</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.2</td><td style="padding:0.32rem 0.25rem;text-align:right;font-weight:500;color:#cb4444;border-bottom:1px solid #f0f0f0;">10.1</td></tr>
-									<tr><td style="padding:0.32rem 0.25rem;color:#555;">10</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#555;">108</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;">10.0</td><td style="padding:0.32rem 0.25rem;text-align:right;color:#111;">9.9</td></tr>
-								</tbody>
-								<tfoot>
-									<tr style="border-top: 2px solid #ddd;">
-										<td colspan="2" style="padding: 0.5rem 0.25rem; font-weight: 600; color: #111;">Total: 1,042 cycles</td>
-										<td colspan="2" style="padding: 0.5rem 0.25rem; text-align: right; font-size: 0.7rem; color: #2a7a2a; font-weight: 500;">No degradation detected</td>
-									</tr>
-								</tfoot>
-							</table>
+							<div>
+								<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin: 0 0 0.35rem 0;">Control &amp; Logging</p>
+								<p style="font-size: 0.88rem; color: #333; margin: 0; line-height: 1.6;">Raspberry Pi triggers each cycle, records resistance across the connector, and writes timestamped values to CSV and serial monitor.</p>
+							</div>
+							<div>
+								<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin: 0 0 0.35rem 0;">Test Protocol</p>
+								<p style="font-size: 0.88rem; color: #333; margin: 0; line-height: 1.6;">Resistance variation stayed within ±0.2% across all 1,024 cycles — no connector degradation detected.</p>
+							</div>
 						</div>
+					</div>
+
+					<div style="margin-bottom: 36px;">
+						<div class="img-frame img-frame--wide">
+							<div class="yt-facade" data-id="lDezHJQADn4">
+								<img src="https://i.ytimg.com/vi/lDezHJQADn4/hqdefault.jpg"
+								     alt="Rig in motion &mdash; simulated lifecycle sequence" class="yt-thumb">
+								<span class="yt-play">&#9654;</span>
+							</div>
+						</div>
+						<p class="media-caption">Rig in motion &mdash; simulated lifecycle sequence</p>
 					</div>
 
 					<div class="elec-grid">
 						<div class="elec-card">
-							<h4>Scotch Yoke Mechanism</h4>
-							<p>A Scotch yoke converts motor rotation into linear sliding motion, replicating the insertion and withdrawal kinematics of the barrel connector. This ensures each cycle follows an identical displacement profile, eliminating variability that would obscure wear data.</p>
+							<h4>Control &amp; Actuation</h4>
+							<ul style="padding-left: 1.1rem; margin: 0; color: #555; font-size: 0.88rem; line-height: 1.7;">
+								<li>DC motor with PWM speed control for consistent insertion force and cycle timing</li>
+								<li>Motor driver circuit (H-bridge) for bidirectional control and current protection</li>
+								<li>Raspberry Pi as the central controller orchestrating motion, sensing, and data logging</li>
+							</ul>
 						</div>
 						<div class="elec-card">
-							<h4>Data Logging</h4>
-							<p>Micro switches track cumulative cycle count. A Raspberry Pi logs contact resistance via a four-point measurement at approximately every 100-cycle interval, streaming data to a connected computer in real time. This produced a continuous resistance-vs.-cycles dataset across the full ~1,000-cycle run.</p>
+							<h4>Sensing &amp; Feedback</h4>
+							<ul style="padding-left: 1.1rem; margin: 0; color: #555; font-size: 0.88rem; line-height: 1.7;">
+								<li>Limit switch at cycle completion point for position feedback</li>
+								<li>Software debouncing algorithm to ensure accurate cycle counting despite mechanical contact bounce</li>
+								<li>4-wire resistance measurement across contacts to detect degradation in real-time</li>
+							</ul>
 						</div>
 						<div class="elec-card">
-							<h4>Contacts &amp; Current Path</h4>
-							<p>Brass contacts replicate the production connector geometry and carry live current throughout each cycle. Four-point (Kelvin) resistance measurement eliminates lead resistance from the reading, isolating degradation at the contact interface itself.</p>
+							<h4>Data Pipeline</h4>
+							<ul style="padding-left: 1.1rem; margin: 0; color: #555; font-size: 0.88rem; line-height: 1.7;">
+								<li>Python script on Raspberry Pi logs cycle count, timestamps, and resistance values to CSV</li>
+								<li>Automated test termination after target cycles or if resistance exceeds threshold</li>
+								<li>Real-time visualization of resistance drift to catch failures early</li>
+							</ul>
 						</div>
 					</div>
-					<p class="elec-closing">The rig produced the first objective, cycle-resolved evidence that the connector design met the product&rsquo;s durability requirement.</p>
+
 				</div>
 
 				<!-- SMALL BATCH ASSEMBLY -->
@@ -785,39 +773,6 @@
 					<p class="media-caption">Assembly line &mdash; batch production</p>
 				</div>
 
-				<!-- CONTROL BOARD -->
-				<div class="project-section">
-					<div class="section-header">
-						<span class="section-num">08</span>
-						<span class="section-label">Closed-loop control board</span>
-					</div>
-					<h2>Closed-Loop Control Board</h2>
-					<div class="deployed-grid" style="align-items: stretch;">
-						<div style="position: relative; overflow: hidden; border-radius: 10px;
-						            box-shadow: 0 4px 22px rgba(0,0,0,0.13); background: #fff; min-height: 240px;">
-							<img src="../images/projects/curler/perfomanceTest.png"
-							     alt="Closed-loop temperature control &mdash; logged output at target setpoint"
-							     style="position: absolute; inset: 0; width: 100%; height: 100%;
-							            object-fit: contain; object-position: center; background: #fff; display: block;"
-							     loading="lazy">
-							<button class="img-expand-btn" aria-label="View full image">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-								     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="15 3 21 3 21 9"></polyline>
-									<polyline points="9 21 3 21 3 15"></polyline>
-									<line x1="21" y1="3" x2="14" y2="10"></line>
-									<line x1="3" y1="21" x2="10" y2="14"></line>
-								</svg>
-							</button>
-						</div>
-						<div class="deployed-text">
-							<p>A separate freelance phase extended the project to electronics: prototyping a control board for AC heating elements in both Metal Ceramic and PTC configurations. An Arduino was programmed with a closed-loop on/off control algorithm using hysteresis to prevent rapid switching around the setpoint.</p>
-							<p>A Solid State Relay (SSR) driver handled AC switching, a potentiometer set the target temperature, and a TFT LCD provided real-time feedback. Temperature data was logged via serial communication, producing a timestamped record for tuning the hysteresis band and diagnosing drift.</p>
-							<p>Applying the same control logic to both heater types confirmed the board&rsquo;s adaptability across technologies &mdash; the prototype was used directly in the client&rsquo;s first investment run.</p>
-						</div>
-					</div>
-				</div>
-
 				<!-- KEY INNOVATION -->
 				<div class="project-section">
 					<div class="section-header">
@@ -826,9 +781,12 @@
 					</div>
 					<h2>Engineering Highlights</h2>
 					<div class="innovation-body">
-						<p>The most significant constraint in the project was the gap between prototyping cost and production geometry. Extrusion &mdash; the intended mass-production process for the barrel &mdash; requires dedicated tooling that makes small-batch prototyping economically unviable. The insight was that EDM can replicate extrusion profiles on single parts without dies, producing prototype barrels that are geometrically equivalent to production parts rather than approximations of them. All thermal and mechanical validation was therefore performed on parts that matched the final manufacturing intent.</p>
-						<p>The test rig addressed an equivalent gap on the durability side. Contact resistance measurements taken by hand at arbitrary intervals would not have resolved the degradation profile with enough fidelity to confirm or reject the connector design with confidence. The Scotch-yoke rig automated that process, reducing human variability from the measurement while producing a continuous dataset across the full lifecycle range. Four-point resistance measurement isolated the contact interface from lead and fixture resistance, so the data reflected only the degradation mechanism being evaluated.</p>
-						<p>Together, both decisions replaced assumptions with measurements &mdash; using the right manufacturing analogue for prototype parts, and the right measurement method for durability data.</p>
+						<p>&#x1F539; <strong>Scalable Prototyping is Key</strong><br>
+						I learned that low-volume prototyping often fails when it doesn&rsquo;t align with mass production realities. My solution was to use EDM not just as a &ldquo;quick fix,&rdquo; but as a strategic bridge. By cutting profiles that mimic extrusion, I created a part that functioned immediately for testing and validated the geometry for future extrusion tooling. This ensures that the design isn&rsquo;t just a prototype&mdash;it&rsquo;s a scalable product roadmap.</p>
+						<p>&#x1F539; <strong>Trade-offs</strong><br>
+						Copper conducts heat significantly better than aluminum, but it is also nearly 3x heavier. This project taught me that the &ldquo;right&rdquo; material isn&rsquo;t the one with the best spec sheet; it&rsquo;s the one that balances thermal performance with user experience. I learned to prioritize system-level optimization over individual component perfection.</p>
+						<p>&#x1F539; <strong>Test Rig</strong><br>
+						Addressed an equivalent gap on the durability side. Contact resistance measurements taken by hand at arbitrary intervals would not have resolved the degradation profile with enough fidelity to confirm or reject the connector design with confidence.</p>
 					</div>
 				</div>
 
