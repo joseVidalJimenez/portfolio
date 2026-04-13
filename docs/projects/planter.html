@@ -9,62 +9,143 @@
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/project.css">
 	</head>
+
 	<body>
 		<div class="navbar">
 			<div class="navbar-layout">
-			  <div class="navbar-icon">
-				<img src="../images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
-			  </div>
-			  <div class="navbar-name">
-				José Vidal
-			  </div>
-			  <div class="navbar-menu">
-				<a href="../index.html">Home</a>
-				<a href="../portfolio.html">Portfolio</a>
-				<a href="../hobbies.html">Hobbies</a>
-				<a href="../journal.html">Journal</a>
-				<a href="../about.html">About</a>
-				<a href="../contact.html">Contact</a>
-			  </div>
+				<div class="navbar-icon">
+					<img src="../images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
+				</div>
+				<div class="navbar-name">José Vidal</div>
+				<div class="navbar-menu">
+					<a href="../index.html">Home</a>
+					<a href="../portfolio.html">Portfolio</a>
+					<a href="../hobbies.html">Hobbies</a>
+					<a href="../journal.html">Journal</a>
+					<a href="../about.html">About</a>
+					<a href="../contact.html">Contact</a>
+				</div>
 			</div>
 		</div>
 
-			<div class="project-hero">
-				<img src="../images/thumbnails/planter.webp" alt="Targeted Irrigation System">
-			</div>
-		<div class="project-container">
-			<h2>Targeted Irrigation System</h2>
-			<div class="project-section">
-				<div class="text">
-					<p><b>Company:</b> Invireo</p>
-					<p><b>Description:</b> Designed an indoor targeted irrigation system featuring a motorised arm with 2D movement across a planting area. The system was intended to differentially irrigate sections of the planting area based on the specific water needs of various plants.</p>
-					<p><b>My Role:</b> I designed the Cartesian mechanism that moved the arm over the planting area. The main challenge was fitting all components, including motors, within an already designed case. This required multiple iterations to merge parts into fewer components, following TRIZ Principle #6: Universality. Additionally, I minimised the mechanism's footprint to maximise the planting area.</p>
-					<p><b>Outcome:</b> Successfully developed a compact and efficient irrigation system that met the project's goals.</p>
+		<div class="project-hero">
+			<div class="project-hero__inner">
+				<div class="project-hero__text">
+					<span class="project-hero__label">Mechatronic Design &middot; Invireo &middot; 2021</span>
+					<h1 class="project-hero__title">Targeted Irrigation System</h1>
+					<p class="project-hero__tagline">Compact Cartesian Mechanism for Automated Indoor Planter</p>
 				</div>
+				<div class="project-hero__img-wrap">
+					<img src="../images/thumbnails/planter.webp" alt="Targeted Irrigation System" class="project-hero__img">
+				</div>
+			</div>
+		</div>
+
+		<div class="project-body">
+			<div class="project-container">
+
+				<div class="project-section">
+					<div class="overview-grid">
+						<div class="overview-block">
+							<h4>Description</h4>
+							<p>Designed an indoor targeted irrigation system featuring a motorised arm with 2D movement across a planting area. The system differentially irrigates sections based on the specific water needs of various plants.</p>
+						</div>
+						<div class="overview-block">
+							<h4>My Role</h4>
+							<p>Designed the compact Cartesian mechanism, fitting all components (including motors) within a constrained case. Iterated to merge parts, following TRIZ Principle #6: Universality, and minimised the mechanism's footprint to maximise planting area.</p>
+						</div>
+						<div class="overview-block">
+							<h4>Outcome</h4>
+							<p>Successfully developed a compact and efficient irrigation system that met the project's goals for Invireo.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-section">
+					<h2>Design Overview</h2>
+					<div class="image-pair">
+						<div>
+							<div class="img-frame img-frame--portrait">
+								<img src="../images/projects/planter/planter_cad.webp" alt="Planter CAD assembly" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
+							</div>
+							<p class="media-caption">CAD assembly of the mechanism</p>
+						</div>
+						<div>
+							<div class="img-frame img-frame--portrait">
+								<img src="../images/projects/planter/planter_real.webp" alt="Planter real prototype" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
+							</div>
+							<p class="media-caption">Physical prototype in operation</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-section">
+					<h2>Mechanical Analysis</h2>
+					<div class="analysis-grid">
+						<div class="analysis-card">
+							<h4>1. Cartesian Motion</h4>
+							<p>The arm moves in two axes (X and Y) to reach any point in the planting area, enabling targeted irrigation for each plant.</p>
+						</div>
+						<div class="analysis-card">
+							<h4>2. Compact Integration</h4>
+							<p>All motors and drive components are integrated within the planter's case, maximising usable planting area and minimising mechanical footprint.</p>
+						</div>
+						<div class="analysis-card">
+							<h4>3. Modular Design</h4>
+							<p>Mechanism was iteratively refined to merge parts and reduce assembly complexity, improving reliability and manufacturability.</p>
+						</div>
+						<div class="analysis-card">
+							<h4>4. TRIZ Principle #6</h4>
+							<p>Applied universality by designing components to serve multiple functions, reducing part count and simplifying the system.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-section">
+					<h2>Prototyping Process</h2>
+					<ol class="proto-steps">
+						<li>Initial sketches and mechanism layout to confirm feasibility within the available case volume.</li>
+						<li>Cardboard and 3D-printed mockups to test movement and fit of all components.</li>
+						<li>CAD modelling and rapid prototyping to refine tolerances and part integration.</li>
+						<li>Final assembly and functional testing with live plants to validate irrigation coverage and reliability.</li>
+					</ol>
+					<div class="image-pair">
+						<div>
+							<div class="img-frame img-frame--wide">
+								<img src="../images/projects/planter/planter_proto.webp" alt="Planter prototype" class="pair-img" loading="lazy">
+							</div>
+							<p class="media-caption">Prototype mechanism</p>
+						</div>
+						<div>
+							<div class="img-frame img-frame--wide">
+								<img src="../images/projects/planter/planter_inuse.webp" alt="Planter in use" class="pair-img" loading="lazy">
+							</div>
+							<p class="media-caption">System in use with plants</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-cta">
+					<div class="project-cta__text">
+						<h3>Explore more projects</h3>
+						<p>See the full range of mechanical and product design work in the portfolio.</p>
+					</div>
+					<a href="../portfolio.html" class="project-cta__btn">Back to Portfolio &rarr;</a>
+				</div>
+
 			</div>
 		</div>
 
 		<div class="footer">
 			<div class="footer-layout">
-				<div class="footer-text">
-					<p>&copy;Jose Vidal</p>
-				</div>
-				<div class="footer-link">
-					<a href="../sitemap.html">Sitemap</a>
-				</div>
-				<div class="footer-link">
-					<a href="https://www.linkedin.com/in/vidaljose/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-				</div>
-				<div class="footer-link">
-					<a href="https://github.com/joseVidalJimenez" target="_blank" rel="noopener noreferrer">Github</a>
-				</div>
-				<div class="footer-link">
-					<a href="../contact.html">Contact</a>
-				</div>
-				<div class="footer-text">
-					<p>Designed by: Jose Vidal</p>
-				</div>
+				<div class="footer-text"><p>&copy;Jose Vidal</p></div>
+				<div class="footer-link"><a href="../sitemap.html">Sitemap</a></div>
+				<div class="footer-link"><a href="https://www.linkedin.com/in/vidaljose/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+				<div class="footer-link"><a href="https://github.com/joseVidalJimenez" target="_blank" rel="noopener noreferrer">Github</a></div>
+				<div class="footer-link"><a href="../contact.html">Contact</a></div>
+				<div class="footer-text"><p>Designed by: Jose Vidal</p></div>
 			</div>
 		</div>
+
 	</body>
-</html>
+	</html>
