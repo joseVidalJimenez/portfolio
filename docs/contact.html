@@ -8,52 +8,59 @@
 		<meta name="description" content="Contact José Vidal, design engineer based in London.">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
-	<body>
+	<body style="background: #f2f2f2; color: #111; font-family: 'DM Sans', Arial, sans-serif;">
 		<div class="navbar">
 			<div class="navbar-layout">
-			  <div class="navbar-icon">
-				<img src="images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
-			  </div>
-			  <div class="navbar-name">
-				<a>Jose Vidal</a>
-			  </div>
-			  <div class="navbar-menu">
-				<a href="index.html">Home</a>
-				<a href="portfolio.html">Portfolio</a>
-				<a href="hobbies.html">Hobbies</a>
-				<a href="journal.html">Journal</a>
-				<a href="about.html">About</a>
-				<a href="contact.html">Contact</a>
-			  </div>
+				<div class="navbar-icon">
+					<img src="images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
+				</div>
+				<div class="navbar-name">Jose Vidal</div>
+				<div class="navbar-menu">
+					<a href="index.html">Home</a>
+					<a href="portfolio.html">Portfolio</a>
+					<a href="hobbies.html">Hobbies</a>
+					<a href="journal.html">Journal</a>
+					<a href="about.html">About</a>
+					<a href="contact.html">Contact</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="container">
-			<form id="contactForm">
-
-				<!-- Web3Forms access key - does not expose your email -->
-				<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-				<input type="hidden" name="subject" value="New message from Portfolio Contact Page">
-				<input type="hidden" name="from_name" value="Jose Vidal Portfolio">
-				<!-- Honeypot spam protection -->
-				<input type="checkbox" name="botcheck" style="display:none">
-		  
-				<label for="name">Name</label>
-				<input type="text" id="name" placeholder="Your name.." name="name" required>
-
-				<label for="email">Email:</label>
-				<input type="email" id="email" placeholder="Your email.." name="email" required>
-
-				<label for="message">Message</label>
-				<textarea id="message" name="message" placeholder="Tell me all abouit it.." style="height:200px"></textarea>
-
-				<input type="submit" value="Submit">
-		  
-			</form>
+		<div class="project-hero" style="background: #111; color: #fff; padding: 110px 0 64px; margin-bottom: 0;">
+			<div class="project-hero__inner" style="max-width: 700px; margin: 0 auto; padding: 0 48px; display: flex; flex-direction: column; align-items: flex-start;">
+				<span class="project-hero__label" style="color: #cb4444; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;">Contact</span>
+				<h1 class="project-hero__title" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 400; color: #fff; margin: 0 0 20px;">Get in Touch</h1>
+				<p class="project-hero__tagline" style="color: #aaa; font-size: 1.1rem; max-width: 520px; margin: 0;">Send a message to José Vidal. I’ll get back to you as soon as possible.</p>
+			</div>
 		</div>
-		  
+
+		<div class="project-body" style="background: #f2f2f2; padding: 72px 0 96px;">
+			<div class="project-container" style="max-width: 520px; margin: 0 auto; padding: 0 24px;">
+				<div class="project-section" style="margin-bottom: 0;">
+					<form id="contactForm" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 14px rgba(0,0,0,0.07); padding: 36px 32px 28px 32px; display: flex; flex-direction: column; gap: 18px;">
+						<!-- Web3Forms access key - does not expose your email -->
+						<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+						<input type="hidden" name="subject" value="New message from Portfolio Contact Page">
+						<input type="hidden" name="from_name" value="Jose Vidal Portfolio">
+						<!-- Honeypot spam protection -->
+						<input type="checkbox" name="botcheck" style="display:none">
+
+						<label for="name" style="font-weight: 600; color: #cb4444;">Name</label>
+						<input type="text" id="name" placeholder="Your name.." name="name" required style="padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+
+						<label for="email" style="font-weight: 600; color: #cb4444;">Email</label>
+						<input type="email" id="email" placeholder="Your email.." name="email" required style="padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+
+						<label for="message" style="font-weight: 600; color: #cb4444;">Message</label>
+						<textarea id="message" name="message" placeholder="Tell me all about it.." style="height: 140px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;"></textarea>
+
+						<input type="submit" value="Submit" style="background: #cb4444; color: #fff; font-weight: 700; border: none; border-radius: 6px; padding: 14px 0; font-size: 1.1rem; cursor: pointer; transition: background 0.2s;">
+					</form>
+				</div>
+			</div>
+		</div>
+
 		<script src="./scripts/contact.js"></script>
-		  
 
 		<div class="footer">
 			<div class="footer-layout">
@@ -61,13 +68,13 @@
 					<p>&copy;Jose Vidal</p>
 				</div>
 				<div class="footer-link">
-					<a href="#">Sitemap</a>
+					<a href="sitemap.html">Sitemap</a>
 				</div>
 				<div class="footer-link">
-					<a href="#">LinkedIn</a>
+					<a href="https://www.linkedin.com/in/vidaljose/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 				</div>
 				<div class="footer-link">
-					<a href="#">Github</a>
+					<a href="https://github.com/joseVidalJimenez" target="_blank" rel="noopener noreferrer">Github</a>
 				</div>
 				<div class="footer-link">
 					<a href="mailto:example@example.com">Email</a>
