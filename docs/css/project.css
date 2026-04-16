@@ -365,6 +365,24 @@
     margin: 0;
 }
 
+/* ── Subsection titles (h3 within project sections) ─────────────────────── */
+
+.subsection-title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: #cb4444;
+    margin: 44px 0 20px;
+}
+
+/* ── Asymmetric image pair (wider left column) ───────────────────────────── */
+
+.image-pair--asymmetric {
+    grid-template-columns: 3fr 2fr;
+}
+
 /* ── Closing CTA ─────────────────────────────────────────────────────────── */
 
 .project-cta {
@@ -554,6 +572,10 @@
     }
 
     .image-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .image-pair--asymmetric {
         grid-template-columns: 1fr;
     }
 
