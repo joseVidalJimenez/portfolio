@@ -2,12 +2,21 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>WombleBot &mdash; RC Car &ndash; José Vidal</title>
+			<title>WombleBot &ndash; José Vidal</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<meta name="description" content="WombleBot — a personal RC car project built from scrap by José Vidal.">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/project.css">
+			<style>
+				.project-grid--bom { display: grid; grid-template-columns: 1fr 360px; gap: 2em; align-items: start; }
+				.project-grid--bom > div:nth-child(2) { align-self: center; }
+				@media (max-width: 720px) {
+					.project-grid--bom { grid-template-columns: 1fr; }
+					.project-grid--bom img { max-width: 80%; margin: 0 auto; display: block; }
+					.project-grid--bom > div:nth-child(2) { align-self: stretch; }
+				}
+			</style>
 	</head>
 
 	<body>
@@ -32,11 +41,11 @@
 			<div class="project-hero__inner">
 				<div class="project-hero__text">
 					<span class="project-hero__label">Personal Project &middot; 2021</span>
-					<h1 class="project-hero__title">WombleBot — RC Car</h1>
-					<p class="project-hero__tagline">A fully functional RC car built entirely from scavenged scrap parts — a hands-on journey in electronics, motor control, and resourceful engineering.</p>
+					<h1 class="project-hero__title">WombleBot</h1>
+					<p class="project-hero__tagline">"Resourcefulness promotes creativity — an exercise to remember."</p>
 				</div>
 				<div class="project-hero__img-wrap">
-					<img src="../images/thumbnails/RC_car.webp" alt="WombleBot &mdash; RC Car" class="project-hero__img">
+						<img src="../images/thumbnails/RC_car.webp" alt="WombleBot" class="project-hero__img">
 				</div>
 			</div>
 		</div>
@@ -44,22 +53,88 @@
 		<div class="project-body">
 			<div class="project-container">
 				<div class="project-section">
-					<div class="overview-grid">
-						<div class="overview-block">
-							<h4>Description</h4>
-							<p>Built my first RC car entirely from scavenged scrap parts — code-named "WombleBot" after the Wombles, who famously make use of things left behind. The project served as a hands-on introduction to vehicle electronics, motor control, and chassis design.</p>
+					<p>Built from scavenged scrap — code-named after the Wombles, who famously make good use of things left behind. A hands-on introduction to RC vehicle electronics, motor control, and chassis design, built entirely from what was already there.</p>
+				</div>
+				<!-- Ordered project sections -->
+					<div class="project-section">
+						<h2>The Premise</h2>
+						<p>Most engineers reach for the good parts first. A proper chassis, the right motors, a clean PCB. But early in a project, that's often the wrong move — you're spending on answers to questions you haven't asked yet. And beyond the cost, there's the turnaround: waiting for parts, waiting for the 3D printer, waiting for delivery. Every wait pulls you out of the creative flow, and by the time the parts arrive, the thinking has gone cold.</p>
+						<p>A junior designer once asked me how to improve his 3D printed prototypes. My answer: Made them in cardboard.</p>
+						<p>There's something that only a physical object gives you — even a rough one. CAD is powerful, but it's easy to build false confidence in a model: arrangements that look resolved on screen but don't hold up in space, or designs that stall because you're trying to figure out parts you haven't made yet. A scrap prototype cuts through that. It's tangible, immediate, and honest. It doesn't need to be finished — it needs to be real enough to be wrong. That's the point. The prototype is the trigger, not the output. Your first feasibility check shouldn't be a render — it should be something you can hold.</p>
+						<p>WombleBot was that same principle applied deliberately. RC control was a domain I wanted to explore — and rather than buying a kit and following instructions, I wanted to find out for myself what actually makes a car move and steer. Scrap parts, fast failure, no shortcuts.</p>
+						<p>The constraint wasn't a limitation. It was the method.</p>
+					</div>
+				<div class="project-section">
+					<h2>WHAT I STARTED WITH</h2>
+					<p>No kit. No budget. Just a pile of things that were already there.</p>
+					<!-- images removed per request -->
+					<div class="project-grid--bom">
+						<div>
+							<p>The full bill of materials:</p>
+							<ul>
+								<li>2× ESCs — £2</li>
+								<li>20-year-old 1.3v rechargeable batteries</li>
+								<li>6-year-old scrap PLA filament (quality guaranteed)</li>
+								<li>Servo — £1.78</li>
+								<li>Deluxe masking tape</li>
+								<li>Improvised wiring harness</li>
+								<li>Premium Royal Mail elastic bands</li>
+								<li>Upcycled Canon laser printer motors</li>
+								<li>Recycled soda can</li>
+							</ul>
+							<p>Total cost: approximately the price of a coffee.</p>
 						</div>
-						<div class="overview-block">
-							<h4>My Role</h4>
-							<p>Sourced and repurposed scrap components, designed and assembled the chassis, wired the drive electronics, and programmed the control system. Every part of the build was improvised from available materials.</p>
+						<div style="text-align: center;">
+							<img src="../images/projects/rc_car/cad_drawing.png" alt="CAD drawing showing design thinking behind the assembly" style="max-width: 100%; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
 						</div>
-						<div class="overview-block">
-							<h4>Outcome</h4>
-							<p>A fully functional RC car built from scrap, demonstrating that working systems can be built resourcefully. A practical exercise in electronics integration, problem-solving, and making things work with constraints.</p>
+					</div>
+					<p>The CAD was minimal — the chassis uses a Meccano-style pattern so parts could shift as the build evolved. Printed from scavenged filament, assembled with whatever held.</p>
+				</div>
+				<div class="project-section">
+					<h2>VIDEO DEMO</h2>
+					<p>See it run. First lap, fully manual RC control — and a fitting end for a car built from scrap.</p>
+					<div style="text-align: center; margin: 2em 0;">
+						<div class="img-frame img-frame--wide" style="max-width: 880px; margin: 0 auto; position: relative;">
+							<div class="yt-facade" data-id="kbmMrDGLm3E">
+								<img src="https://i.ytimg.com/vi/kbmMrDGLm3E/hqdefault.jpg" alt="WombleBot RC Car Demo" class="yt-thumb" loading="lazy">
+								<span class="yt-play">&#9654;</span>
+							</div>
 						</div>
 					</div>
 				</div>
-				<!-- Additional sections (e.g., process, analysis, images) can be added here for further detail, following the curler/backpack structure -->
+				<div class="project-section">
+					<h2>HOW IT WORKS</h2>
+					<p>The control system follows a straightforward signal chain. A standard RC transmitter sends two signals wirelessly to the receiver onboard the car — one for throttle, one for steering.</p>
+					<p>The throttle signal goes to the ESC (Electronic Speed Controller), which translates it into regulated power from the batteries to the drive motors. The steering signal goes directly to the servo, which handles the front wheel direction mechanically.</p>
+					<p>That's it. No microcontroller, no code. The simplicity was deliberate — the goal was to understand the fundamentals of RC control with the fewest possible layers in between.</p>
+					<div style="text-align: center; margin: 2em 0;">
+						<img src="../diagrams/rc_vehicle_diagram_2.svg" alt="RC Vehicle Control System Diagram" style="max-width: 80%; height: auto;">
+					</div>
+				</div>
+				
+				<div class="project-section">
+					<h2>WHAT I LEARNED</h2>
+					<p>The most honest measure of a prototype is what it surprises you with.</p>
+					<p>Before WombleBot, I had never paired a transmitter and receiver — the radio control side was entirely new territory. Working through it hands-on, including designing the servo gear adapter and understanding how front steering geometry actually translates signal into movement, was more instructive than any tutorial.</p>
+					<p>I also learned there are two fundamentally different approaches to steering an RC vehicle — front wheel steering and tank drive. WombleBot uses front steering, which meant thinking about geometry, servo throw, and linkage in a way tank drive simply doesn't require. That distinction only became real once something physical existed to steer.</p>
+					<p>But the two biggest surprises were simpler than any of that. First — how easy it was to connect everything. The signal chain from transmitter to ESC to motor is remarkably straightforward once you stop overthinking it. Second — the 20-year-old batteries worked. Voltage was visibly off, the motors felt it, but the car moved. That alone confirmed the point: you need less than you think to test whether something works.</p>
+				</div>
+				<div class="project-section">
+					<h2>What's Next</h2>
+					<p>WombleBot wasn't the destination — the approach is. The next build is a deliberate step up.</p>
+					<h4>Hardware:</h4>
+					<ul>
+						<li>Replace the printer motors with proper geared DC motors — consistent torque, predictable behaviour</li>
+						<li>Switch to a LiPo battery pack — the kind used in standard RC cars, lighter and with reliable discharge</li>
+						<li>Redesign the chassis for structural rigidity and cleaner electronics integration — less tape, more intent</li>
+					</ul>
+					<h4>Methodology:</h4>
+					<ul>
+						<li>WombleBot proved the concept with what was available</li>
+						<li>The next build asks a different question: given proper parts, how much better can it get?</li>
+					</ul>
+					<p>The prototype told you what the design needed. The next version builds it properly.</p>
+				</div>
 			</div>
 		</div>
 
@@ -85,5 +160,79 @@
 				</div>
 			</div>
 		</div>
+
+			<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view">
+				<button class="lightbox__close" aria-label="Close">&times;</button>
+				<img class="lightbox__img" src="" alt="">
+			</div>
+
+			<div class="video-lightbox" id="video-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+				<button class="lightbox__close" aria-label="Close">&times;</button>
+				<div class="video-lightbox__wrap">
+					<iframe id="video-lightbox__iframe" src="" title="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+
+	<script>
+		// Lightbox
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = lightbox.querySelector('.lightbox__img');
+
+		document.querySelectorAll('.img-expand-btn').forEach(btn => {
+			btn.addEventListener('click', e => {
+				e.stopPropagation();
+				const img = btn.parentElement.querySelector('img');
+				lightboxImg.src = img.src;
+				lightboxImg.alt = img.alt;
+				lightbox.classList.add('is-open');
+				document.body.style.overflow = 'hidden';
+			});
+		});
+
+		lightbox.addEventListener('click', e => {
+			if (e.target === lightbox || e.target.classList.contains('lightbox__close')) {
+				lightbox.classList.remove('is-open');
+				document.body.style.overflow = '';
+			}
+		});
+
+		document.addEventListener('keydown', e => {
+			if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+				lightbox.classList.remove('is-open');
+				document.body.style.overflow = '';
+			}
+		});
+
+		const videoLightbox = document.getElementById('video-lightbox');
+		const videoIframe = document.getElementById('video-lightbox__iframe');
+
+		function closeVideoLightbox() {
+			videoLightbox.classList.remove('is-open');
+			videoIframe.src = '';
+			document.body.style.overflow = '';
+		}
+
+		document.querySelectorAll('.yt-facade').forEach(el => {
+			el.addEventListener('click', () => {
+				const id = el.dataset.id;
+				videoIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+				videoIframe.title = el.querySelector('.yt-thumb').alt;
+				videoLightbox.classList.add('is-open');
+				document.body.style.overflow = 'hidden';
+			});
+		});
+
+		videoLightbox.addEventListener('click', e => {
+			if (e.target === videoLightbox || e.target.classList.contains('lightbox__close')) {
+				closeVideoLightbox();
+			}
+		});
+
+		document.addEventListener('keydown', e => {
+			if (e.key === 'Escape' && videoLightbox.classList.contains('is-open')) {
+				closeVideoLightbox();
+			}
+		});
+	</script>
 	</body>
-</html>
+	</html>
