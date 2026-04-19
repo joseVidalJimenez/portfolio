@@ -326,6 +326,28 @@ Use for annotated diagrams, CAD renders, or key reference images.
 
 **Rules:** Both images must use `.img-frame--wide` (16:9) so heights match. Replace `[YOUTUBE_VIDEO_ID]` with the 11-character ID from the YouTube URL.
 
+> Note: use the `yt-facade` YouTube thumbnail pattern instead of embedding a direct `<iframe>` on project pages. This is the same approach used on [docs/projects/backpack.html](docs/projects/backpack.html) and helps keep screenshots consistent during visual regression testing.
+>
+> Recommended pattern:
+>
+> - Wrap the `.yt-facade` inside an `.img-frame img-frame--wide` parent that provides `position: relative` so the facade's absolutely-positioned overlay aligns correctly.
+> - Use `loading="lazy"` on the thumbnail image for performance.
+> - Use a sensible `max-width` (e.g. `880px`) for wide thumbnails to keep screenshots consistent across viewports.
+>
+> Example markup:
+>
+> ```html
+> <div class="img-frame img-frame--wide" style="max-width: 880px; margin: 0 auto; position: relative;">
+>   <div class="yt-facade" data-id="kbmMrDGLm3E">
+>     <img src="https://i.ytimg.com/vi/kbmMrDGLm3E/hqdefault.jpg"
+>          alt="WombleBot RC Car Demo" class="yt-thumb" loading="lazy">
+>     <span class="yt-play">&#9654;</span>
+>   </div>
+> </div>
+> ```
+>
+> Place a `.media-caption` after the frame. Prefer the video lightbox handler (see Scripts) over injecting an inline iframe — the lightbox pattern produces more deterministic screenshots during visual tests.
+
 ---
 
 ### 7.6 Optional Subsystem Section (e.g. Electronics, Software, Structure)
@@ -449,6 +471,17 @@ Place this just before `</body>`:
 </div>
 ```
 
+Video lightbox (use with `.yt-facade`): place alongside the image lightbox, before `</body>`:
+
+```html
+<div class="video-lightbox" id="video-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="lightbox__close" aria-label="Close">&times;</button>
+  <div class="video-lightbox__wrap">
+    <iframe id="video-lightbox__iframe" src="" title="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+```
+
 ---
 
 ## 10. Scripts (copy exactly — place after `</body>`, before `</html>`)
@@ -496,6 +529,40 @@ Place this just before `</body>`:
       iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:4px;';
       el.replaceWith(iframe);
     });
+  });
+</script>
+
+<script>
+  // Video lightbox (recommended for project pages using `.yt-facade`)
+  const videoLightbox = document.getElementById('video-lightbox');
+  const videoIframe = document.getElementById('video-lightbox__iframe');
+
+  function closeVideoLightbox() {
+    videoLightbox.classList.remove('is-open');
+    videoIframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.yt-facade').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.id;
+      videoIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      videoIframe.title = el.querySelector('.yt-thumb').alt;
+      videoLightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  videoLightbox.addEventListener('click', e => {
+    if (e.target === videoLightbox || e.target.classList.contains('lightbox__close')) {
+      closeVideoLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && videoLightbox.classList.contains('is-open')) {
+      closeVideoLightbox();
+    }
   });
 </script>
 ```

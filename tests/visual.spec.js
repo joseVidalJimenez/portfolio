@@ -43,14 +43,14 @@ const VIEWPORTS = [
 
 /** Wait for images and fonts to load before screenshotting */
 async function waitForPageReady(page) {
-  await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {});
+  await page.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => {});
   // Hide scrollbar for consistent screenshots
   await page.addStyleTag({ content: '::-webkit-scrollbar { display: none; } * { scrollbar-width: none; }' });
   // Scroll through the full page so lazy-loaded iframes and images initialise
   await page.evaluate(async () => {
     await new Promise(resolve => {
-      const distance = 400;
-      const delay = 80;
+      const distance = 200;
+      const delay = 150;
       const timer = setInterval(() => {
         window.scrollBy(0, distance);
         if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
@@ -61,8 +61,33 @@ async function waitForPageReady(page) {
       }, delay);
     });
   });
-  // Extra pause for iframes (YouTube) to render after scrolling into view
-  await page.waitForTimeout(1500);
+  // Wait for all images to be loaded (including lazy-loaded ones)
+  await page.evaluate(() => {
+    return Promise.all(
+      Array.from(document.querySelectorAll('img')).map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise(resolve => {
+          img.addEventListener('load', resolve);
+          img.addEventListener('error', resolve);
+        });
+      })
+    );
+  });
+  // Wait for the video iframe to finish loading if present.
+  await page.evaluate(async () => {
+    const iframe = document.querySelector('iframe');
+    if (!iframe) return;
+    await new Promise(resolve => {
+      if (iframe.contentWindow && iframe.contentDocument) {
+        resolve();
+        return;
+      }
+      iframe.addEventListener('load', resolve);
+      setTimeout(resolve, 8000);
+    });
+  });
+  // Extra pause for iframes and any remaining async content
+  await page.waitForTimeout(5000);
 }
 
 /** Ensure screenshots directory exists */
