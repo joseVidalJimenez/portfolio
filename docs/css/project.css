@@ -166,12 +166,9 @@
     gap: 20px;
 }
 
-.analysis-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 24px 28px;
-    border-left: 4px solid #cb4444;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+        width: 100%;
+        margin: 0;
+    }
 }
 
 .analysis-card h4 {
@@ -282,11 +279,35 @@
     aspect-ratio: 16 / 9;
 }
 
+/* Full-width image frame: allow the image to size to the content column
+   and use its natural height (not forced to a fixed aspect) */
+.img-frame--fullwidth {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: auto;
+    overflow: visible;
+    border-radius: 10px;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.13);
+    background: transparent;
+}
+
+.img-frame--fullwidth .pair-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .pair-img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+}
+
+/* Optional white background for transparent images */
+.img-frame--white {
+    background: #fff;
 }
 
 /* ── Deployed 2-col layout ───────────────────────────────────────────────── */
@@ -381,6 +402,47 @@
 
 .image-pair--asymmetric {
     grid-template-columns: 3fr 2fr;
+}
+
+/* Stacked image-pair: vertical arrangement for image + image + video */
+.image-pair--stacked {
+    grid-template-columns: 1fr;
+}
+
+/* Media block with image on the left and explanatory text on the right */
+.media-with-text {
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Utility: widen the left image column for pairs where the image should be larger */
+.media-with-text--wide-left {
+    grid-template-columns: 60% 1fr;
+}
+
+@media (max-width: 1024px) {
+    .media-with-text--wide-left {
+        grid-template-columns: 1fr;
+    }
+}
+
+     grid-template-columns: 50% 1fr;
+    width: 100%;
+    margin: 0;
+}
+
+.media-text {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.72;
+    color: #444;
+}
+
+.media-text .media-caption {
+    color: #888;
+    margin: 0 0 8px;
 }
 
 /* ── Closing CTA ─────────────────────────────────────────────────────────── */
@@ -489,6 +551,11 @@
     border-radius: 10px;
 }
 
+/* Crop video to match a nearby image when used together */
+.video-crop-to-assembly {
+    overflow: hidden;
+}
+
 /* ── Lite YouTube facade ─────────────────────────────────────────────────── */
 
 .yt-facade {
@@ -592,6 +659,11 @@
         flex-direction: column;
         text-align: center;
         padding: 36px 28px;
+    }
+
+    /* Ensure media-with-text stacks on smaller screens */
+    .media-with-text {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -724,4 +796,12 @@
     .project-cta {
         margin-top: 56px;
     }
+}
+
+/* Normalize media-text spacing so block spacing matches other sections */
+.media-text {
+    margin-top: 0;
+}
+.media-text p {
+    margin: 0 0 16px;
 }

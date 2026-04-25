@@ -34,7 +34,7 @@
 				<div class="project-hero__text">
 					<span class="project-hero__label">Mechanical Design &middot; Valkerie / Makers Department &middot; 2017</span>
 					<h1 class="project-hero__title">Tactile Haptic System</h1>
-					<p class="project-hero__tagline">Redesigned fingertip feedback mechanism for a VR haptic suit with unrestricted hand movement</p>
+					<p class="project-hero__tagline">Solenoids blocked finger movement — I relocated them and built a propagation mechanism that delivers full haptic feedback without restriction.</p>
 				</div>
 				<div class="project-hero__img-wrap">
 					<img src="../images/thumbnails/valkery_hp.webp" alt="Tactile Haptic System" class="project-hero__img">
@@ -56,34 +56,121 @@
 						</div>
 						<div class="overview-block">
 							<h4>Outcome</h4>
-							<p>Successfully redesigned the tactile feedback system, allowing for free finger movement while maintaining the intended haptic functionality. The connector designs contributed to the overall effectiveness and integration of the tactile system within the suit.</p>
+							<p>Delivered a relocatable solenoid mechanism that restored full finger curl while preserving haptic feedback to the fingertip, integrated within the existing glove envelope.</p>
 						</div>
 					</div>
 				</div>
-<div class="project-section">
-				<h2>Final Design</h2>
-				<div class="image-pair">
-					<div>
-						<div class="img-frame img-frame--portrait">
+				<div class="project-section">
+					<h2>Early Prototype &amp; Iteration</h2>
+						<p class="section-intro">The haptic glove existed but had a critical flaw — solenoids placed directly on the fingertips prevented fingers from curling. The challenge wasn't the haptics themselves, but where they sat. This phase focused entirely on relocation: move the solenoids away from the fingertips, then design a mechanism to still transmit vibration back to them.</p>
+						<div class="image-pair image-pair--stacked">
+							<div class="media-fullwidth">
+								<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative; max-width:100%; margin:0;">
+									<img src="../images/projects/hapicFinger/sketches.png" alt="Initial prototype showing solenoid layout" class="pair-img" style="width:100%; height:auto; display:block;">
+									<button class="img-expand-btn" aria-label="View full image">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="15 3 21 3 21 9"></polyline>
+											<polyline points="9 21 3 21 3 15"></polyline>
+											<line x1="21" y1="3" x2="14" y2="10"></line>
+											<line x1="3" y1="21" x2="10" y2="14"></line>
+										</svg>
+									</button>
+								</div>
+								<p class="media-caption">Early ideation exploring pivot positions, lever lengths and linkage topologies — the goal was to find a geometry that could redirect solenoid force to the fingertip from a relocated position further up the finger or hand.</p>
+								<div class="media-text">
+									<p>Early ideation mapping five linkage families to find a geometry that could redirect solenoid force from a relocated position.</p>
+									<p>Regardless of solenoid position, the fingertip still needed to be actuated. I mapped five broad linkage families to understand the mechanical trade-offs before committing to any physical build.</p>
+									<ol class="ideation-list">
+										<li>Two segments pushed inwards
+											<ol type="a">
+												<li>Same as above but with one segment fixed</li>
+											</ol>
+										</li>
+										<li>Two segments pulled outwards</li>
+										<li>Common pivot</li>
+										<li>Ball over a bump</li>
+										<li>Rack and pinion</li>
+									</ol>
+								</div>
+							</div>
+							<!-- Assembly image and prototype video side-by-side -->
+							<div class="image-pair" style="align-items: start; gap: 28px;">
+								<div>
+									<div class="img-frame img-frame--portrait img-frame--white" style="position: relative;">
+										<img src="../images/projects/hapicFinger/fingerAssem3.JPG" alt="Finger assembly" class="pair-img assembly-img">
+										<button class="img-expand-btn" aria-label="View full image">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="15 3 21 3 21 9"></polyline>
+												<polyline points="9 21 3 21 3 15"></polyline>
+												<line x1="21" y1="3" x2="14" y2="10"></line>
+												<line x1="3" y1="21" x2="10" y2="14"></line>
+											</svg>
+										</button>
+									</div>
+									<p class="media-caption">Assembly walkthrough showing how cable routing, connector placement and linkage orientation were resolved together — each constraint influenced the others.</p>
+								</div>
+
+								<div>
+									<div class="video-wrapper-9x16 video-crop-to-assembly" style="max-width:100%; margin:0; position: relative;">
+										<div class="yt-facade" data-id="5Kdrqwg5AJQ" style="position: absolute; inset: 0; border-radius: 0;">
+											<img src="https://i.ytimg.com/vi/5Kdrqwg5AJQ/hqdefault.jpg" alt="Early prototype demo" class="yt-thumb" loading="lazy">
+											<span class="yt-play">&#9654;</span>
+										</div>
+									</div>
+									<p class="media-caption">Prototype demo</p>
+								</div>
+							</div>
+
+							<!-- Descriptive text placed under both images -->
+							<div class="media-text">
+								<p>Integrating the mechanism required resolving three constraints simultaneously: routing DC power and data cables without restricting flex, fitting board-to-board connectors within the glove envelope, and maintaining the linkage geometry under finger load.</p>
+							</div>
+
+							<!-- Later iteration remains after the assembly + video block -->
+							<div class="media-with-text media-with-text--wide-left">
+								<div>
+									<div class="img-frame img-frame--portrait img-frame--white">
+										<img src="../images/projects/hapicFinger/valkery_proto.jpg" alt="Iteration with refined linkage" class="pair-img">
+									</div>
+									<p class="media-caption">Near-final physical build — linkage geometry and mounting position validated against knuckle articulation and actuation range.</p>
+								</div>
+								<div class="media-text">
+									<p>First physical validation of the relocated solenoid concept. This iteration tested whether the linkage geometry held under actuation and whether the mounting point interfered with knuckle articulation — two failure modes the sketches couldn't predict.</p>
+								</div>
+							</div>
+						</div>
+						</div>
+
+				<div class="project-section">
+					<h2>Redesigned Mechanism</h2>
+					<p>The final design consolidated the findings from physical prototyping. The solenoid was mounted further up the dorsal side of the finger, with a two-segment linkage transmitting force to a pad resting on the fingertip. The housing was designed to sit within the existing glove envelope without adding bulk at the knuckle joint.</p>
+					<div style="max-width:100%; margin:28px 0 0;">
+						<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative;">
 							<img src="../images/projects/hapicFinger/finalTactileHaptic.PNG" alt="Final tactile haptic design" class="pair-img">
+							<button class="img-expand-btn" aria-label="View full image">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="15 3 21 3 21 9"></polyline>
+									<polyline points="9 21 3 21 3 15"></polyline>
+									<line x1="21" y1="3" x2="14" y2="10"></line>
+									<line x1="3" y1="21" x2="10" y2="14"></line>
+								</svg>
+							</button>
 						</div>
 						<p class="media-caption">The final redesigned tactile subsystem, showing the relocated solenoid arrangement and the propagation mechanism that delivers fingertip feedback without restricting hand movement.</p>
 					</div>
 				</div>
-			</div>
+
+			<!-- Removed 'How It Fits Together' section; assembly image moved into Early Prototype -->
 
 			<div class="project-section">
-				<h2>Assembly Process</h2>
-				<div class="image-pair">
-					<div>
-						<div class="img-frame img-frame--portrait">
-							<img src="../images/projects/hapicFinger/fingerAssem.JPG" alt="Finger assembly" class="pair-img">
-						</div>
-						<p class="media-caption">Assembly stages of the finger mechanism, showing how the components fit together within the constraints of the haptic suit glove.</p>
-					</div>
+				<h2>What I learned</h2>
+				<div class="innovation-body">
+					<p>Building quick, physical prototypes exposed mechanical interferences that CAD alone missed. Moving the solenoids and simplifying the linkage significantly improved wearability and freedom of movement.</p>
+					<p>Iterating with rough assemblies and glove testing helped balance actuator stroke, force transmission, and ergonomics — small geometric changes had large effects.</p>
+					<p>Prioritising fast, testable prototypes let me discard unworkable concepts early and converge on a solution that met the project's functional and comfort goals.</p>
+					<p>This project shifted how I approach integration problems — constraints from power routing, form factor and mechanical load have to be resolved together, not sequentially.</p>
 				</div>
 			</div>
-		</div>
 
 		<div class="footer">
 			<div class="footer-layout">
@@ -107,5 +194,115 @@
 				</div>
 			</div>
 		</div>
+
+			<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view">
+				<button class="lightbox__close" aria-label="Close">&times;</button>
+				<img class="lightbox__img" src="" alt="">
+			</div>
+
+			<div class="video-lightbox" id="video-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+				<button class="lightbox__close" aria-label="Close">&times;</button>
+				<div class="video-lightbox__wrap">
+					<iframe id="video-lightbox__iframe" src="" title="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+
+	<script>
+	  // Lightbox
+	  const lightbox = document.getElementById('lightbox');
+	  const lightboxImg = lightbox.querySelector('.lightbox__img');
+
+	  document.querySelectorAll('.img-expand-btn').forEach(btn => {
+	    btn.addEventListener('click', e => {
+	      e.stopPropagation();
+	      const img = btn.parentElement.querySelector('img');
+	      lightboxImg.src = img.src;
+	      lightboxImg.alt = img.alt;
+	      lightbox.classList.add('is-open');
+	      document.body.style.overflow = 'hidden';
+	    });
+	  });
+
+	  lightbox.addEventListener('click', e => {
+	    if (e.target === lightbox || e.target.classList.contains('lightbox__close')) {
+	      lightbox.classList.remove('is-open');
+	      document.body.style.overflow = '';
+	    }
+	  });
+
+	  document.addEventListener('keydown', e => {
+	    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+	      lightbox.classList.remove('is-open');
+	      document.body.style.overflow = '';
+	    }
+	  });
+
+	  // Video lightbox (recommended for project pages using `.yt-facade`)
+	  const videoLightbox = document.getElementById('video-lightbox');
+	  const videoIframe = document.getElementById('video-lightbox__iframe');
+
+	  function closeVideoLightbox() {
+	    videoLightbox.classList.remove('is-open');
+	    videoIframe.src = '';
+	    document.body.style.overflow = '';
+	  }
+
+	  document.querySelectorAll('.yt-facade').forEach(el => {
+	    el.addEventListener('click', () => {
+	      const id = el.dataset.id;
+	      videoIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+	      videoIframe.title = el.querySelector('.yt-thumb').alt;
+	      videoLightbox.classList.add('is-open');
+	      document.body.style.overflow = 'hidden';
+	    });
+	  });
+
+	  videoLightbox.addEventListener('click', e => {
+	    if (e.target === videoLightbox || e.target.classList.contains('lightbox__close')) {
+	      closeVideoLightbox();
+	    }
+	  });
+
+	  document.addEventListener('keydown', e => {
+	    if (e.key === 'Escape' && videoLightbox.classList.contains('is-open')) {
+	      closeVideoLightbox();
+	    }
+	  });
+	</script>
+
+<script>
+	// Sync the prototype video wrapper height to the assembly image height
+	(function(){
+		function debounce(fn, wait=120){
+			let t;
+			return function(...args){ clearTimeout(t); t = setTimeout(()=>fn.apply(this,args), wait); };
+		}
+
+		function matchVideoToImage(){
+			const assembly = document.querySelector('.assembly-img');
+			const videoWrap = document.querySelector('.video-wrapper-9x16.video-crop-to-assembly');
+			if(!assembly || !videoWrap) return;
+
+			// Only crop on wide viewports where the two elements are side-by-side
+			if(window.innerWidth > 1024){
+				const height = assembly.clientHeight || assembly.getBoundingClientRect().height;
+				if(height && height > 0){
+					videoWrap.style.height = height + 'px';
+					videoWrap.style.aspectRatio = 'auto';
+				}
+			} else {
+				// Reset on small screens
+				videoWrap.style.height = '';
+				videoWrap.style.aspectRatio = '';
+			}
+		}
+
+		window.addEventListener('load', matchVideoToImage);
+		window.addEventListener('resize', debounce(matchVideoToImage, 120));
+		const assemblyImg = document.querySelector('.assembly-img');
+		if(assemblyImg && !assemblyImg.complete) assemblyImg.addEventListener('load', matchVideoToImage);
+	})();
+</script>
+
 	</body>
-</html>
+	</html>
