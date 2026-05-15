@@ -1,0 +1,6 @@
+status: active
+priority: high
+category: portfolio
+description: "Personal portfolio website for José Vidal — design engineer pivoting into mechatronics, hosted on GitHub Pages."
+next_action: "Review current content against recent work. Update project showcases to include admin pipeline and CrowAI."
+notes: "Most recently committed repo (0 days ago). Node.js + Playwright tests. Branch: backpack. Hosted from /docs."
