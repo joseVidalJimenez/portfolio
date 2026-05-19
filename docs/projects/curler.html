@@ -213,115 +213,80 @@
 					<div class="overview-grid">
 						<div class="overview-block">
 							<h4>Description</h4>
-							<p>Thermal system development of a professional curling iron — covering heater technology evaluation, barrel geometry iteration, thermal simulation, and lifecycle validation. Delivered for MD London as a full development arc from component selection through to small-batch production.</p>
+						<p>A professional curling iron developed from first principles — materials selected for performance, geometry validated through physical prototypes, and every design decision tested before committing to production. Delivered for MD London from initial brief through to small-batch production.</p>
 						</div>
 						<div class="overview-block">
 							<h4>My Role</h4>
-							<p>Operating across thermal, mechanical, and electrical domains — I designed barrel geometries across multiple materials, evaluated three heater configurations using SolidWorks thermal simulation, and selected EDM as a cost-effective prototyping route. I also designed the electrical contacts and built a custom Scotch-yoke test rig to measure contact resistance across a 1,024-cycle durability run.</p>
+						<p>I designed barrel geometries across multiple materials and geometries, evaluated three heater configurations using SolidWorks thermal simulation, with Wire EDM selected as the prototyping route that made early validation possible. I also designed the electrical contacts and built a custom Scotch-yoke test rig for connector endurance testing across a 1,024-cycle durability run.</p>
 						</div>
 						<div class="overview-block">
-							<h4>Skills Applied</h4>
-							<ul style="list-style: none; padding: 0; margin: 0;">
-								<li style="margin-bottom: 0.5rem;">&#10003; Mechatronic systems integration &mdash; mechanical, electrical, software</li>
-								<li style="margin-bottom: 0.5rem;">&#10003; Custom test rig development, sensor integration &amp; data acquisition</li>
-								<li style="margin-bottom: 0.5rem;">&#10003; Thermal simulation &amp; materials selection</li>
-								<li style="margin-bottom: 0;">&#10003; Design for prototyping &amp; low-volume production</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<!-- PROBLEM STATEMENT -->
-				<div class="project-section problem-statement" style="background: transparent; padding: 0; margin-bottom: 0; display: flex; flex-direction: column; gap: 1rem;">
-
-					<!-- Block 1 — The challenge -->
-					<div style="background: #1c1c1c; border-radius: 12px; padding: 2.25rem 2.5rem;">
-						<p class="section-label" style="color: #cb4444; margin-bottom: 0.5rem;">The challenge</p>
-						<p style="color: #fff; font-size: 1.05rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.4;">Develop a better curling iron — without a budget for production tooling.</p>
-						<p style="color: #aaa; font-size: 0.92rem; line-height: 1.7; margin: 0;">Existing consumer curling irons had poor thermal efficiency, inadequate contact durability, and materials selected for cost rather than performance. The brief required improvement across all three — but with no budget for the casting or extrusion tooling that barrel prototyping normally demands.</p>
-					</div>
-
-					<!-- Block 2 — What was needed -->
-					<div style="background: #1c1c1c; border-radius: 12px; padding: 2.25rem 2.5rem;">
-						<p class="section-label" style="color: #cb4444; margin-bottom: 1rem;">What was needed</p>
+						<h4>Tools &amp; Methods</h4>
 						<ul style="list-style: none; padding: 0; margin: 0;">
-							<li style="display: flex; gap: 0.75rem; margin-bottom: 0.9rem; color: #ccc; font-size: 0.92rem; line-height: 1.6;">
-								<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
-								<span>A feasibility report mapping heater technologies from adjacent industries — identifying MCH, PTC, and silicone heaters as candidates with commercial pricing</span>
-							</li>
-							<li style="display: flex; gap: 0.75rem; margin-bottom: 0.9rem; color: #ccc; font-size: 0.92rem; line-height: 1.6;">
-								<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
-								<span>Barrel prototypes validated with external sensors and a Raspberry Pi to confirm the heating profile matched specification, independently of the client&rsquo;s control board</span>
-							</li>
-							<li style="display: flex; gap: 0.75rem; margin-bottom: 0.9rem; color: #ccc; font-size: 0.92rem; line-height: 1.6;">
-								<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
-								<span>A connector durability test rig designed from scratch, generating objective pass/fail evidence before committing to small-batch assembly</span>
-							</li>
-							<li style="display: flex; gap: 0.75rem; color: #ccc; font-size: 0.92rem; line-height: 1.6;">
-								<span style="color: #cb4444; flex-shrink: 0; margin-top: 0.15rem;">&#10140;</span>
-								<span>An assembly process designed for repeatable small-batch production, not just one-off prototypes</span>
-							</li>
+							<li style="margin-bottom: 0.5rem;">SolidWorks FEA</li>
+							<li style="margin-bottom: 0.5rem;">Wire EDM</li>
+							<li style="margin-bottom: 0.5rem;">Raspberry Pi</li>
+							<li style="margin-bottom: 0.5rem;">Python data acquisition</li>
+							<li style="margin-bottom: 0.5rem;">3D printing</li>
+							<li style="margin-bottom: 0.5rem;">MCH heater integration</li>
+							<li style="margin-bottom: 0;">Small-batch assembly process design</li>
 						</ul>
-					</div>
-
-					<!-- Block 3 — Key insight -->
-					<div style="background: #1c1c1c; border-radius: 12px; padding: 2.25rem 2.5rem; border-left: 4px solid #cb4444;">
-						<p class="section-label" style="color: #cb4444; margin-bottom: 1rem;">Key insight</p>
-						<p style="color: #fff; font-size: 1.1rem; font-weight: 600; line-height: 1.5; margin-bottom: 0.75rem;">Wire EDM can replicate the cross-sectional profiles of extrusion and casting without dedicated tooling — producing geometrically accurate barrel prototypes at a fraction of the cost.</p>
-						<p style="color: #aaa; font-size: 0.92rem; line-height: 1.7; margin: 0;">This unlocked functional testing before any tooling investment was made.</p>
-					</div>
-
-				</div>
-
-				<!-- PROJECT ANALYSIS -->
-				<div class="project-section">
-					<h2>Competitive teardown — recognising patterns, technologies and trade-offs</h2>
-					<p class="section-intro">Several brands were disassembled to identify recurring solutions, spot opportunities, and verify assumptions before committing to any design direction.</p>
-					<div class="deployed-grid" style="align-items: stretch;">
-						<div style="position: relative; overflow: hidden; border-radius: 10px;
-						            box-shadow: 0 4px 22px rgba(0,0,0,0.13); background: #1c1c1c; min-height: 240px;">
-							<img src="../images/projects/curler/reverse1.webp"
-							     alt="Reverse-engineered curling iron disassembly"
-							     style="position: absolute; inset: 0; width: 100%; height: 100%;
-							            object-fit: cover; object-position: center; display: block;">
-							<button class="img-expand-btn" aria-label="View full image">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-								     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="15 3 21 3 21 9"></polyline>
-									<polyline points="9 21 3 21 3 15"></polyline>
-									<line x1="21" y1="3" x2="14" y2="10"></line>
-									<line x1="3" y1="21" x2="10" y2="14"></line>
-								</svg>
-							</button>
-						</div>
-						<div class="deployed-text">
-							<p>The project began with a systematic reverse engineering exercise: disassembling several competing curling irons to map their internal architecture, heater configurations, and material choices.</p>
-							<p>Three heater technologies were evaluated &mdash; PTC (Positive Temperature Coefficient), silicone heaters, and Metal Ceramic Heaters (MCH) &mdash; with each assessed against thermal efficiency, ramp-up speed, manufacturing compatibility, and long-term durability.</p>
-							<p>This analysis directly informed the material and geometry decisions that followed, providing a baseline against which every prototype iteration could be measured.</p>
-						</div>
-					</div>
-
-					<!-- Three finding blocks -->
-					<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem;">
-						<div style="background:#f9f9f9;border-radius:10px;padding:1.5rem;border-top:3px solid #cb4444;">
-							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Recurring pattern</p>
-							<p style="font-size:0.9rem;color:#333;line-height:1.65;margin:0;">Spring-loaded heater contact is the universal solution across brands — the heating element pressed against the barrel using a punched and folded metal spring. Ubiquitous, simple, and the baseline assumption for any competing design.</p>
-						</div>
-						<div style="background:#f9f9f9;border-radius:10px;padding:1.5rem;border-top:3px solid #cb4444;">
-							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Unexpected solutions</p>
-							<p style="font-size:0.9rem;color:#333;line-height:1.65;margin:0;">Some manufacturers placed the PCB inside the heated zone to maximise battery space. Others used carbon sheet heat spreaders to distribute thermal load. Several barrels were multi-part assemblies designed for complete disassembly — a serviceability decision invisible from the outside.</p>
-						</div>
-						<div style="background:#f9f9f9;border-radius:10px;padding:1.5rem;border-top:3px solid #cb4444;">
-							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">What this established</p>
-							<p style="font-size:0.9rem;color:#333;line-height:1.65;margin:0;">A clear map of the key components, technologies, and trade-offs in the category — the foundation for evaluating heater alternatives and setting realistic performance targets.</p>
 						</div>
 					</div>
 				</div>
 
-				<!-- DESIGN OVERVIEW -->
-				<div class="project-section">
-					<h2>Heater Selection &amp; Barrel Geometry</h2>
-					<p class="section-intro">SolidWorks thermal simulations were conducted to compare heat distribution patterns across MCH (Metal Ceramic Heater) element configurations under steady-state conditions &mdash; identifying the optimal balance of thermal performance, manufacturing simplicity, cost, and ergonomics.</p>
+<!-- BRIEF -->
+			<div class="project-section">
+				<h2>The Challenge</h2>
+				<p>MD London came with a clear goal — a curling iron that performed well and felt built to last. Translating that into a manufacturable product meant making decisions around materials, geometry, and heating elements that only reveal their true character once built and held.</p>
+				<p>Delivering that required: mapping heater technologies from adjacent industries to identify viable candidates with commercial pricing; validating barrel prototypes with external sensors and a Raspberry Pi, independently of the client's control board; designing a connector durability test rig from scratch to generate objective pass/fail evidence before committing to small-batch assembly; and defining an assembly process built for repeatable production, not just one-off prototypes.</p>
+<!-- DESIGN OVERVIEW -->
+			<div class="project-section" style="margin-top: 2rem;">
+				<h2>Heater Selection &amp; Barrel Geometry</h2>
+				<h3 style="margin-top: 0; margin-bottom: 1.5rem;">What existing products told us</h3>
+				<p class="section-intro">Several brands were disassembled to identify recurring solutions, spot opportunities, and verify assumptions before committing to any design direction.</p>
+				<div class="deployed-grid" style="align-items: stretch;">
+					<div style="position: relative; overflow: hidden; border-radius: 10px;
+					            box-shadow: 0 4px 22px rgba(0,0,0,0.13); background: #1c1c1c; min-height: 240px;">
+						<img src="../images/projects/curler/reverse1.webp"
+						     alt="Reverse-engineered curling iron disassembly"
+						     style="position: absolute; inset: 0; width: 100%; height: 100%;
+						            object-fit: cover; object-position: center; display: block;">
+						<button class="img-expand-btn" aria-label="View full image">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+							     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="15 3 21 3 21 9"></polyline>
+								<polyline points="9 21 3 21 3 15"></polyline>
+								<line x1="21" y1="3" x2="14" y2="10"></line>
+								<line x1="3" y1="21" x2="10" y2="14"></line>
+							</svg>
+						</button>
+					</div>
+					<div class="deployed-text">
+						<p>The project began with a systematic reverse engineering exercise: disassembling several competing curling irons to map their internal architecture, heater configurations, and material choices.</p>
+						<p>Three heater technologies were evaluated &mdash; PTC (Positive Temperature Coefficient), silicone heaters, and Metal Ceramic Heaters (MCH) &mdash; with each assessed against thermal efficiency, ramp-up speed, manufacturing compatibility, and long-term durability.</p>
+						<p>This analysis directly informed the material and geometry decisions that followed, providing a baseline against which every prototype iteration could be measured.</p>
+					</div>
+				</div>
+
+				<!-- Three finding blocks -->
+				<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem;margin-bottom:2.5rem;">
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.5rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Recurring pattern</p>
+						<p style="font-size:0.9rem;color:#333;line-height:1.65;margin:0;">Spring-loaded heater contact is the universal solution across brands — the heating element pressed against the barrel using a punched and folded metal spring. Ubiquitous, simple, and the baseline assumption for any competing design.</p>
+					</div>
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.5rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Unexpected solutions</p>
+						<p style="font-size:0.9rem;color:#333;line-height:1.65;margin:0;">Some manufacturers placed the PCB inside the heated zone to maximise battery space. Others used carbon sheet heat spreaders to distribute thermal load. Several barrels were multi-part assemblies designed for complete disassembly — a serviceability decision invisible from the outside.</p>
+					</div>
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.5rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">What this established</p>
+						<p style="font-size:0.9rem;color:#333;line-height:1.65;margin:0;">A clear map of the key components, technologies, and trade-offs in the category — the foundation for evaluating heater alternatives and setting realistic performance targets.</p>
+					</div>
+				</div>
+
+				<!-- Heater design section -->
+				<h3 style="margin-bottom: 1rem;">Heater Selection</h3>
+					<p class="section-intro">SolidWorks thermal simulations were conducted to compare heat distribution patterns across MCH configurations under steady-state conditions — informing the selection on thermal performance, cost, and weight.</p>
 
 					<!-- Thermal scale legend -->
 					<div style="background:#f5f5f5;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.75rem;">
@@ -410,33 +375,9 @@
 
 					</div>
 
-					<p style="font-size:0.92rem;color:#444;line-height:1.7;margin-bottom:2rem;">The 2x MCH configuration showed the least uniform distribution in simulation — but was selected on the basis of weight minimisation and real-world thermal behaviour. In use, hair acts as an insulator along the barrel, compensating for the simulated non-uniformity and producing acceptable temperature distribution at the point of contact.</p>
 
 					<!-- Decision callout -->
-					<p style="font-size:0.92rem;color:#444;line-height:1.7;margin-bottom:1rem;">Peak temperature is identical across all configurations — distribution pattern varies, not maximum heat.</p>
-					<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-						<div style="background:#1c1c1c;border-radius:12px;padding:2rem;">
-							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Why 2x was selected</p>
-							<ul style="list-style:none;padding:0;margin:0;">
-								<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>~60% cost reduction vs 4x configuration</span></li>
-								<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>~15&thinsp;g lighter &mdash; critical for handheld ergonomics</span></li>
-								<li style="display:flex;gap:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Simpler assembly, faster production throughput</span></li>
-							</ul>
-						</div>
-						<div style="background:#1c1c1c;border-radius:12px;padding:2rem;">
-							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#cb4444;margin-bottom:0.75rem;">Why non-uniformity doesn&rsquo;t matter</p>
-							<ul style="list-style:none;padding:0;margin:0;">
-								<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>User testing: no perceivable difference in styling quality</span></li>
-								<li style="display:flex;gap:0.6rem;margin-bottom:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Hair acts as insulator &mdash; compensates for simulated non-uniformity</span></li>
-								<li style="display:flex;gap:0.6rem;color:#ccc;font-size:0.88rem;"><span style="color:#cb4444;flex-shrink:0;">&#10140;</span><span>Thermal damage testing showed equivalent results across all configurations</span></li>
-							</ul>
-						</div>
-					</div>
-
-					<!-- Test conditions -->
-					<p style="font-size:0.75rem;color:#888;margin-top:1.25rem;margin-bottom:2.5rem;padding:0.75rem 1rem;background:#f5f5f5;border-radius:6px;line-height:1.6;">
-						<strong style="color:#555;">Simulation parameters:</strong> Software: SolidWorks Thermal Simulation &middot; Analysis type: Steady-state heat distribution &middot; MCH element: 30&thinsp;W &middot; Ambient: 23&thinsp;&deg;C &plusmn;2&thinsp;&deg;C &middot; Surface measurements at barrel outer diameter
-					</p>
+				<p style="font-size:0.92rem;color:#444;line-height:1.7;margin-bottom:2rem;">The 2x MCH configuration showed the least uniform heat distribution in simulation — but was selected on the basis of weight, cost, and real-world thermal behaviour. At approximately 15g lighter than the 4x configuration and 60% lower component cost, it was the stronger choice for a handheld product heading to small-batch production. In use, hair acts as an insulator along the barrel, compensating for the simulated non-uniformity — and user testing confirmed no perceivable difference in styling quality across configurations.<br>Simulations were run in SolidWorks under steady-state conditions, with a 30W MCH element at 23°C ambient, measuring surface temperature at barrel outer diameter.</p>
 
 					<!-- Barrel geometry -->
 					<p class="section-label">Barrel geometry</p>
@@ -513,9 +454,9 @@
 					</div>
 				</div>
 
-				<!-- TECHNICAL ANALYSIS -->
+				<!-- DESIGN DECISIONS -->
 				<div class="project-section">
-					<h2>Technical Analysis</h2>
+					<h2>Design Decisions</h2>
 					<div class="analysis-grid">
 						<div class="analysis-card">
 							<h4>Heater technology — why MCH</h4>
@@ -527,7 +468,7 @@
 						</div>
 						<div class="analysis-card" style="border-left: 4px solid #cb4444; padding-left: 1.25rem;">
 							<h4>Prototyping route — why EDM</h4>
-							<p>The barrel geometry required internal features that would normally be produced by extrusion &mdash; a process where tooling costs make small-batch prototyping prohibitively expensive. Electrical Discharge Machining (EDM) was identified as a compatible alternative: it replicates the cross-sectional profiles achievable in extrusion without dedicated dies, producing prototype parts dimensionally equivalent to the intended production geometry. This allowed functional testing to proceed using parts that matched the mass-production specification.</p>
+							<p>The barrel geometry required internal features that would normally be produced by extrusion &mdash; a process where tooling costs make early-stage iteration expensive. Electrical Discharge Machining (EDM) was identified as a compatible alternative: it replicates the cross-sectional profiles achievable in extrusion without dedicated dies, producing prototype parts dimensionally equivalent to the intended production geometry. This allowed functional testing to proceed using parts that matched the mass-production specification.</p>
 						</div>
 						<div class="analysis-card">
 							<h4>Polymer selection — why PEEK and ULTEM</h4>
@@ -540,7 +481,7 @@
 
 				<!-- PROTOTYPING PROCESS -->
 				<div class="project-section">
-					<h2>Prototyping — four stages, each resolving a specific uncertainty</h2>
+					<h2>Prototyping — Four Stages</h2>
 					<p class="section-intro">Iteration moved from material coupons and simple geometry tests through to full functional assemblies, with each stage resolving a specific uncertainty before committing to the next.</p>
 					<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem;">
 
@@ -552,14 +493,14 @@
 
 						<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
 							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 02</p>
-							<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">EDM barrel profiles</p>
-							<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Cut profiles in each candidate material, assembled with MCH heaters and spring-loaded brass contacts to verify fit and heat transfer at the interface.</p>
+							<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Thermal validation</p>
+							<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">SolidWorks simulation to confirm Al&thinsp;6061 could sustain operating temperatures without exceeding deformation limits at the contact surfaces.</p>
 						</div>
 
 						<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
 							<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 03</p>
-							<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Thermal simulation</p>
-							<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">SolidWorks simulation to confirm Al&thinsp;6061 could sustain operating temperatures without exceeding deformation limits at the contact surfaces.</p>
+							<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">EDM barrel profiles</p>
+							<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Cut profiles in each candidate material, assembled with MCH heaters and spring-loaded brass contacts to verify fit and heat transfer at the interface.</p>
 						</div>
 
 						<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
@@ -590,7 +531,7 @@
 				<!-- TEST RIG -->
 				<div class="project-section">
 					<h2>Rig 1 — Thermal performance validation</h2>
-					<p class="section-intro">The ST microcontroller arrived pre-programmed by the electrical engineer. Validation required connecting the board to barrel-mounted thermocouples and confirming the closed-loop control delivered the specified heating curve in hardware — bridging the electrical and thermal domains.</p>
+					<p class="section-intro">Validation required connecting the pre-programmed ST board to barrel-mounted thermocouples and confirming the closed-loop control delivered the specified heating curve in hardware — bridging the electrical and thermal domains.</p>
 					<div class="deployed-grid" style="align-items: center;">
 						<div style="grid-column: 1 / -1;">
 							<div class="img-frame img-frame--wide" style="aspect-ratio: 3544 / 1912;">
