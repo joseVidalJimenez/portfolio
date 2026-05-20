@@ -8,6 +8,7 @@
     "report": "playwright show-report tests/report"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.0"
+    "@playwright/test": "^1.50.0",
+    "sharp": "^0.34.5"
   }
 }

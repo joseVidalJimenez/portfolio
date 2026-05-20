@@ -72,7 +72,7 @@ h2{
 	align-items: center;
 	font-size: 1.5em;
 	color: white;
-	margin-right: 10px;
+	margin-right: 15px;
   }
   
   /* User name next to the icon */
@@ -376,7 +376,7 @@ h2{
     margin-bottom: 8px;
 }
 
-.listing-section .section-intro {
+.listing-section .para {
     text-align: center;
     margin: 0 auto 36px;
     max-width: 640px;
@@ -464,7 +464,7 @@ h2{
     margin-bottom: 8px;
 }
 
-.listing-section .section-intro {
+.listing-section .para {
     text-align: center;
     margin: 0 auto 36px;
     max-width: 640px;
