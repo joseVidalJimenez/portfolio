@@ -573,12 +573,12 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0.82;
+    opacity: 1;
     transition: opacity 0.2s;
 }
 
 .yt-facade:hover .yt-thumb {
-    opacity: 1;
+    opacity: 0.92;
 }
 
 .yt-play {
