@@ -449,41 +449,23 @@
 					</div>
 					<p class="media-caption">System Architecture Diagram</p>
 
-					<!-- Scotch-yoke photo 40% | Subsystem text 60% -->
-					<div style="display: grid; grid-template-columns: 50fr 50fr; gap: 1.5rem; align-items: start; margin-bottom: 2rem;">
-						<div>
-							<div class="img-frame img-frame--wide">
-								<img src="../images/projects/curler/testRig.png"
-								     alt="Scotch-yoke lifecycle test rig for connector durability"
-								     class="pair-img"
-								     style="object-fit: cover; object-position: bottom;" loading="lazy">
-								<button class="img-expand-btn" aria-label="View full image">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-									     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<polyline points="15 3 21 3 21 9"></polyline>
-										<polyline points="9 21 3 21 3 15"></polyline>
-										<line x1="21" y1="3" x2="14" y2="10"></line>
-										<line x1="3" y1="21" x2="10" y2="14"></line>
-									</svg>
-								</button>
-							</div>
-							<p class="media-caption">Scotch-yoke test rig &mdash; full assembly</p>
-						</div>
-						<div style="display: flex; flex-direction: column; gap: 1.25rem;">
-							<div>
-								<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin: 0 0 0.35rem 0;">Actuation</p>
-								<p style="font-size: 0.88rem; color: #333; margin: 0; line-height: 1.6;">Scotch-yoke mechanism converts motor rotation to consistent linear stroke &mdash; no encoder or position feedback required.</p>
-							</div>
-							<div>
-								<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin: 0 0 0.35rem 0;">Control &amp; Logging</p>
-								<p style="font-size: 0.88rem; color: #333; margin: 0; line-height: 1.6;">Raspberry Pi triggers each cycle, records resistance across the connector, and writes timestamped values to CSV and serial monitor.</p>
-							</div>
-							<div>
-								<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #cb4444; margin: 0 0 0.35rem 0;">Result</p>
-								<p style="font-size: 0.88rem; color: #333; margin: 0; line-height: 1.6;">Resistance variation stayed within ±0.2% across all 1,024 cycles — no connector degradation detected.</p>
-							</div>
-						</div>
+					<!-- Scotch-yoke test rig — full width -->
+					<div class="img-frame img-frame--wide" style="width: 100%; max-height: 555px; margin-left: 0; margin-right: 0; overflow: hidden;">
+						<img src="../images/projects/curler/testRig.png"
+						     alt="Scotch-yoke lifecycle test rig for connector durability"
+						     style="object-fit: cover; object-position: bottom; width: 100%; height: 100%;" loading="lazy">
+						<button class="img-expand-btn" aria-label="View full image">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+							     stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="15 3 21 3 21 9"></polyline>
+								<polyline points="9 21 3 21 3 15"></polyline>
+								<line x1="21" y1="3" x2="14" y2="10"></line>
+								<line x1="3" y1="21" x2="10" y2="14"></line>
+							</svg>
+						</button>
 					</div>
+					<p class="media-caption">Scotch-yoke test rig &mdash; full assembly</p>
+					<p class="para">Result: Resistance variation stayed within ±0.2% across all 1,024 cycles — no connector degradation detected.</p>
 
 					<div style="margin-bottom: 36px;">
 						<div class="img-frame img-frame--wide">
@@ -532,21 +514,6 @@
 					<a href="../portfolio.html" class="project-cta__btn">Back to Portfolio &rarr;</a>
 				</div>
 
-			</div>
-		</div>
-
-		<div class="footer">
-			<div class="footer-layout">
-				<div class="footer-text"><p>&copy;Jose Vidal</p></div>
-				<div class="footer-link"><a href="../sitemap.html">Sitemap</a></div>
-				<div class="footer-link">
-					<a href="https://www.linkedin.com/in/vidaljose/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-				</div>
-				<div class="footer-link">
-					<a href="https://github.com/joseVidalJimenez" target="_blank" rel="noopener noreferrer">Github</a>
-				</div>
-				<div class="footer-link"><a href="../contact.html">Contact</a></div>
-				<div class="footer-text"><p>Designed by: Jose Vidal</p></div>
 			</div>
 		</div>
 
