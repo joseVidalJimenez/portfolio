@@ -112,9 +112,6 @@
   <line x1="176" y1="33" x2="176" y2="55"
         stroke="var(--teal-stroke)" stroke-width="0.7" fill="none"
         marker-end="url(#arrow)"/>
-  <line x1="36" y1="55" x2="36" y2="33"
-        stroke="var(--amber-stroke)" stroke-width="0.7" fill="none"
-        marker-end="url(#arrow)"/>
 
   <!-- ROW 2 — Feedback path -->
   <text x="9" y="53.5" class="tag" fill="var(--coral-sub)">← feedback path</text>
