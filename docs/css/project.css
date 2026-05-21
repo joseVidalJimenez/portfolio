@@ -150,7 +150,8 @@
     margin: 0 0 10px;
 }
 
-.overview-block p {
+.overview-block p,
+.overview-block li {
     font-family: 'Inter', Arial, sans-serif;
     font-size: 0.91rem;
     line-height: 1.72;
