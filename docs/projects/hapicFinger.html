@@ -8,6 +8,18 @@
 		<meta name="description" content="Tactile Haptic System — redesigned fingertip feedback mechanism for a VR haptic suit. Designed by José Vidal.">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/project.css">
+		<style>
+			.section-label {
+				font-family: 'Inter', Arial, sans-serif;
+				font-size: 0.75rem;
+				font-weight: 600;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: #cb4444;
+				display: block;
+				margin-bottom: 1rem;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="navbar">
@@ -62,7 +74,7 @@
 				</div>
 				<div class="project-section">
 					<h2>Early Prototype &amp; Iteration</h2>
-						<p class="para">The haptic glove existed but had a critical flaw — solenoids placed directly on the fingertips prevented fingers from curling. The challenge wasn't the haptics themselves, but where they sat. This phase focused entirely on relocation: move the solenoids away from the fingertips, then design a mechanism to still transmit vibration back to them.</p>
+				<p class="para">The haptic glove existed but had a critical flaw — solenoids placed directly on the fingertips prevented fingers from curling. The challenge wasn't the haptics themselves, but where they sat. This phase focused entirely on relocation: move the solenoids away from the fingertips, then design a mechanism to still transmit vibration back to them.</p>
 						<div class="image-pair image-pair--stacked">
 							<div class="media-fullwidth">
 								<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative; max-width:50%; margin:0;">
@@ -78,8 +90,8 @@
 								</div>
 								<p class="media-caption">Early ideation exploring pivot positions, lever lengths and linkage topologies — the goal was to find a geometry that could redirect solenoid force to the fingertip from a relocated position further up the finger or hand.</p>
 								<div class="media-text">
-									<p>Early ideation mapping five linkage families to find a geometry that could redirect solenoid force from a relocated position.</p>
-									<p>Regardless of solenoid position, the fingertip still needed to be actuated. I mapped five broad linkage families to understand the mechanical trade-offs before committing to any physical build.</p>
+										<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Early ideation mapping five linkage families to find a geometry that could redirect solenoid force from a relocated position.</p>
+										<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Regardless of solenoid position, the fingertip still needed to be actuated. I mapped five broad linkage families to understand the mechanical trade-offs before committing to any physical build.</p>
 									<ol class="ideation-list">
 										<li>Two segments pushed inwards
 											<ol type="a">
@@ -120,9 +132,7 @@
 
 							<!-- Descriptive text placed under both images -->
 							<div class="media-text">
-								<p>Integrating the mechanism required resolving three constraints simultaneously: routing DC power and data cables without restricting flex, fitting board-to-board connectors within the glove envelope, and maintaining the linkage geometry under finger load.</p>
-							</div>
-
+										<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0;">Integrating the mechanism required resolving three constraints simultaneously: routing DC power and data cables without restricting flex, fitting board-to-board connectors within the glove envelope, and maintaining the linkage geometry under finger load.</p>
 							<!-- Later iteration remains after the assembly + video block -->
 							<div class="media-with-text media-with-text--wide-left">
 								<div>
@@ -148,7 +158,7 @@
 
 				<div class="project-section">
 					<h2>Redesigned Mechanism</h2>
-					<p>The final design consolidated the findings from physical prototyping. The solenoid was mounted further up the dorsal side of the finger, with a two-segment linkage transmitting force to a pad resting on the fingertip. The housing was designed to sit within the existing glove envelope without adding bulk at the knuckle joint.</p>
+					<p class="para">The final design consolidated the findings from physical prototyping. The solenoid was mounted further up the dorsal side of the finger, with a two-segment linkage transmitting force to a pad resting on the fingertip. The housing was designed to sit within the existing glove envelope without adding bulk at the knuckle joint.</p>
 					<div style="max-width:100%; margin:28px 0 0;">
 						<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative;">
 							<img src="../images/projects/hapicFinger/finalTactileHaptic.PNG" alt="Final tactile haptic design" class="pair-img">
@@ -170,10 +180,10 @@
 			<div class="project-section">
 				<h2>What I learned</h2>
 				<div class="innovation-body">
-					<p>Building quick, physical prototypes exposed mechanical interferences that CAD alone missed. Moving the solenoids and simplifying the linkage significantly improved wearability and freedom of movement.</p>
-					<p>Iterating with rough assemblies and glove testing helped balance actuator stroke, force transmission, and ergonomics — small geometric changes had large effects.</p>
-					<p>Prioritising fast, testable prototypes let me discard unworkable concepts early and converge on a solution that met the project's functional and comfort goals.</p>
-					<p>This project shifted how I approach integration problems — constraints from power routing, form factor and mechanical load have to be resolved together, not sequentially.</p>
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Building quick, physical prototypes exposed mechanical interferences that CAD alone missed. Moving the solenoids and simplifying the linkage significantly improved wearability and freedom of movement.</p>
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Iterating with rough assemblies and glove testing helped balance actuator stroke, force transmission, and ergonomics — small geometric changes had large effects.</p>
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Prioritising fast, testable prototypes let me discard unworkable concepts early and converge on a solution that met the project's functional and comfort goals.</p>
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0;">This project shifted how I approach integration problems — constraints from power routing, form factor and mechanical load have to be resolved together, not sequentially.</p>
 				</div>
 			</div>
 
