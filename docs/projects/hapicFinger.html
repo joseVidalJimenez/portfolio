@@ -108,8 +108,7 @@
 				</div>
 				<div class="project-section">
 					<h2>Early Prototype &amp; Iteration</h2>
-				<p class="para">Relocating the solenoids created a new constraint: force still needed to reach the fingertip from a distance. This phase focused on finding a linkage geometry that could bridge that gap — fast, testable prototypes were used to discard unworkable concepts early before committing to any physical build.</p>
-				<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Prioritising fast, testable prototypes let me discard unworkable concepts early and converge on a solution that met the project's functional and comfort goals.</p>
+				<p class="para">Relocating the solenoids created a new constraint: force still needed to reach the fingertip from a distance. This phase focused on finding a linkage geometry that could bridge that gap — each concept was evaluated and evolved, progressively shaping the problem space around criteria including range of movement, assembly complexity, part count, and manufacturability.</p>
 					<h3>Ideation &amp; Linkage Mapping</h3>
 					<div class="image-pair image-pair--stacked">
 							<div class="media-fullwidth">
@@ -156,15 +155,14 @@
 					</div>
 					<p class="media-caption">Near-final physical build — linkage geometry and mounting position validated against knuckle articulation and actuation range.</p>
 					<div class="media-text">
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Building quick, physical prototypes exposed mechanical interferences that CAD alone missed. Moving the solenoids and simplifying the linkage significantly improved wearability and freedom of movement.</p>
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0;">Iterating with rough assemblies and glove testing helped balance actuator stroke, force transmission, and ergonomics — small geometric changes had large effects.</p>
+						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">Each prototype refined the brief as much as the mechanism. A solution might meet the kinematic requirements but be rejected for height, cable routing, or aesthetics — narrowing the problem space with every iteration until the geometry and constraints aligned.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="project-section">
 				<h2>Redesigned Mechanism</h2>
-					<p class="para">Physical prototyping revealed two failure modes that CAD alone couldn't predict: the mounting point interfered with knuckle articulation, and the linkage geometry lost mechanical advantage at full finger curl. The final design addressed both — relocating the solenoid to the dorsal side of the finger and introducing a two-segment linkage to maintain force transmission across the full range of motion. The housing was designed to fit within the existing glove envelope without adding bulk at the knuckle joint.</p>
+					<p class="para">The module had to meet three constraints simultaneously: fit within the existing glove envelope without adding bulk at the knuckle, transmit the solenoid signal to the fingertip with minimal distortion — achieved by keeping the linkage as stiff and direct as possible, minimising the number of intermediate parts — and receive DC power routed through a chain of boards spanning from backpack to forearm to hand to finger without restricting glove flex. To support the broader system integration, I produced a research report covering cable routing solutions and board-to-board connectivity, recommending pogo pin connectors for their reliability under repeated movement. Signal fidelity was verified by the client.</p>
 					<div style="max-width:100%; margin:28px 0;">
 						<div class="img-frame img-frame--wide" style="aspect-ratio: 16/9; width: 100%;">
 							<div class="yt-facade" data-id="HpEyRd1wkLg">
