@@ -285,7 +285,7 @@
     width: 100%;
     max-width: 100%;
     aspect-ratio: auto;
-    overflow: visible;
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 22px rgba(0, 0, 0, 0.13);
     background: transparent;
