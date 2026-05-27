@@ -167,11 +167,6 @@
     gap: 20px;
 }
 
-        width: 100%;
-        margin: 0;
-    }
-}
-
 .analysis-card h4 {
     font-family: 'Inter', Arial, sans-serif;
     font-size: 0.95rem;
@@ -436,11 +431,6 @@
     .media-with-text--wide-left {
         grid-template-columns: 1fr;
     }
-}
-
-     grid-template-columns: 50% 1fr;
-    width: 100%;
-    margin: 0;
 }
 
 .media-text {
