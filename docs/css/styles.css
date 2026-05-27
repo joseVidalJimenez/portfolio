@@ -1,5 +1,9 @@
 /* Add your styles here */
 
+:root {
+    --accent: #cb4444;
+}
+
 /* ---- Global reset ---- */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -104,7 +108,7 @@ h2{
   }
 
   .navbar-menu a:hover {
-	background-color: #cb4444;
+	background-color: var(--accent);
 	border-radius: 5px;
   }
 
@@ -139,7 +143,7 @@ h2{
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #cb4444;
+    color: var(--accent);
     display: block;
     margin-bottom: 18px;
 }
@@ -428,117 +432,14 @@ h2{
 }
 
 .card-link {
-    color: #cb4444;
+    color: var(--accent);
     font-weight: bold;
     font-size: 0.88em;
     align-self: flex-start;
 }
 
 .card-link:visited {
-    color: #cb4444;
-}
-
-/* --------- Portfolio / Hobbies listing */
-.listing-section {
-    padding: 100px 10% 60px;
-}
-
-.listing-section h2 {
-    margin-bottom: 8px;
-}
-
-.listing-section .para {
-    text-align: center;
-    margin: 0 auto 36px;
-    max-width: 640px;
-    color: #333;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-    gap: 24px;
-}
-/* ---- About page sections */
-.about-section {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-.about-section h2 {
-    text-align: left;
-    border-bottom: 2px solid #cb4444;
-    padding-bottom: 6px;
-    margin-bottom: 24px;
-}
-
-.about-section h3 {
-    color: #222;
-    margin: 20px 0 6px;
-    font-size: 1em;
-    text-align: left;
-}
-
-.skill-item {
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #555;
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-}
-
-.skill-item p.applications {
-    font-size: 0.88em;
-    color: #222;
-    margin-top: 4px;
-}
-
-.experience-item {
-    margin-bottom: 32px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #555;
-}
-
-.experience-item:last-child {
-    border-bottom: none;
-}
-
-.experience-item h3 {
-    font-size: 1.05em;
-    margin-bottom: 2px;
-}
-
-.experience-meta {
-    font-size: 0.88em;
-    color: #222;
-    margin: 0 0 8px;
-    font-style: italic;
-}
-
-.cert-list {
-    list-style: none;
-    padding: 0;
-    margin: 8px 0 20px;
-}
-
-.cert-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #555;
-    font-size: 0.95em;
-}
-
-.cert-list li:last-child {
-    border-bottom: none;
-}
-
-.cert-list li span {
-    color: #222;
-    font-size: 0.85em;
-    margin-left: 8px;
+    color: var(--accent);
 }
 
 /* ---- About page sections */
@@ -551,7 +452,7 @@ h2{
 
 .about-section h2 {
     text-align: left;
-    border-bottom: 2px solid #cb4444;
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 6px;
     margin-bottom: 24px;
 }
