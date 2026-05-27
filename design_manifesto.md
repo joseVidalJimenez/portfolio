@@ -122,6 +122,17 @@ Planning notes and content drafts live in `_planning/` at the repo root (not ser
 - CSS float-based (left/right image sections with clearfix)
 - Container: `80%` width, centred
 
+### Attributions
+When a project page includes work by a collaborator or external party (e.g. industrial design, branding, photography), add a single attribution line directly below the overview cards using this format:
+
+```html
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.8rem; line-height: 1.6; color: #888; margin: 16px 0 0;">Attributions: [Role] by [Name/Studio]</p>
+```
+
+- Keep it secondary — small, muted grey (`#888`), no heading
+- One line per attribution; comma-separate multiple roles from the same party
+- Place it inside the overview `project-section` div, after the closing `</div>` of `.overview-grid`
+
 ---
 
 ## Content Conventions
