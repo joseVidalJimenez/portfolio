@@ -674,27 +674,29 @@
     right: 10px;
     width: 34px;
     height: 34px;
-    background: #cb4444;
+    background: var(--accent);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    padding: 7px;
     transition: background 0.18s;
     z-index: 2;
 }
 
-.img-expand-btn:hover {
-    background: #b33;
-}
-
-.img-expand-btn svg {
+.img-expand-btn::after {
+    content: '';
+    display: block;
     width: 18px;
     height: 18px;
-    display: block;
+    background-color: #fff;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cpolyline points='9 21 3 21 3 15'/%3E%3Cline x1='21' y1='3' x2='14' y2='10'/%3E%3Cline x1='3' y1='21' x2='10' y2='14'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cpolyline points='9 21 3 21 3 15'/%3E%3Cline x1='21' y1='3' x2='14' y2='10'/%3E%3Cline x1='3' y1='21' x2='10' y2='14'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.img-expand-btn:hover {
+    background: #b33;
 }
 
 .lightbox {
