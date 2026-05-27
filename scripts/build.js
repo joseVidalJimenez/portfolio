@@ -67,7 +67,6 @@ const config     = JSON.parse(read(configPath));
 
 const layoutTpl  = read(path.join(ROOT, '_templates', 'layout.html'));
 const navbarTpl  = read(path.join(ROOT, '_templates', 'navbar.html'));
-const footerTpl  = read(path.join(ROOT, '_templates', 'footer.html'));
 
 console.log(`Building ${config.pages.length} pages…`);
 
@@ -86,7 +85,6 @@ for (const page of config.pages) {
 	// Resolve root-relative paths in all fragments
 	const root     = page.root;
 	const navbar   = applyNavActive(applyRoot(navbarTpl, root), page.navActive);
-	const footer   = page.footer ? applyRoot(footerTpl, root) : '';
 	const extraCss = page.extraCss || '';
 
 	// Assemble page from layout template
@@ -95,8 +93,7 @@ for (const page of config.pages) {
 		.replace('{{DESCRIPTION}}', page.description)
 		.replace('{{EXTRA_CSS}}',   extraCss)
 		.replace('{{NAVBAR}}',      navbar)
-		.replace('{{CONTENT}}',     content)
-		.replace('{{FOOTER}}',      footer);
+		.replace('{{CONTENT}}',     content);
 
 	// Apply root to remaining placeholders (CSS, favicon paths in layout)
 	html = applyRoot(html, root);
