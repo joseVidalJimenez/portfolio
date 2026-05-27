@@ -267,3 +267,38 @@
 
 			</div>
 		</div>
+
+			<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view">
+				<button class="lightbox__close" aria-label="Close">&times;</button>
+				<img class="lightbox__img" src="" alt="">
+			</div>
+
+	<script>
+	  const lightbox = document.getElementById('lightbox');
+	  const lightboxImg = lightbox.querySelector('.lightbox__img');
+
+	  document.querySelectorAll('.img-expand-btn').forEach(btn => {
+	    btn.addEventListener('click', e => {
+	      e.stopPropagation();
+	      const img = btn.parentElement.querySelector('img');
+	      lightboxImg.src = img.src;
+	      lightboxImg.alt = img.alt;
+	      lightbox.classList.add('is-open');
+	      document.body.style.overflow = 'hidden';
+	    });
+	  });
+
+	  lightbox.addEventListener('click', e => {
+	    if (e.target === lightbox || e.target.classList.contains('lightbox__close')) {
+	      lightbox.classList.remove('is-open');
+	      document.body.style.overflow = '';
+	    }
+	  });
+
+	  document.addEventListener('keydown', e => {
+	    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+	      lightbox.classList.remove('is-open');
+	      document.body.style.overflow = '';
+	    }
+	  });
+	</script>
