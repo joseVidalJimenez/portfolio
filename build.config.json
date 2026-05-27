@@ -1,0 +1,144 @@
+{
+  "pages": [
+    {
+      "src": "src/pages/index.html",
+      "out": "docs/index.html",
+      "title": "José Vidal - Portfolio",
+      "description": "Portfolio of José Vidal, design engineer specialising in mechanical design, mechatronics, and embedded systems.",
+      "navActive": "home",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/portfolio.html",
+      "out": "docs/portfolio.html",
+      "title": "Portfolio \u2013 José Vidal",
+      "description": "Project portfolio of José Vidal, design engineer.",
+      "navActive": "portfolio",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/about.html",
+      "out": "docs/about.html",
+      "title": "About \u2013 José Vidal",
+      "description": "About José Vidal, design engineer based in London.",
+      "navActive": "about",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/hobbies.html",
+      "out": "docs/hobbies.html",
+      "title": "Hobbies \u2013 José Vidal",
+      "description": "Hobbies and interests of José Vidal.",
+      "navActive": "hobbies",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/journal.html",
+      "out": "docs/journal.html",
+      "title": "Journal \u2013 José Vidal",
+      "description": "Engineering notes and journal entries by José Vidal.",
+      "navActive": "journal",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/contact.html",
+      "out": "docs/contact.html",
+      "title": "Contact \u2013 José Vidal",
+      "description": "Contact José Vidal, design engineer based in London.",
+      "navActive": "contact",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/sitemap.html",
+      "out": "docs/sitemap.html",
+      "title": "Sitemap \u2013 José Vidal",
+      "description": "Site map for the portfolio of José Vidal.",
+      "navActive": "",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/pages/thanktyoupage.html",
+      "out": "docs/thanktyoupage.html",
+      "title": "Thank You \u2013 José Vidal",
+      "description": "Thank you for getting in touch.",
+      "navActive": "",
+      "root": ".",
+      "extraCss": "",
+      "footer": true
+    },
+    {
+      "src": "src/projects/hapicFinger.html",
+      "out": "docs/projects/hapicFinger.html",
+      "title": "Tactile Haptic System \u2013 José Vidal",
+      "description": "Tactile Haptic System — redesigned fingertip feedback mechanism for a VR haptic suit. Designed by José Vidal.",
+      "navActive": "",
+      "root": "..",
+      "extraCss": "<link rel=\"stylesheet\" href=\"../css/project.css\">\n\t\t<style>\n\t\t\t.section-label {\n\t\t\t\tfont-family: 'Inter', Arial, sans-serif;\n\t\t\t\tfont-size: 0.75rem;\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.14em;\n\t\t\t\ttext-transform: uppercase;\n\t\t\t\tcolor: #cb4444;\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 1rem;\n\t\t\t}\n\t\t</style>",
+      "footer": false
+    },
+    {
+      "src": "src/projects/curler.html",
+      "out": "docs/projects/curler.html",
+      "title": "Curling Iron Development \u2013 José Vidal",
+      "description": "Curling iron heating barrel and control board development. Designed by José Vidal.",
+      "navActive": "",
+      "root": "..",
+      "extraCss": "<link rel=\"stylesheet\" href=\"../css/project.css\">\n\t\t<style>\n\t\t\t/* ── Curler page: hero image — bottom-anchored absolute overlay ── */\n\t\t\t.project-hero {\n\t\t\t\theight: 80vh;\n\t\t\t\toverflow: visible;\n\t\t\t\tposition: relative;\n\t\t\t\tpadding: 0;\n\t\t\t}\n\t\t\t.project-hero__inner {\n\t\t\t\tdisplay: flex;\n\t\t\t\talign-items: center;\n\t\t\t\theight: 100%;\n\t\t\t\tgrid-template-columns: unset;\n\t\t\t\tgap: unset;\n\t\t\t\tmax-width: 1100px;\n\t\t\t\tmargin: 0 auto;\n\t\t\t\tpadding: 0 48px;\n\t\t\t}\n\t\t\t.project-hero__text {\n\t\t\t\tmax-width: 55%;\n\t\t\t}\n\t\t\t.project-hero__img-wrap {\n\t\t\t\tposition: absolute;\n\t\t\t\tright: 25%;\n\t\t\t\tbottom: 0;\n\t\t\t\theight: 95%;\n\t\t\t\twidth: auto;\n\t\t\t}\n\t\t\t.project-hero__img {\n\t\t\t\theight: 100%;\n\t\t\t\twidth: auto;\n\t\t\t\tdisplay: block;\n\t\t\t\tobject-position: bottom center;\n\t\t\t\tmix-blend-mode: lighten;\n\t\t\t}\n\t\t\t/* ── Section label utility (replaces per-element inline styles) ── */\n\t\t\t.section-label {\n\t\t\t\tfont-family: 'Inter', Arial, sans-serif;\n\t\t\t\tfont-size: 0.75rem;\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.14em;\n\t\t\t\ttext-transform: uppercase;\n\t\t\t\tcolor: #cb4444;\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 1rem;\n\t\t\t}\n\t\t\t.section-header {\n\t\t\t\tmargin-bottom: 1rem;\n\t\t\t}\n\t\t\t.section-header .section-label {\n\t\t\t\tmargin-bottom: 0;\n\t\t\t}\n\t\t\t.problem-statement h2::before {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t/* ── Heater config comparison grid ── */\n\t\t\t.heater-compare-grid {\n\t\t\t\tdisplay: grid;\n\t\t\t\tgrid-template-columns: repeat(3, 1fr);\n\t\t\t\tgap: 1.25rem;\n\t\t\t\tmargin-bottom: 2rem;\n\t\t\t}\n\t\t\t.hconfig-card {\n\t\t\t\tbackground: #fff;\n\t\t\t\tborder-radius: 10px;\n\t\t\t\tborder: 2px solid #e8e8e8;\n\t\t\t\toverflow: hidden;\n\t\t\t\tbox-shadow: 0 2px 8px rgba(0,0,0,0.05);\n\t\t\t}\n\t\t\t.hconfig-card--selected {\n\t\t\t\tborder-color: #cb4444;\n\t\t\t}\n\t\t\t.hconfig-header {\n\t\t\t\tpadding: 1.125rem 1.25rem 1rem;\n\t\t\t\tborder-bottom: 1px solid #f0f0f0;\n\t\t\t}\n\t\t\t.hconfig-header h4 {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tmargin: 0.35rem 0 0.35rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t\t.hconfig-header p {\n\t\t\t\tfont-size: 0.8rem;\n\t\t\t\tcolor: #888;\n\t\t\t\tmargin: 0;\n\t\t\t\tline-height: 1.4;\n\t\t\t}\n\t\t\t.hconfig-verdict {\n\t\t\t\tfont-family: 'Inter', sans-serif;\n\t\t\t\tfont-size: 0.65rem;\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.1em;\n\t\t\t\ttext-transform: uppercase;\n\t\t\t\tpadding: 0.2rem 0.55rem;\n\t\t\t\tborder-radius: 4px;\n\t\t\t\tdisplay: inline-block;\n\t\t\t\tmargin-bottom: 0.5rem;\n\t\t\t}\n\t\t\t.hconfig-verdict--selected { background: rgba(203,68,68,0.1); color: #cb4444; }\n\t\t\t.hconfig-verdict--considered { background: #f0f0f0; color: #777; }\n\t\t\t.hconfig-verdict--rejected { background: #f0f0f0; color: #aaa; }\n\t\t\t.hconfig-images {\n\t\t\t\tdisplay: flex;\n\t\t\t\tgap: 0.5rem;\n\t\t\t\tpadding: 0.875rem;\n\t\t\t\tbackground: #fafafa;\n\t\t\t}\n\t\t\t.hconfig-images img {\n\t\t\t\tflex: 1;\n\t\t\t\twidth: 0;\n\t\t\t\tmax-height: 180px;\n\t\t\t\tobject-fit: contain;\n\t\t\t\tborder-radius: 5px;\n\t\t\t\tbackground: #fff;\n\t\t\t}\n\t\t\t.hconfig-metrics {\n\t\t\t\tpadding: 1rem 1.25rem;\n\t\t\t}\n\t\t\t.hconfig-metrics p {\n\t\t\t\tfont-size: 0.82rem;\n\t\t\t\tcolor: #666;\n\t\t\t\tline-height: 1.55;\n\t\t\t\tmargin: 0;\n\t\t\t}\n\t\t\t.hconfig-delta {\n\t\t\t\tfont-family: 'Bebas Neue', sans-serif;\n\t\t\t\tfont-size: 1.75rem;\n\t\t\t\tcolor: #111;\n\t\t\t\tline-height: 1;\n\t\t\t\tmargin-bottom: 0.4rem;\n\t\t\t}\n\t\t\t.hconfig-card--selected .hconfig-delta { color: #cb4444; }\n\t\t\t@media (max-width: 768px) {\n\t\t\t\t.heater-compare-grid { grid-template-columns: 1fr; }\n\t\t\t\t.decision-cols { grid-template-columns: 1fr !important; gap: 1.5rem !important; }\n\t\t\t}\n\t\t\t@media (max-width: 768px) {\n\t\t\t\t.project-hero {\n\t\t\t\t\theight: auto;\n\t\t\t\t\tmin-height: 70vw;\n\t\t\t\t\toverflow: visible;\n\t\t\t\t}\n\t\t\t\t.project-hero__inner {\n\t\t\t\t\theight: auto;\n\t\t\t\t\talign-items: center;\n\t\t\t\t}\n\t\t\t\t.project-hero__text {\n\t\t\t\t\tmax-width: 55%;\n\t\t\t\t\tpadding-bottom: 3rem;\n\t\t\t\t}\n\t\t\t\t.project-hero__img-wrap {\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\tright: 0;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\theight: 100%;\n\t\t\t\t\twidth: 45%;\n\t\t\t\t}\n\t\t\t\t.problem-cols {\n\t\t\t\t\tgrid-template-columns: 1fr !important;\n\t\t\t\t\tgap: 1.5rem !important;\n\t\t\t\t}\n\t\t\t}\n\t\t</style>",
+      "footer": false
+    },
+    {
+      "src": "src/projects/backpack.html",
+      "out": "docs/projects/backpack.html",
+      "title": "BackPack Arm \u2013 José Vidal",
+      "description": "BackPack robotic arm project. Designed by José Vidal.",
+      "navActive": "",
+      "root": "..",
+      "extraCss": "<link rel=\"stylesheet\" href=\"../css/project.css\">",
+      "footer": true
+    },
+    {
+      "src": "src/projects/planter.html",
+      "out": "docs/projects/planter.html",
+      "title": "Targeted Irrigation System \u2013 José Vidal",
+      "description": "Targeted irrigation system for planters. Designed by José Vidal.",
+      "navActive": "",
+      "root": "..",
+      "extraCss": "<link rel=\"stylesheet\" href=\"../css/project.css\">",
+      "footer": true
+    },
+    {
+      "src": "src/projects/plug.html",
+      "out": "docs/projects/plug.html",
+      "title": "Universal Cable Adapter (UCA) \u2013 José Vidal",
+      "description": "Universal Cable Adapter project. Designed by José Vidal.",
+      "navActive": "",
+      "root": "..",
+      "extraCss": "<link rel=\"stylesheet\" href=\"../css/project.css\">",
+      "footer": true
+    },
+    {
+      "src": "src/projects/RCcar.html",
+      "out": "docs/projects/RCcar.html",
+      "title": "WombleBot \u2013 José Vidal",
+      "description": "WombleBot RC car project. Designed by José Vidal.",
+      "navActive": "",
+      "root": "..",
+      "extraCss": "<link rel=\"stylesheet\" href=\"../css/project.css\">\n\t\t<style>\n\t\t\t.project-grid--bom { display: grid; grid-template-columns: 1fr 360px; gap: 2em; align-items: start; }\n\t\t\t.project-grid--bom > div:nth-child(2) { align-self: center; }\n\t\t\t@media (max-width: 720px) {\n\t\t\t\t.project-grid--bom { grid-template-columns: 1fr; }\n\t\t\t\t.project-grid--bom img { max-width: 80%; margin: 0 auto; display: block; }\n\t\t\t\t.project-grid--bom > div:nth-child(2) { align-self: stretch; }\n\t\t\t}\n\t\t</style>",
+      "footer": true
+    }
+  ]
+}
