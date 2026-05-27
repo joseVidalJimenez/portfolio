@@ -11,6 +11,170 @@
 		<meta name="description" content="Curling iron heating barrel and control board development. Designed by José Vidal.">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/project.css">
+		<style>
+			/* ── Curler page: hero image — bottom-anchored absolute overlay ── */
+			.project-hero {
+				height: 80vh;
+				overflow: visible;
+				position: relative;
+				padding: 0;
+			}
+			.project-hero__inner {
+				display: flex;
+				align-items: center;
+				height: 100%;
+				grid-template-columns: unset;
+				gap: unset;
+				max-width: 1100px;
+				margin: 0 auto;
+				padding: 0 48px;
+			}
+			.project-hero__text {
+				max-width: 55%;
+			}
+			.project-hero__img-wrap {
+				position: absolute;
+				right: 25%;
+				bottom: 0;
+				height: 95%;
+				width: auto;
+			}
+			.project-hero__img {
+				height: 100%;
+				width: auto;
+				display: block;
+				object-position: bottom center;
+				mix-blend-mode: lighten;
+			}
+			/* ── Section label utility (replaces per-element inline styles) ── */
+			.section-label {
+				font-family: 'Inter', Arial, sans-serif;
+				font-size: 0.75rem;
+				font-weight: 600;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: #cb4444;
+				display: block;
+				margin-bottom: 1rem;
+			}
+			.section-header {
+				margin-bottom: 1rem;
+			}
+			.section-header .section-label {
+				margin-bottom: 0;
+			}
+			.problem-statement h2::before {
+				display: none;
+			}
+			/* ── Heater config comparison grid ── */
+			.heater-compare-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.25rem;
+				margin-bottom: 2rem;
+			}
+			.hconfig-card {
+				background: #fff;
+				border-radius: 10px;
+				border: 2px solid #e8e8e8;
+				overflow: hidden;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+			}
+			.hconfig-card--selected {
+				border-color: #cb4444;
+			}
+			.hconfig-header {
+				padding: 1.125rem 1.25rem 1rem;
+				border-bottom: 1px solid #f0f0f0;
+			}
+			.hconfig-header h4 {
+				font-size: 1rem;
+				margin: 0.35rem 0 0.35rem;
+				color: #111;
+			}
+			.hconfig-header p {
+				font-size: 0.8rem;
+				color: #888;
+				margin: 0;
+				line-height: 1.4;
+			}
+			.hconfig-verdict {
+				font-family: 'Inter', sans-serif;
+				font-size: 0.65rem;
+				font-weight: 600;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				padding: 0.2rem 0.55rem;
+				border-radius: 4px;
+				display: inline-block;
+				margin-bottom: 0.5rem;
+			}
+			.hconfig-verdict--selected { background: rgba(203,68,68,0.1); color: #cb4444; }
+			.hconfig-verdict--considered { background: #f0f0f0; color: #777; }
+			.hconfig-verdict--rejected { background: #f0f0f0; color: #aaa; }
+			.hconfig-images {
+				display: flex;
+				gap: 0.5rem;
+				padding: 0.875rem;
+				background: #fafafa;
+			}
+			.hconfig-images img {
+				flex: 1;
+				width: 0;
+				max-height: 180px;
+				object-fit: contain;
+				border-radius: 5px;
+				background: #fff;
+			}
+			.hconfig-metrics {
+				padding: 1rem 1.25rem;
+			}
+			.hconfig-metrics p {
+				font-size: 0.82rem;
+				color: #666;
+				line-height: 1.55;
+				margin: 0;
+			}
+			.hconfig-delta {
+				font-family: 'Bebas Neue', sans-serif;
+				font-size: 1.75rem;
+				color: #111;
+				line-height: 1;
+				margin-bottom: 0.4rem;
+			}
+			.hconfig-card--selected .hconfig-delta { color: #cb4444; }
+			@media (max-width: 768px) {
+				.heater-compare-grid { grid-template-columns: 1fr; }
+				.decision-cols { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+			}
+			@media (max-width: 768px) {
+				.project-hero {
+					height: auto;
+					min-height: 70vw;
+					overflow: visible;
+				}
+				.project-hero__inner {
+					height: auto;
+					align-items: center;
+				}
+				.project-hero__text {
+					max-width: 55%;
+					padding-bottom: 3rem;
+				}
+				.project-hero__img-wrap {
+					position: absolute;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					height: 100%;
+					width: 45%;
+				}
+				.problem-cols {
+					grid-template-columns: 1fr !important;
+					gap: 1.5rem !important;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div class="navbar">
@@ -25,7 +189,6 @@
 			<a href="../index.html">Home</a>
 			<a href="../portfolio.html">Portfolio</a>
 			<a href="../hobbies.html">Hobbies</a>
-			<a href="../journal.html">Journal</a>
 			<a href="../about.html">About</a>
 			<a href="../contact.html">Contact</a>
 		</div>
