@@ -111,25 +111,23 @@
 					<h2>Early Prototype &amp; Iteration</h2>
 				<p class="para">Relocating the solenoids created a new constraint: force still needed to reach the fingertip from a distance. Rather than fully developing each concept before moving forward, this phase prioritised low-resolution solutions — enough to implant a question, request feedback, and shape the problem space. Overpolished concepts invite static thinking; rough ones invite iteration.</p>
 					<h3>Ideation &amp; Linkage Mapping</h3>
-					<div class="image-pair image-pair--stacked">
-							<div class="media-fullwidth">
-							<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative; max-width:100%; margin:0;">
-								<img src="../images/projects/hapicFinger/sketches_edited.png" alt="Initial prototype showing solenoid layout" class="pair-img" style="width:100%; height:auto; display:block;">
-									<button class="img-expand-btn" aria-label="View full image">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="15 3 21 3 21 9"></polyline>
-											<polyline points="9 21 3 21 3 15"></polyline>
-											<line x1="21" y1="3" x2="14" y2="10"></line>
-											<line x1="3" y1="21" x2="10" y2="14"></line>
-										</svg>
-									</button>
-								</div>
-								<p class="media-caption">Five linkage families mapped to evaluate force transmission from a relocated solenoid position</p>
-					<div class="media-text">
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">The initial sketches weren't drawn against the full application brief — they addressed a single question: how do you move a point up and down? The goal was to enter the problem space quickly, not accurately. From that exploration, five linkage families emerged: two-segment push, two-segment pull, common pivot, ball-over-bump, and rack-and-pinion. The final mechanism is closest to solution 2b — two segments, two pivots — though the final geometry evolved beyond any single sketch. One pivot became a slot to reduce overall height, a refinement the ideation phase couldn't anticipate but the sketches made possible.</p>
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">The gap between sketch and solution was closed through CAD. Working backwards from known constraints — the solenoid's output movement was fixed, and the fingertip contact needed to behave as a flap — the problem reduced to a single pivot and a pull force. A physical test with a 3D printed flap and a fishing line confirmed the pivot geometry before any mechanism was designed. Pulling the flap by hand was enough: no solenoid, no linkage, just a seed to work backwards from.</p>
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">The cable test reframed the problem rather than solved it. A cable-only solution relied on the finger's natural spring-back to return the flap to neutral — insufficient and difficult to control reliably. The insight was that the cable, as a flexible connector, could only pull — replacing it with a rigid link introduced the ability to push, resolving the return problem. The mechanism reduced to its essentials: a solenoid, a connector extending the actuation point to a first pivot, and a lever. Fixed pivot positions introduced a height constraint, which was resolved by tilting the solenoid and converting the first pivot into a slot to accommodate the geometry.</p>
-					</div>
+				<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative; margin: 28px 0 0;">
+					<img src="../images/projects/hapicFinger/sketches_edited.png" alt="Initial prototype showing solenoid layout" class="pair-img" style="width:100%; height:auto; display:block;">
+					<button class="img-expand-btn" aria-label="View full image">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<polyline points="9 21 3 21 3 15"></polyline>
+							<line x1="21" y1="3" x2="14" y2="10"></line>
+							<line x1="3" y1="21" x2="10" y2="14"></line>
+						</svg>
+					</button>
+				</div>
+				<p class="media-caption">Five linkage families mapped to evaluate force transmission from a relocated solenoid position</p>
+				<div class="media-text">
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">The initial sketches weren't drawn against the full application brief — they addressed a single question: how do you move a point up and down? The goal was to enter the problem space quickly, not accurately. From that exploration, five linkage families emerged: two-segment push, two-segment pull, common pivot, ball-over-bump, and rack-and-pinion. The final mechanism is closest to solution 2b — two segments, two pivots — though the final geometry evolved beyond any single sketch. One pivot became a slot to reduce overall height, a refinement the ideation phase couldn't anticipate but the sketches made possible.</p>
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">The gap between sketch and solution was closed through CAD. Working backwards from known constraints — the solenoid's output movement was fixed, and the fingertip contact needed to behave as a flap — the problem reduced to a single pivot and a pull force. A physical test with a 3D printed flap and a fishing line confirmed the pivot geometry before any mechanism was designed. Pulling the flap by hand was enough: no solenoid, no linkage, just a seed to work backwards from.</p>
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; line-height: 1.78; color: #444; margin: 0 0 16px;">The cable test reframed the problem rather than solved it. A cable-only solution relied on the finger's natural spring-back to return the flap to neutral — insufficient and difficult to control reliably. The insight was that the cable, as a flexible connector, could only pull — replacing it with a rigid link introduced the ability to push, resolving the return problem. The mechanism reduced to its essentials: a solenoid, a connector extending the actuation point to a first pivot, and a lever. Fixed pivot positions introduced a height constraint, which was resolved by tilting the solenoid and converting the first pivot into a slot to accommodate the geometry.</p>
+				</div>
 					<h3>Rapid Prototyping</h3>
 					<p class="para">With the problem space shaped by sketches and CAD, the first physical prototype tested the core hypothesis — could a flap mechanism deliver consistent actuation from a relocated position? The build was intentionally minimal: enough to answer the question, nothing more. Not all iterations are documented here — only those that marked a meaningful shift in direction.</p>
 					<div class="image-pair image-pair--stacked" style="gap: 28px;">
@@ -144,7 +142,7 @@
 					<p class="para">The cable test informed the geometry; this build tested it on the body. Mounting position, knuckle clearance, and actuation range were all evaluated for the first time under real conditions.</p>
 
 					<!-- Later iteration remains after the assembly + video block -->
-				<div style="max-width:60%; margin:28px auto;">
+				<div style="max-width:70%; margin:28px auto;">
 					<div class="img-frame img-frame--fullwidth img-frame--white" style="position: relative;">
 						<img src="../images/projects/hapicFinger/valkery_proto.jpg" alt="Iteration with refined linkage" class="pair-img">
 						<button class="img-expand-btn" aria-label="View full image">
