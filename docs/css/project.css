@@ -388,6 +388,16 @@
 
 /* ── Subsection titles (h3 within project sections) ─────────────────────── */
 
+.project-section h3 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: #cb4444;
+    margin: 44px 0 20px;
+}
+
 .subsection-title {
     font-family: 'Inter', Arial, sans-serif;
     font-size: 0.8rem;
