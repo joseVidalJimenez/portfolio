@@ -473,6 +473,7 @@ h2{
 .card--cta {
     background: #111;
     order: 9999;
+    grid-column: 1 / span 1;
 }
 .card--cta .card-body h3 {
     font-family: 'Bebas Neue', sans-serif;
