@@ -19,9 +19,7 @@ const PAGES = [
   { name: 'about',         url: '/about.html' },
   { name: 'portfolio',     url: '/portfolio.html' },
   { name: 'contact',       url: '/contact.html' },
-  { name: 'journal',       url: '/journal.html' },
   { name: 'hobbies',       url: '/hobbies.html' },
-  { name: 'sitemap',       url: '/sitemap.html' },
   { name: 'thankyou',      url: '/thanktyoupage.html' },
   // Projects
   { name: 'proj-backpack',   url: '/projects/backpack.html' },
