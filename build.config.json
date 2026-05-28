@@ -27,7 +27,7 @@
       "description": "About Jos\u00e9 Vidal, design engineer based in London.",
       "navActive": "about",
       "root": ".",
-      "extraCss": "",
+      "extraCss": "<link rel=\"stylesheet\" href=\"./css/project.css\">\n\t\t<style>\n\t\t\t.skill-item h3, .experience-item h3 {\n\t\t\t\tfont-family: 'Inter', Arial, sans-serif;\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tfont-weight: 600;\n\t\t\t\ttext-transform: none;\n\t\t\t\tletter-spacing: normal;\n\t\t\t\tcolor: #111;\n\t\t\t\tmargin: 0 0 4px;\n\t\t\t}\n\t\t\t.experience-meta {\n\t\t\t\tfont-family: 'Inter', Arial, sans-serif;\n\t\t\t\tfont-size: 0.85rem;\n\t\t\t\tcolor: #777;\n\t\t\t\tmargin: 0 0 10px;\n\t\t\t\tfont-style: italic;\n\t\t\t}\n\t\t\t.skill-item, .experience-item {\n\t\t\t\tmargin-bottom: 28px;\n\t\t\t\tpadding-bottom: 24px;\n\t\t\t\tborder-bottom: 1px solid #ddd;\n\t\t\t}\n\t\t\t.skill-item:last-child, .experience-item:last-child { border-bottom: none; }\n\t\t\t.skill-item p, .experience-item p, .skill-item ul, .experience-item ul {\n\t\t\t\tfont-family: 'Inter', Arial, sans-serif;\n\t\t\t\tfont-size: 0.92rem;\n\t\t\t\tline-height: 1.72;\n\t\t\t\tcolor: #444;\n\t\t\t\tmargin: 0 0 8px;\n\t\t\t}\n\t\t\t.skill-item p.applications {\n\t\t\t\tfont-size: 0.84rem;\n\t\t\t\tcolor: #888;\n\t\t\t\tmargin-top: 6px;\n\t\t\t}\n\t\t</style>",
       "footer": true
     },
     {
