@@ -244,6 +244,21 @@
 	      document.body.style.overflow = '';
 	    }
 	  });
+
+	  // YouTube facade — swap to inline iframe on click
+	  document.querySelectorAll('.yt-facade').forEach(el => {
+	    el.addEventListener('click', () => {
+	      const id = el.dataset.id;
+	      const title = el.querySelector('.yt-thumb').alt;
+	      const iframe = document.createElement('iframe');
+	      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+	      iframe.title = title;
+	      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+	      iframe.allowFullscreen = true;
+	      iframe.style.cssText = 'width:100%;height:100%;border:none;display:block;';
+	      el.replaceWith(iframe);
+	    });
+	  });
 	</script>
 
 
