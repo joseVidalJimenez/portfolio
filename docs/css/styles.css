@@ -442,6 +442,27 @@ h2{
     color: var(--accent);
 }
 
+.card--cta {
+    background: #111;
+    order: 9999;
+}
+.card--cta .card-body h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+.card--cta .card-body p {
+    color: #888;
+}
+.card--cta .card-link {
+    color: #cb4444;
+}
+.card--cta:visited {
+    color: #888;
+}
+
 /* ---- About page sections */
 .about-section {
     margin-top: 40px;
