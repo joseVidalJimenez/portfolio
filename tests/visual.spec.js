@@ -20,7 +20,6 @@ const PAGES = [
   { name: 'portfolio',     url: '/portfolio.html' },
   { name: 'contact',       url: '/contact.html' },
   { name: 'hobbies',       url: '/hobbies.html' },
-  { name: 'thankyou',      url: '/thanktyoupage.html' },
   // Projects
   { name: 'proj-backpack',   url: '/projects/backpack.html' },
   { name: 'proj-curler',     url: '/projects/curler.html' },
