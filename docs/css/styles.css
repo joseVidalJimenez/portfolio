@@ -132,9 +132,8 @@ h2{
 }
 
 .home-hero__inner {
-    max-width: 820px;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 18%;
     text-align: left;
 }
 
