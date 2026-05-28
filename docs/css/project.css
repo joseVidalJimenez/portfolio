@@ -140,7 +140,7 @@
 }
 
 .overview-block h4 {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -151,7 +151,7 @@
 
 .overview-block p,
 .overview-block li {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.91rem;
     line-height: 1.72;
     color: #333;
@@ -167,7 +167,7 @@
 }
 
 .analysis-card h4 {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
     margin: 0 0 10px;
@@ -175,7 +175,7 @@
 }
 
 .analysis-card p {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.9rem;
     line-height: 1.72;
     color: #444;
