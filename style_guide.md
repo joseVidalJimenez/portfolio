@@ -65,11 +65,11 @@ These are the exact values used in `docs/css/project.css`. Do not substitute.
 | H1 — Project title | Bebas Neue | `clamp(3rem, 6.5vw, 5rem)` | 400 | White, `letter-spacing: 0.03em` |
 | H2 — Section headings | Bebas Neue | `2.2rem` | 400 | Dark `#111`, `letter-spacing: 0.04em`, red `::before` bar |
 | H3 — CTA heading | Bebas Neue | `1.9rem` | 400 | White |
-| H4 — Card titles | Inter | `0.7rem`–`0.95rem` | 700 | Uppercase, `#cb4444` or `#111` depending on card type |
-| Body / paragraphs | Inter | `0.9rem`–`0.95rem` | 400 | `line-height: 1.72`–`1.78` |
-| Hero label | Inter | `0.75rem` | 600 | Uppercase, `#cb4444`, `letter-spacing: 0.14em` |
-| Hero tagline | Inter | `1rem` | 400 | `#aaa`, `line-height: 1.65` |
-| Media captions | Inter | `0.8rem` | 400 | `#888`, centered |
+| H4 — Card titles | DM Sans | `0.7rem`–`0.95rem` | 700 | Uppercase, `#cb4444` or `#111` depending on card type |
+| Body / paragraphs | DM Sans | `0.9rem`–`0.95rem` | 400 | `line-height: 1.72`–`1.78` |
+| Hero label | DM Sans | `0.75rem` | 600 | Uppercase, `#cb4444`, `letter-spacing: 0.14em` |
+| Hero tagline | DM Sans | `1rem` | 400 | `#aaa`, `line-height: 1.65` |
+| Media captions | DM Sans | `0.8rem` | 400 | `#888`, centered |
 
 **Google Fonts import (already in `project.css` — do not add it again to individual pages):**
 ```css
