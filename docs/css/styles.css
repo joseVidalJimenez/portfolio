@@ -176,6 +176,14 @@ h2{
     margin-bottom: 0;
 }
 
+.home-hero__subtitle {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 1.05rem;
+    color: #aaa;
+    margin: 0;
+    line-height: 1.5;
+}
+
 .home-intro {
     background: #f2f2f2;
     padding: 48px 18% 40px;
