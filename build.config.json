@@ -7,7 +7,7 @@
       "description": "Portfolio of Jos\u00e9 Vidal, design engineer specialising in mechanical design, mechatronics, and embedded systems.",
       "navActive": "home",
       "root": ".",
-      "extraCss": "",
+      "extraCss": "<link rel=\"stylesheet\" href=\"./css/project.css\">",
       "footer": true
     },
     {
@@ -17,7 +17,7 @@
       "description": "Project portfolio of Jos\u00e9 Vidal, design engineer.",
       "navActive": "portfolio",
       "root": ".",
-      "extraCss": "",
+      "extraCss": "<link rel=\"stylesheet\" href=\"./css/project.css\">",
       "footer": true
     },
     {
@@ -37,7 +37,7 @@
       "description": "Hobbies and interests of Jos\u00e9 Vidal.",
       "navActive": "hobbies",
       "root": ".",
-      "extraCss": "",
+      "extraCss": "<link rel=\"stylesheet\" href=\"./css/project.css\">",
       "footer": true
     },
     {
