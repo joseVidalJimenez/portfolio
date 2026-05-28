@@ -51,16 +51,6 @@
       "footer": true
     },
     {
-      "src": "src/pages/thanktyoupage.html",
-      "out": "docs/thanktyoupage.html",
-      "title": "Thank You \u2013 Jos\u00e9 Vidal",
-      "description": "Thank you for getting in touch.",
-      "navActive": "",
-      "root": ".",
-      "extraCss": "",
-      "footer": true
-    },
-    {
       "src": "src/projects/hapicFinger.html",
       "out": "docs/projects/hapicFinger.html",
       "title": "Tactile Haptic System \u2013 Jos\u00e9 Vidal",
