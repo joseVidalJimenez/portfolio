@@ -457,7 +457,11 @@ h2{
     color: #888;
 }
 .card--cta .card-link {
-    color: #cb4444;
+    background: #cb4444;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
 }
 .card--cta:visited {
     color: #888;
