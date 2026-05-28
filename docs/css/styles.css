@@ -175,6 +175,21 @@ h2{
 .home-hero__body p:last-child {
     margin-bottom: 0;
 }
+
+.home-intro {
+    background: #f2f2f2;
+    padding: 48px 0 40px;
+}
+.home-intro p {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #444;
+    margin: 0 0 16px;
+}
+.home-intro p:last-child {
+    margin-bottom: 0;
+}
   
 /* -------------------------Grid container */
 
