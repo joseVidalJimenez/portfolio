@@ -467,6 +467,34 @@ h2{
     color: #888;
 }
 
+.card--dark {
+    background: #1a1a1a;
+}
+.card--dark .card-body h3 {
+    color: #fff;
+}
+.card--dark .card-body p {
+    color: #888;
+}
+.card--dark .card-link {
+    color: #888;
+}
+.card--dark:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.card--dark:visited {
+    color: #fff;
+}
+.card-category {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #cb4444;
+    margin-bottom: 8px;
+}
+
 /* ---- About page sections */
 .about-section {
     margin-top: 40px;
