@@ -115,13 +115,11 @@
 
 				<div class="project-section" id="rotary-mechanism">
 					<h2>Rotary Mechanism</h2>
-					<p class="para">The rotary selection knob is the UCA's primary mechanical contribution. Rather than repositioning plug geometry through a passive adapter, the knob indexes the cord body directly — rotating between socket positions through a detented selector integrated into the cord head. The brass contact mechanism was developed from scratch to maintain IEC&#8209;60320 electrical continuity across all indexed positions.</p>
-
-
-					<h4>Indexing Logic</h4>
-					<p class="para">Positive detents lock the selector at each socket position. The detent geometry was refined across multiple printed iterations &mdash; each print resolving one issue: tactile feel, end-stop alignment, or grip ergonomics. The black actuator visible in the contact photo is the printed selector slider.</p>
-
-
+					<p class="para">This was a technical demonstrator — built to prove that a custom rotary switch could be constructed cheaply from scratch before committing to a full design direction.</p>
+					<p class="para">The switching action is based on a rotary flexural detent mechanism — a configuration developed specifically for this prototype. A slotted disk rotates in the horizontal plane. Three spring-steel strips are arranged radially above it, each pre-bent so its tip presses lightly against the disk surface under its own elastic tension. The disk carries a single slot. As it rotates, only one strip at a time aligns with the slot — the tip drops through, flexing downward onto a central conducting ring below.</p>
+					<p class="para">In conventional rotary switches, the detent mechanism and the electrical contact are separate components: a ball-and-notch or spring-steel detent indexes the position, while a separate rotor arm or bridging contact closes the circuit. Here they are unified. The same flexural strip that locks the disk into position simultaneously closes the electrical path — one element, two functions.</p>
+					<p class="para">The circuit is a single-pole, triple-throw (SP3T) configuration. The live conductor connects permanently to the central ring. Each strip, when seated, completes the neutral path to its corresponding socket. The two unseated strips remain open, their tips resting on the unslotted disk surface, holding those circuits open by geometry alone.</p>
+					<p class="para">The entire assembly was 3D printed and hand-fabricated. No PCB, no off-the-shelf encoder. Geometry doing the work of a component.</p>
 
 					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
 						<div style="position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
@@ -138,54 +136,11 @@
 						</div>
 					</div>
 					<p class="media-caption">Rotary knob prototype in action</p>
-
-					<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #cb4444; margin-bottom: 1rem;">Why this approach</p>
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0 0 1rem;">Most international adapters treat plug geometry as fixed. The UCA treats it as variable — the plug geometry is selectable at the point of use, integrated into the cord body. The rotary switch is the mechanism that enables this: rather than carrying multiple cable types or loose adapter blocks, the user selects the base of the cord to index between connector standards. The switching action is mechanical and direct — no moving electrical components beyond the contact wipe that occurs during rotation.</p>
-						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0;">Achieving this required a custom brass contact set sized and rated to IEC&#8209;60320 — nothing off-the-shelf could provide what the rotary component needed. The result is a single cable that replaces a travel kit.</p>
-					</div>
 				</div>
 
 				<div class="project-section" id="functional-prototype">
 					<h2>Prototyping &amp; Validation</h2>
 					<p class="para">The UCA reached a working prototype integrating the rotary selector, hand-fabricated brass contacts, and 3D printed PLA housings. The prototype demonstrated indexed switching across socket positions and was tested for basic connection with a UK socket strip — the proof-of-function shown in the photographs below.</p>
-
-					<div class="overview-grid" style="margin-bottom: 1.75rem;">
-						<div class="overview-block">
-							<h4>What was built</h4>
-							<p>A complete cord assembly — rotary selector, two brass spring contacts per position, colour-coded wiring harness, and printed PLA housings in multiple iterations. Built without custom tooling; all fabrication by hand.</p>
-						</div>
-						<div class="overview-block">
-							<h4>What was tested</h4>
-							<p>Socket engagement geometry, detent indexing across all positions, contact continuity under insertion and withdrawal cycles.</p>
-						</div>
-						<div class="overview-block">
-							<h4>What passed</h4>
-							<p>Dimensional compatibility with IEC&#8209;60320 connector geometry confirmed. Rotary indexing reliable across all socket positions tested.</p>
-						</div>
-					</div>
-
-					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 1.25rem;">
-						<div>
-							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
-								<img src="../images/plug/20210224_024705.jpg" alt="Assembled prototype — multi-position plug face with three IEC socket positions" style="width: 100%; height: 200px; object-fit: cover; object-position: center; display: block;" loading="lazy">
-							</div>
-							<p class="media-caption">Assembled prototype — multi-position plug face with three IEC socket positions. C5 connector shown for scale.</p>
-						</div>
-						<div>
-							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
-								<img src="../images/plug/20210223_200555.jpg" alt="Internal assembly — open housing showing wiring, PLA body, and rotary selector module" style="width: 100%; height: 200px; object-fit: cover; object-position: center; display: block;" loading="lazy">
-							</div>
-							<p class="media-caption">Internal assembly — open housing showing wiring, PLA body, and rotary selector module.</p>
-						</div>
-						<div>
-							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
-								<img src="../images/plug/20210224_021730.jpg" alt="System overview — plug body and selector module connected via colour-coded wiring harness" style="width: 100%; height: 200px; object-fit: cover; object-position: center; display: block;" loading="lazy">
-							</div>
-							<p class="media-caption">System overview — plug body and selector module connected via colour-coded wiring harness.</p>
-						</div>
-					</div>
-					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.82rem; color: #999; line-height: 1.6; margin: 0;">Full electrical validation to IEC&#8209;60320 load ratings is outside scope of this prototype phase.</p>
 				</div>
 					<div style="margin-bottom: 1.75rem;">
 						<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 22px rgba(0,0,0,0.13); position: relative;">
@@ -196,33 +151,6 @@
 					</div>
 				<div class="project-section">
 					<p class="para">Each prototype stage targeted a specific uncertainty before advancing to the next. The brass contacts and rotary mechanism were developed in parallel, combined only when both were sufficiently resolved independently.</p>
-				<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem;">
-
-					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
-						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 01</p>
-						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Research and teardown</p>
-						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Baseline contact quality, switching geometry, and failure modes across current adapters. Teardowns exposed consistent failures at the contact wipe.</p>
-					</div>
-
-					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
-						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 02</p>
-						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Geometry validation</p>
-						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Initial rotary sketches evaluated against IEC&#8209;60320 requirements. Rotary geometry validated against pin spacing before any physical parts were made.</p>
-					</div>
-
-					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
-						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 03</p>
-						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">3D printed housing</p>
-						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Multiple iterations refined grip ergonomics, detent feel, and contact alignment. Each print resolved one dimensional issue before advancing.</p>
-					</div>
-
-					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
-						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 04</p>
-						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Hand-formed assembly</p>
-						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Brass contacts fabricated and integrated into final housing, producing functional prototype. Completed socket engagement and indexing tests across all positions.</p>
-					</div>
-
-				</div>
 					<h2>Outcome</h2>
 					<p class="para">This project sits at the boundary between product design and mechatronics engineering. The UCA required mechanical design, contact physics, manufacturing process selection, and iterative hardware testing — a working method José is actively deepening as he transitions into mechatronics.</p>
 					<div class="elec-grid">
