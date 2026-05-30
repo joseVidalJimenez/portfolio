@@ -145,13 +145,44 @@
 					<h3>Iteration 2 — Plug Body & Socket Geometry</h3>
 					<p class="para">With the switching concept proven, the focus shifted to the plug assembly itself. This iteration built the full multi-position plug body &mdash; three international wall plug geometries (UK BS 1363, EU CEE 7, US NEMA 1-15) in a single printed housing &mdash; using an off-the-shelf switch as a temporary stand-in for the rotary mechanism. The goal was to validate each plug geometry and contact continuity independently of the switching solution.
 					The UK plug module was developed in parallel &mdash; brass legs extracted from teardown samples, modified to rotate while maintaining electrical contact, and re-housed in a printed body. Each leg required individual shimming to align the contact faces and allow soldering without compromising the pivot.</p>
+					<div class="two-by-two-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem;">
+						<div>
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
+								<img class="top-row-img" src="../images/plug/20210223_201758_edit.jpg" alt="Internal assembly — open housing showing wiring and selector module" style="width:100%; height:100%; object-fit:contain; object-position:center; display:block; transform: rotate(90deg); transform-origin: center center;" loading="lazy">
+								<button class="img-expand-btn" aria-label="Expand image"></button>
+							</div>
+							<p class="media-caption">Internal assembly — open housing showing wiring and selector module.</p>
+						</div>
+						<div>
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
+								<img class="top-row-img" src="../images/plug/IMG_20210216_155302_edit.jpg" alt="System overview — plug body and selector module connected via wiring harness" style="width:100%; height:100%; object-fit:contain; object-position:center; display:block; transform: rotate(-90deg); transform-origin: center center;" loading="lazy">
+								<button class="img-expand-btn" aria-label="Expand image"></button>
+							</div>
+							<p class="media-caption">System overview — plug body and selector module connected via wiring harness.</p>
+						</div>
+						<div style="grid-column: 1; grid-row: 2;">
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+								<img src="../images/plug/20210224_024705_edit.jpg" alt="Assembled prototype — multi-position plug face with three IEC socket positions" style="width: 100%; height: 320px; object-fit: cover; object-position: center; display: block;" loading="lazy">
+								<button class="img-expand-btn" aria-label="Expand image"></button>
+							</div>
+							<p class="media-caption">Assembled prototype — multi-position plug face with three IEC socket positions. C5 connector shown for scale.</p>
+						</div>
+						<div style="grid-column: 2; grid-row: 2;">
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+								<img src="../images/plug/20210223_213554_edit.jpg" alt="Functional demonstration — IEC 60320 connector engaged with a DC transformer load unit, confirming electrical continuity under the rotary selector." style="width: 100%; height: 320px; object-fit: cover; object-position: center; display: block;" loading="lazy">
+								<button class="img-expand-btn" aria-label="Expand image"></button>
+							</div>
+							<p class="media-caption">Functional demonstration — IEC 60320 connector engaged with a DC transformer load unit, confirming electrical continuity under the rotary selector.</p>
+						</div>
+					</div>
+
 					<div style="margin-bottom: 1.75rem;">
 						<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 22px rgba(0,0,0,0.13); position: relative;">
 							<img src="../images/plug/20210224_031732.jpg" alt="Prototype plugged into a UK socket — rotary selector indexed to UK BS 1363 position" style="width: 100%; height: auto; display: block;" loading="lazy">
 							<button class="img-expand-btn" aria-label="Expand image"></button>
 						</div>
-						<p class="media-caption">Functional demonstration — IEC 60320 connector engaged with a DC transformer load unit, confirming electrical continuity under the rotary selector.</p>
-						</div>
+						<p class="media-caption">Validation shot — full width</p>
+					</div>
 						<h3>Iteration 3 &mdash; Integrated Hub</h3>
 						<p class="para">The final iteration integrated the rotary switching mechanism directly into the assembly. The hub sits inside the triangle's inscribed circle, occupying space the geometry made available rather than adding bulk. Brass raised profiles on the hub surface act as cam surfaces; three metal strips bear against them as followers, indexing each wall plug position as the knob rotates.
 						The hub connects to the wiring harness via an RCA-style connector &mdash; no soldering required for assembly or disassembly. The knob detaches independently. The complete cord terminates in a C13 connector at the appliance end &mdash; a standard kettle lead connection compatible with computers, monitors, printers, and laboratory equipment globally.
@@ -235,6 +266,80 @@
 	      el.replaceWith(iframe);
 	    });
 	  });
+
+	// Adjust top-row images so they share the same height and fill available width proportionally
+	(function() {
+		const gridSelector = '.two-by-two-grid';
+		function adjustTopRowImages() {
+			const grid = document.querySelector(gridSelector);
+			if (!grid) return;
+			const imgs = Array.from(grid.querySelectorAll('img.top-row-img'));
+			if (imgs.length === 0) return;
+			const waitForLoad = imgs.map(img => {
+				if (img.complete && img.naturalWidth) return Promise.resolve();
+				return new Promise(resolve => { img.addEventListener('load', resolve); img.addEventListener('error', resolve); });
+			});
+			Promise.all(waitForLoad).then(() => {
+					const style = getComputedStyle(grid);
+					const gap = parseInt(style.columnGap || style.gap || '12', 10) || 12;
+					const containerWidth = grid.clientWidth;
+					const columnWidth = Math.floor((containerWidth - gap) / 2);
+					const fixedHeight = 420; // increased target height for top row to fully include object
+					const minHeight = 80;
+					let targetHeight = fixedHeight;
+					if (columnWidth < 200) {
+						const scale = columnWidth / 200;
+						targetHeight = Math.max(minHeight, Math.round(fixedHeight * scale));
+					}
+					imgs.forEach(img => {
+						const wrapper = img.parentElement;
+						if (!wrapper) return;
+						wrapper.style.position = 'relative';
+						wrapper.style.height = targetHeight + 'px';
+						wrapper.style.width = '100%';
+						wrapper.style.overflow = 'hidden';
+
+						const nw = img.naturalWidth || img.width || 1;
+						const nh = img.naturalHeight || img.height || 1;
+
+						// determine rotation angle from inline style if present
+						let angle = 0;
+						const tm = (img.style && img.style.transform) ? img.style.transform : '';
+						const m = tm.match(/rotate\((-?\d+)deg\)/);
+						if (m) angle = parseInt(m[1], 10);
+						// normalize angle to -90, 0, 90
+						angle = ((angle % 360) + 360) % 360;
+						if (angle === 270) angle = -90;
+						if (angle === 180) angle = 180;
+
+						// compute scale so the (possibly rotated) image covers the wrapper
+						let scale;
+						if (Math.abs(angle) === 90) {
+							// rotated: natural width/height swap
+							scale = Math.max(wrapper.clientWidth / nh, targetHeight / nw);
+						} else {
+							scale = Math.max(wrapper.clientWidth / nw, targetHeight / nh);
+						}
+
+						// position the image absolutely and center it, then rotate+scale
+						img.style.position = 'absolute';
+						img.style.left = '50%';
+						img.style.top = '50%';
+						img.style.maxWidth = 'none';
+						img.style.maxHeight = 'none';
+						img.style.width = nw + 'px';
+						img.style.height = nh + 'px';
+						img.style.transformOrigin = 'center center';
+						img.style.objectFit = 'none';
+						img.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(${scale})`;
+					});
+				});
+		}
+		let resizeTimer;
+		window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(adjustTopRowImages, 120); });
+		window.addEventListener('load', adjustTopRowImages);
+		document.addEventListener('DOMContentLoaded', adjustTopRowImages);
+	})();
 	</script>
 
 
