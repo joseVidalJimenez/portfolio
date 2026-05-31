@@ -130,31 +130,18 @@
 					<p class="para">The circuit is a single-pole, triple-throw (SP3T) configuration. The live conductor connects permanently to the central ring. Each strip, when seated, completes the neutral path to its corresponding socket. The two unseated strips remain open, their tips resting on the unslotted disk surface, holding those circuits open by geometry alone.</p>
 					<p class="para">The entire assembly was 3D printed and hand-fabricated. No PCB, no off-the-shelf encoder. Geometry doing the work of a component.</p>
 
-					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+					<div class="rotary-video-pair" style="display: grid; grid-template-columns: auto auto; gap: 20px; align-items: start;">
 						<div>
-							<div style="display: flex; flex-direction: column; gap: 12px; height: 100%;">
-								<div style="flex: 1; display: flex; flex-direction: column;">
-									<div style="position: relative; width: 100%; flex: 1; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
-										<div class="yt-facade" data-id="r1TLAd6FSqg" style="position: absolute; inset: 0; border-radius: 0;">
-											<img src="https://i.ytimg.com/vi/ImXEYCT7yDI/hqdefault.jpg" alt="UCA rotary knob prototype — clip (overview)" class="yt-thumb" loading="lazy">
-											<span class="yt-play">&#9654;</span>
-										</div>
-									</div>
-									<p class="media-caption">Rotary knob prototype — assembly overview</p>
-								</div>
-								<div style="flex: 1; display: flex; flex-direction: column;">
-									<div style="position: relative; width: 100%; flex: 1; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
-										<div class="yt-facade" data-id="WF4fnV3sjRw" style="position: absolute; inset: 0; border-radius: 0;">
-											<img src="https://i.ytimg.com/vi/WF4fnV3sjRw/hqdefault.jpg" alt="UCA rotary knob prototype — clip 1" class="yt-thumb" loading="lazy">
-											<span class="yt-play">&#9654;</span>
-										</div>
-									</div>
-									<p class="media-caption">Rotary knob prototype in action</p>
+							<div style="position: relative; height: 360px; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
+								<div class="yt-facade" data-id="ImXEYCT7yDI" style="position: absolute; inset: 0; border-radius: 0;">
+									<img src="https://i.ytimg.com/vi/ImXEYCT7yDI/hqdefault.jpg" alt="UCA rotary knob prototype — clip (overview)" class="yt-thumb" loading="lazy">
+									<span class="yt-play">&#9654;</span>
 								</div>
 							</div>
+							<p class="media-caption">Rotary knob prototype — assembly overview</p>
 						</div>
 						<div>
-							<div style="position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
+							<div style="position: relative; height: 360px; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
 								<div class="yt-facade" data-id="X4mW6vp9c1s" style="position: absolute; inset: 0; border-radius: 0;">
 									<img src="https://i.ytimg.com/vi/X4mW6vp9c1s/hqdefault.jpg" alt="UCA rotary knob prototype — clip 2" class="yt-thumb" loading="lazy">
 									<span class="yt-play">&#9654;</span>
@@ -358,6 +345,58 @@
 		window.addEventListener('load', adjustTopRowImages);
 		document.addEventListener('DOMContentLoaded', adjustTopRowImages);
 	})();
+
+// Adjust the rotary mechanism video pair so the portrait clip drives row height
+(function() {
+	function adjustRotaryVideos() {
+		const grid = document.querySelector('.rotary-video-pair');
+		if (!grid) return;
+		const cells = Array.from(grid.querySelectorAll(':scope > div'));
+		if (cells.length < 2) return;
+		const leftCell = cells[0].querySelector('div') || cells[0];
+		const rightCell = cells[1].querySelector('div') || cells[1];
+
+		const style = getComputedStyle(grid);
+		const gap = parseFloat(style.columnGap || style.gap) || 0;
+		const containerWidth = Math.max(0, grid.clientWidth - gap);
+
+		// aspect ratios (width / height)
+		const leftAR = 16/9; // animation (landscape)
+		const rightAR = 9/16; // portrait
+
+		// Solve for height h so that leftWidth + rightWidth = containerWidth
+		// leftWidth = leftAR * h ; rightWidth = rightAR * h
+		const sum = leftAR + rightAR;
+		const minHeight = 120;
+		let h = Math.max(minHeight, Math.floor(containerWidth / sum));
+
+		const leftW = Math.round(leftAR * h);
+		const rightW = Math.round(rightAR * h);
+
+		// Apply explicit sizes to cells so columns size naturally
+		leftCell.style.width = leftW + 'px';
+		leftCell.style.height = h + 'px';
+		rightCell.style.width = rightW + 'px';
+		rightCell.style.height = h + 'px';
+
+		// Ensure the yt-facade covers the cell
+		[leftCell, rightCell].forEach(cell => {
+			const facade = cell.querySelector('.yt-facade');
+			if (facade) {
+				facade.style.width = '100%';
+				facade.style.height = '100%';
+				facade.style.position = 'absolute';
+				facade.style.left = '0';
+				facade.style.top = '0';
+			}
+		});
+	}
+
+	let rvTimer;
+	window.addEventListener('resize', () => { clearTimeout(rvTimer); rvTimer = setTimeout(adjustRotaryVideos, 120); });
+	window.addEventListener('load', adjustRotaryVideos);
+	document.addEventListener('DOMContentLoaded', adjustRotaryVideos);
+})();
 	</script>
 
 
