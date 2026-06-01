@@ -209,36 +209,38 @@
 						<p class="para">Moving the indexing mechanism inside the hub resolved the width problem the demonstrator had exposed. The centre space &mdash; geometrically inevitable from the triangular arrangement &mdash; became fully occupied by the functional stack. Compact by design, not by compromise.</p>
 				
 					<!-- Iteration 3 — image gallery (2x2) -->
-					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
-						<div>
-							<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-								<img src="../images/plug/6_2_Integrate%20connector%20and%20knob.PNG" alt="Integrate connector and knob" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-								<button class="img-expand-btn" aria-label="Expand image"></button>
+					<div class="two-by-two-grid" style="margin-top: 12px;">
+						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+							<div>
+								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
+									<img class="top-row-img" src="../images/plug/6_2_Integrate%20connector%20and%20knob.PNG" alt="Integrate connector and knob" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
+									<button class="img-expand-btn" aria-label="Expand image"></button>
+								</div>
+								<p class="media-caption">Integrate connector and knob</p>
 							</div>
-							<p class="media-caption">Integrate connector and knob</p>
+							<div>
+								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
+									<img class="top-row-img" src="../images/plug/6_3_prevent%20to%20freely%20spin_edited.png" alt="Prevent free spin" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
+									<button class="img-expand-btn" aria-label="Expand image"></button>
+								</div>
+								<p class="media-caption">Prevent free spin</p>
+							</div>
 						</div>
-						<div>
-							<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img src="../images/plug/6_3_prevent%20to%20freely%20spin_edited.png" alt="Prevent free spin" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-								<button class="img-expand-btn" aria-label="Expand image"></button>
+						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+							<div>
+								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
+									<img src="../images/plug/7_2_Integrate%20connector%20holder%20with%20G%20lid.PNG" alt="Integrate connector holder with G lid" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
+									<button class="img-expand-btn" aria-label="Expand image"></button>
+								</div>
+								<p class="media-caption">Integrate connector holder with G lid</p>
 							</div>
-							<p class="media-caption">Prevent free spin</p>
-						</div>
-					</div>
-					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
-						<div>
-							<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
-								<img src="../images/plug/7_2_Integrate%20connector%20holder%20with%20G%20lid.PNG" alt="Integrate connector holder with G lid" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-								<button class="img-expand-btn" aria-label="Expand image"></button>
+							<div>
+								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
+									<img src="../images/plug/6_1_Thinner%20sheet%20metal_edited.png" alt="Thinner sheet metal (edited)" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
+									<button class="img-expand-btn" aria-label="Expand image"></button>
+								</div>
+								<p class="media-caption">Thinner sheet metal (edited)</p>
 							</div>
-							<p class="media-caption">Integrate connector holder with G lid</p>
-						</div>
-						<div>
-							<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
-								<img src="../images/plug/6_1_Thinner%20sheet%20metal_edited.png" alt="Thinner sheet metal (edited)" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-								<button class="img-expand-btn" aria-label="Expand image"></button>
-							</div>
-							<p class="media-caption">Thinner sheet metal (edited)</p>
 						</div>
 					</div>
 					</div>
@@ -315,72 +317,76 @@
 	// Adjust top-row images so they share the same height and fill available width proportionally
 	(function() {
 		const gridSelector = '.two-by-two-grid';
-		function adjustTopRowImages() {
-			const grid = document.querySelector(gridSelector);
-			if (!grid) return;
+
+		function processGrid(grid) {
 			const imgs = Array.from(grid.querySelectorAll('img.top-row-img'));
 			if (imgs.length === 0) return;
+
 			const waitForLoad = imgs.map(img => {
 				if (img.complete && img.naturalWidth) return Promise.resolve();
 				return new Promise(resolve => { img.addEventListener('load', resolve); img.addEventListener('error', resolve); });
 			});
+
 			Promise.all(waitForLoad).then(() => {
-					const style = getComputedStyle(grid);
-					const gap = parseInt(style.columnGap || style.gap || '12', 10) || 12;
-					const containerWidth = grid.clientWidth;
-					const columnCount = imgs.length || 1;
-					const columnWidth = Math.floor((containerWidth - gap * (columnCount - 1)) / columnCount);
-					const fixedHeight = 420; // increased target height for top row to fully include object
-					const minHeight = 80;
-					let targetHeight = fixedHeight;
-					if (columnWidth < 200) {
-						const scale = columnWidth / 200;
-						targetHeight = Math.max(minHeight, Math.round(fixedHeight * scale));
+				const style = getComputedStyle(grid);
+				const gap = parseInt(style.columnGap || style.gap || '12', 10) || 12;
+				const containerWidth = grid.clientWidth;
+				const columnCount = imgs.length || 1;
+				const columnWidth = Math.floor((containerWidth - gap * (columnCount - 1)) / columnCount);
+				const fixedHeight = 420; // target height for top row
+				const minHeight = 80;
+				let targetHeight = fixedHeight;
+				if (columnWidth < 200) {
+					const scale = columnWidth / 200;
+					targetHeight = Math.max(minHeight, Math.round(fixedHeight * scale));
+				}
+
+				imgs.forEach(img => {
+					const wrapper = img.parentElement;
+					if (!wrapper) return;
+					wrapper.style.position = 'relative';
+					wrapper.style.height = targetHeight + 'px';
+					wrapper.style.width = '100%';
+					wrapper.style.overflow = 'hidden';
+
+					const nw = img.naturalWidth || img.width || 1;
+					const nh = img.naturalHeight || img.height || 1;
+
+					let angle = 0;
+					const tm = (img.style && img.style.transform) ? img.style.transform : '';
+					const m = tm.match(/rotate\((-?\d+)deg\)/);
+					if (m) angle = parseInt(m[1], 10);
+					angle = ((angle % 360) + 360) % 360;
+					if (angle === 270) angle = -90;
+					if (angle === 180) angle = 180;
+
+					let scale;
+					if (Math.abs(angle) === 90) {
+						scale = Math.max(wrapper.clientWidth / nh, targetHeight / nw);
+					} else {
+						scale = Math.max(wrapper.clientWidth / nw, targetHeight / nh);
 					}
-					imgs.forEach(img => {
-						const wrapper = img.parentElement;
-						if (!wrapper) return;
-						wrapper.style.position = 'relative';
-						wrapper.style.height = targetHeight + 'px';
-						wrapper.style.width = '100%';
-						wrapper.style.overflow = 'hidden';
 
-						const nw = img.naturalWidth || img.width || 1;
-						const nh = img.naturalHeight || img.height || 1;
-
-						// determine rotation angle from inline style if present
-						let angle = 0;
-						const tm = (img.style && img.style.transform) ? img.style.transform : '';
-						const m = tm.match(/rotate\((-?\d+)deg\)/);
-						if (m) angle = parseInt(m[1], 10);
-						// normalize angle to -90, 0, 90
-						angle = ((angle % 360) + 360) % 360;
-						if (angle === 270) angle = -90;
-						if (angle === 180) angle = 180;
-
-						// compute scale so the (possibly rotated) image covers the wrapper
-						let scale;
-						if (Math.abs(angle) === 90) {
-							// rotated: natural width/height swap
-							scale = Math.max(wrapper.clientWidth / nh, targetHeight / nw);
-						} else {
-							scale = Math.max(wrapper.clientWidth / nw, targetHeight / nh);
-						}
-
-						// position the image absolutely and center it, then rotate+scale
-						img.style.position = 'absolute';
-						img.style.left = '50%';
-						img.style.top = '50%';
-						img.style.maxWidth = 'none';
-						img.style.maxHeight = 'none';
-						img.style.width = nw + 'px';
-						img.style.height = nh + 'px';
-						img.style.transformOrigin = 'center center';
-						img.style.objectFit = 'none';
-						img.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(${scale})`;
-					});
+					img.style.position = 'absolute';
+					img.style.left = '50%';
+					img.style.top = '50%';
+					img.style.maxWidth = 'none';
+					img.style.maxHeight = 'none';
+					img.style.width = nw + 'px';
+					img.style.height = nh + 'px';
+					img.style.transformOrigin = 'center center';
+					img.style.objectFit = 'none';
+					img.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(${scale})`;
 				});
+			});
 		}
+
+		function adjustTopRowImages() {
+			const grids = Array.from(document.querySelectorAll(gridSelector));
+			if (!grids.length) return;
+			grids.forEach(processGrid);
+		}
+
 		let resizeTimer;
 		window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(adjustTopRowImages, 120); });
 		window.addEventListener('load', adjustTopRowImages);
