@@ -37,8 +37,8 @@
                     <div class="project-hero__text">
                     	<span class="project-hero__label">Mechanical Design &middot; Mauro Campisi &middot; 2022</span>
                      	<h1 class="project-hero__title">UCA - Universal Cable Adapter</h1>
-                    	<span class="project-hero__label" style="display: none;">Design Engineer &mdash; Mechatronics</span>
-                    	<p class="project-hero__tagline">The brief — too many cords, too many adapters, too much clutter. The challenge was to build something the market hadn't tried: one power cord with an integrated rotary switching mechanism, built from the start.</p>
+						<span class="project-hero__label" style="display: none;">Design Engineer &mdash; Mechatronics</span>
+						<p class="project-hero__tagline">The brief — cords for every country, adapters for every socket, clutter for every bag. The challenge was to build something the market hadn't tried: one power cord with an integrated rotary switching mechanism, built from the start.</p>
                     </div>
 					<div class="project-hero__img-wrap" style="align-self: center;">
 						<img src="../images/thumbnails/UCA_hp.webp" alt="Universal Cable Adapter — final prototype" class="project-hero__img" style="object-fit: contain; object-position: right center; height: 260px; max-width: 100%;">
@@ -53,7 +53,7 @@
 					<div class="overview-grid">
 						<div class="overview-block">
 							<h4><strong>Description</strong></h4>
-						<p><em>One power cord. Every major international socket. No loose dongles, no exposed contacts &mdash; the adapter is built into the cord itself, and the connection only goes live when you choose.</em></p>
+						<p><em>One power cord. Every major international socket. No loose dongles, no exposed contacts &mdash; the switching adapter sits at one end, and the connection only goes live when you choose.</em></p>
 						</div>
 						<div class="overview-block">
 							<h4><strong>My Role</strong></h4>
@@ -61,14 +61,14 @@
 						</div>
 						<div class="overview-block">
 							<h4><strong>Outcome</strong></h4>
-						<p><em>A working prototype engaging every supported wall plug geometry, energising only on deliberate rotation &mdash; proving the mechanism concept end-to-end.</em></p>
+						<p><em>A working prototype engaging every supported wall plug type, switching reliably across all three positions &mdash; proving the mechanism concept end-to-end.</em></p>
 						</div>
 					</div>
 				</div>
 
 				<div class="project-section">
 						<h2>The Problem</h2>
-						<p class="para">The brief had a built-in contradiction. Fit the three major international wall plug standards into a single adapter &mdash; and make it smaller than everything already on the market.</p>
+						<p class="para">The brief set two goals that pulled in opposite directions. Fit the three major international wall plug standards into a single adapter &mdash; and make it smaller than everything already on the market.</p>
 						<p class="para">Existing adapters solve the multi-plug problem the obvious way: stack the geometries side by side, add sliders to select between them, and accept the bulk. The result is always a cube. The UK plug sets the floor &mdash; it's the largest footprint of any standard, and everything has to fit around it.</p>
 						<p class="para">The more plug geometries you need to support, the bigger the housing gets. Shrinking it wasn't a refinement problem &mdash; it required rethinking the geometry from scratch.</p>
 				</div>
@@ -77,7 +77,7 @@
 					<h2>Competitive Teardown</h2>
 					<p class="para">Disassembling several travel adapters revealed how the better-engineered products handled the multi-function challenge of plug heads: pivot, lock, and conduct — each action triggered at the right moment through elegantly simple parts.</p>
 						<p class="para">Some adapters used large brass plates as both guides and conductors. The Europe plug head was even more instructive — each leg held by a single screw that doubled as the contact point when the plug rotated into position. Plastic pivots handled the mechanical side. Two separate systems, each optimised for mass production.</p>
-					<p class="para">The UCA worked from the same principle but collapsed it further. The original plug legs were extracted from the teardown sample and re-housed in a 3D printed body — the brass rods now handling pivot, location, and electrical continuity as a single element. A prototype-scale interpretation of the same logic, with one fewer system.</p>
+					<p class="para">The UCA collapsed the same principle further — the brass rods handling pivot, location, and electrical continuity as a single element. Taking the original plug legs from the teardown sample and re-housing them in a 3D printed body. A prototype-scale interpretation of the same logic, with one fewer system.</p>
 
 						<div style="margin-bottom: 1.75rem; margin-top: 1.5rem;">
 						<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start;">
@@ -125,13 +125,13 @@
 
 				<div class="project-section">
 						<h2>The Key Insight</h2>
-						<p class="para">Every adapter on the market treats the housing and the selection mechanism as separate problems — a box to contain the plug geometries, and something else added on to select between them. The mechanism always adds bulk because it was never part of the geometry to begin with.</p>
-						<p class="para">Designing the plug modules independently and arranging them as compactly as possible naturally produces a triangle. Three faces, three standards. The cylindrical space at the centre — unavoidable, inherent to the arrangement — becomes the functional stack: cable gland, electrical connector, rotating switch, and knob, all sharing the same axis. Turn the knob, feel it lock into position, the circuit closes. Every cubic millimetre occupied. No space to spare.</p>
+						<p class="para">Many adapters on the market treat the housing and the selection mechanism as separate problems — a box to contain the plug types, and something else added on to select between them. The mechanism always adds bulk because it was never part of the geometry to begin with.</p>
+						<p class="para">Designing the plug modules independently and arranging them as compactly as possible naturally produces a triangle. Three faces, three plug types. The cylindrical space at the centre — unavoidable, inherent to the arrangement — becomes the functional stack: cable gland, electrical connector, rotating switch, and knob, all sharing the same axis. Turn the knob, feel it lock into position, the circuit closes. Every cubic millimetre occupied. No space to spare.</p>
 				</div>
 
 				<div class="project-section" id="rotary-mechanism">
 						<h2>Rotary Mechanism</h2>
-						<p class="para">This was a technical demonstrator — built to prove that a custom rotary switch could be constructed from scratch before committing to a full design direction.</p>
+						<p class="para">This was a technical demonstrator — built to prove that a rotary flexural detent mechanism, designed entirely from scratch without off-the-shelf components, could reliably switch electrical circuits through geometry alone.</p>
 						<p class="para">The switching action is based on a rotary flexural detent mechanism — a configuration developed specifically for this prototype. A slotted disk rotates in the horizontal plane. Three spring-steel strips are arranged radially above it, each pre-bent so its tip presses lightly against the disk surface under its own elastic tension. The disk carries a single slot. As it rotates, only one strip at a time aligns with the slot — the tip drops through, flexing downward onto a central conducting ring below.</p>
 						<p class="para">In conventional rotary switches the detent and the electrical contact are separate components — one indexes the position, the other closes the circuit. Here they are unified. The same flexural strip that locks the disk into position simultaneously closes the electrical path. One element, two functions.</p>
 
@@ -146,7 +146,7 @@
 									<span class="yt-play">&#9654;</span>
 								</div>
 							</div>
-							<p class="media-caption">Rotary knob prototype — assembly overview</p>
+							<p class="media-caption">Rotary flexural detent mechanism — CAD animation</p>
 						</div>
 						<div>
 							<div style="position: relative; height: 360px; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
@@ -155,57 +155,57 @@
 									<span class="yt-play">&#9654;</span>
 								</div>
 							</div>
-							<p class="media-caption">Rotary knob prototype — detent indexing and contact engagement.</p>
+							<p class="media-caption">Detent mechanism validation — continuity confirmed using LEDs</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="project-section" id="functional-prototype">
 					<h2>Prototyping &amp; Validation</h2>
-					<p class="para">Each iteration proved one thing in isolation before the next combined them. The rotary mechanism demonstrator validated the switching concept independently. The two prototype stages that followed built the complete assembly around it — first the plug geometry, then the integrated hub.</p>
+					<p class="para">Each iteration proved one thing in isolation before they were combined. The rotary mechanism demonstrator validated the switching concept independently. The two adapter stages that followed built the complete assembly around it — first the plug types, then the integrated hub.</p>
 
 					<h3>Iteration 2 — Plug Body & Socket Geometry</h3>
-					<p class="para">With the switching concept proven, the focus shifted to the plug assembly itself. Three modular plug heads &mdash; UK BS 1363, EU CEE 7, US NEMA 1-15 &mdash; were independently developed and housed in a single printed body, using an off-the-shelf switch as a temporary stand-in for the rotary mechanism. The goal was to validate each plug geometry and contact continuity independently of the switching solution.</p>
+					<p class="para">With the switching concept proven, the focus shifted to the adapter itself. Three modular plug heads &mdash; UK BS 1363, EU CEE 7, US NEMA 1-15 &mdash; were independently developed and housed in a single printed body, using an off-the-shelf switch as a temporary stand-in for the rotary mechanism. The goal was to validate each plug type and contact continuity independently of the switching solution.</p>
 
-					<p class="para">Each module required its own pivot, contact, and housing work. The UK leg was drilled at the pivot point and fitted with a rotary contact &mdash; the brass rod acting simultaneously as the pivot axle and the electrical contact surface. The C5 Cloverleaf connector at the appliance end was used for prototyping, with C13 as the intended production connector.</p>
+					<p class="para">Each plug type was modular, requiring its own pivot, contact, and housing work. The UK leg was drilled at the pivot point and fitted with a rotary contact &mdash; the brass rod acting simultaneously as the pivot axle and the electrical contact surface. The C5 Cloverleaf connector at the appliance end was used for prototyping, with C13 as the intended production connector.</p>
 					<div class="two-by-two-grid" style="margin-bottom: 1.25rem;">
 						<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
 							<div>
 								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/20210224_024705_edit.jpg" alt="Iteration 2 plug body — three wall plug geometries on separate faces, off-the-shelf switch visible on right face." style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" loading="lazy">
+									<img class="top-row-img" src="../images/projects/plug/20210224_024705_edit.jpg" alt="Adapter Iteration 2 — three wall plug types, off-the-shelf switch on the left" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">Iteration 2 plug body — three wall plug geometries on separate faces, off-the-shelf switch visible on right face.</p>
+								<p class="media-caption">Adapter Iteration 2 — three wall plug types, off-the-shelf switch on the left</p>
 							</div>
 							<div>
 								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/20210223_201758_edit.jpg" alt="UK plug module — inner face showing brass contact rods, selector slider, and wiring connections." style="width:auto; height:100%; object-fit:contain; object-position:center; display:block;" loading="lazy">
+									<img class="top-row-img" src="../images/projects/plug/20210223_201758_edit.jpg" alt="UK plug module — inner face showing deployable brass contacts and wiring connections." style="width:auto; height:100%; object-fit:contain; object-position:center; display:block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">UK plug module — inner face showing brass contact rods, selector slider, and wiring connections.</p>
+								<p class="media-caption">UK plug module — inner face showing deployable brass contacts and wiring connections.</p>
 							</div>
 							<div>
 								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/IMG_20210216_155302_edit.jpg" alt="Modified BS 1363 brass leg — extracted from teardown sample, re-housed in printed body with pivot and contact faces retained." style="width:auto; height:100%; object-fit:contain; object-position:center; display:block;" loading="lazy">
+									<img class="top-row-img" src="../images/projects/plug/IMG_20210216_155302_edit.jpg" alt="Modified BS 1363 brass leg — extracted from teardown sample, with crafted brass pivot." style="width:auto; height:100%; object-fit:contain; object-position:center; display:block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">Modified BS 1363 brass leg — extracted from teardown sample, re-housed in printed body with pivot and contact faces retained.</p>
+								<p class="media-caption">Modified BS 1363 brass leg — extracted from teardown sample, with crafted brass pivot.</p>
 							</div>
 						</div>
 						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
 							<div>
 								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px;">
-									<img src="../images/projects/plug/20210223_213554_edit.jpg" alt="DC transformer load unit — open case showing transformer and fan driven by the cord, used to confirm electrical continuity under load." style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="lazy">
+									<img src="../images/projects/plug/20210223_213554_edit.jpg" alt="Transformer load unit — repurposed parts: DC transformer and C5 male connector." style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">DC transformer load unit — open case showing transformer and fan driven by the cord, used to confirm electrical continuity under load.</p>
+								<p class="media-caption">Transformer load unit — repurposed parts: DC transformer and C5 male connector.</p>
 							</div>
 							<div>
 								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 22px rgba(0,0,0,0.13); height: 320px;">
-									<img src="../images/projects/plug/20210224_031732.jpg" alt="BS 1363 geometry validation — prototype engaged with UK wall socket, confirming plug fit and electrical continuity across the switching positions." style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
+									<img src="../images/projects/plug/20210224_031732.jpg" alt="Adapter validation — fan powered via DC transformer, confirming functionality across all switching positions." style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">BS 1363 geometry validation — prototype engaged with UK wall socket, confirming plug fit and electrical continuity across the switching positions.</p>
+								<p class="media-caption">Adapter validation — fan powered via DC transformer, confirming functionality across all switching positions.</p>
 							</div>
 						</div>
 						<h3>Iteration 3 &mdash; Integrated Hub</h3>
@@ -230,7 +230,7 @@
 									<img class="top-row-img" src="../images/projects/plug/6_3_prevent%20to%20freely%20spin_edited.png" alt="Prevent free spin" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">Hub isolated — brass raised profiles on the outer cylindrical surface act as cam surfaces.</p>
+								<p class="media-caption">Hub isolated — RCA-style male connector at centre, brass raised profiles as cam surfaces on the exterior.</p>
 							</div>
 						</div>
 						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
@@ -239,7 +239,7 @@
 									<img src="../images/projects/plug/7_2_Integrate%20connector%20holder%20with%20G%20lid.PNG" alt="Integrate connector holder with G lid" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
 									<button class="img-expand-btn" aria-label="Expand image"></button>
 								</div>
-								<p class="media-caption">Wiring harness — RCA-style connector allowing tool-free assembly and disassembly.</p>
+								<p class="media-caption">Wiring harness — RCA-style female connector, for tool-free assembly.</p>
 							</div>
 							<div>
 								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
@@ -254,10 +254,10 @@
 					<div class="project-section">
 					<h2>Outcome</h2>
 					<div class="elec-summary">
-						<p class="para">The brief asked for something smaller than everything on the market, covering every major international wall socket in a single cord. The prototype delivered both — a triangular housing roughly 35% smaller by volume than comparable adapters, with three wall plug geometries selectable by a single rotary action.</p>
-						<p class="para">But the more significant outcome was methodological. Every core decision came from looking sideways — a marine isolator suggested the switching principle, triangle geometry solved the space problem, a teardown of well-engineered mass-market adapters taught the value of parts doing double duty. None of it came from iterating on what adapters already looked like.</p>
-						<p class="para">The entire prototype was hand-fabricated without custom tooling. Brass contacts were cut, bent, shimmed, and soldered by hand. Housings went through five printed iterations. The mechanism was designed from first principles and proved to be genuinely novel — a rotary flexural detent configuration not previously documented in this application.</p>
-						<p class="para">That combination — lateral thinking, geometric reasoning, and the ability to fabricate and validate in brass and PLA — is what the UCA demonstrates.</p>
+						<p class="para">The brief asked for a compact adapter with an innovative dial — covering the three major international wall plug types in a single cord. The prototype delivered both — a triangular housing roughly 35% smaller by volume than comparable adapters, selectable by a single rotary action.</p>
+						<p class="para">Methodology was one of the most significant outcomes. Every core decision came from looking sideways — a marine isolator suggested the switching principle, triangle geometry solved the space problem, a teardown of well-engineered mass-market adapters taught the value of parts doing double duty. None of it came from iterating on what adapters already looked like.</p>
+						<p class="para">The entire prototype was crafted without industrial tooling. Brass contacts were cut, bent and soldered by hand. Housings went through multiple printed iterations. The mechanism was designed from first principles — a rotary flexural cam follower configuration applied to a switching problem for the first time.</p>
+						<p class="para">The combination of lateral thinking, geometric reasoning, and the ability to craft and validate in brass and PLA is what the UCA demonstrates.</p>
 					</div>
 				</div>
 
