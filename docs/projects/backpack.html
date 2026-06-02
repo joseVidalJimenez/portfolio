@@ -171,25 +171,27 @@
 
 				<div class="project-section">
 					<h2>Electronics Integration</h2>
-					<p class="para">The camera was the arm's end-effector: the functional payload the entire mechanism was designed to carry and position. Integrating it meant treating the arm not just as a mechanical structure, but as a purpose-built housing for a live electronics system.</p>
-					<div class="img-frame img-frame--wide" style="margin-bottom: 60px; aspect-ratio: 16 / 5;">
+					<p class="para">The camera was the arm’s end-effector — the functional payload the entire mechanism was designed to carry and position. Integrating it meant treating the arm not just as a mechanical structure, but as a purpose-built housing for a live electronics system.</p>
+					<p class="para">Since the cameras were wireless, there was no active control stack to manage. No PID loops, no encoders, no thermal management for processors. The challenge was purely physical: <strong>how to route power and signal through a dynamically moving joint without failure.</strong></p>
+					<div class="img-frame img-frame--wide" style="margin: 28px 0 36px; aspect-ratio: 16 / 5;">
 						<img src="../images/projects/backpack/electronics_integration.webp" alt="Electronics integration inside the BackPack Arm" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
 					</div>
-					<div class="elec-grid">
-						<div class="elec-card">
-							<h4>Camera System</h4>
-							<p>An off-the-shelf wireless pan-tilt camera head serves as the arm's end-effector. Being wireless eliminated signal cable routing through the arm joints entirely, a significant simplification given the forearm's orbital motion.</p>
-						</div>
-						<div class="elec-card">
-							<h4>Internal PCB Housing</h4>
-							<p>The camera's PCB is housed internally within the 3D printed arm structure. This required the arm geometry to be designed around the electronics from the outset, not retrofitted after.</p>
-						</div>
-						<div class="elec-card">
-							<h4>Power Routing</h4>
-							<p>A single power cable runs from the arm to the backpack battery pack, managed with a Flexible Spiral Sheath that accommodates the arm's full range of motion without tangling or fatiguing at the joints.</p>
-						</div>
-					</div>
-					<p class="elec-closing">The backpack carries the battery, the arm positions the camera, the spiral-sheathed cable bridges the two.</p>
+
+					<h3>CABLE ROUTING: DYNAMIC BENDING ON A BUDGET</h3>
+					<p class="para">The cabling had to travel from the forearm’s end-effector, through the rotating elbow joint, and into the backpack battery pack — all while the arm deployed and retracted continuously during takes.</p>
+					<p class="para">I used spiral-sheathed conduit, the same type found in 3D printer cable chains. It wasn’t the most elegant solution, but it was the right one for the constraints: low budget, rapid iteration, and proven resistance to torsion and repeated flexing. The spiral geometry distributes bending stress across multiple points rather than concentrating it at a single hinge — critical when the forearm rotates back-to-front dozens of times per shoot.</p>
+
+					<h3>POWER PATH: DESIGNING FOR CATENARY, NOT TENSION</h3>
+					<p class="para">A rigid cable run would have acted as a tether, resisting deployment and creating snag points during dynamic movement. Instead, I routed the power cable out through the <em>back</em> of the forearm so that gravity naturally formed a <strong>catenary curve</strong> as the arm moved.</p>
+					<p class="para">Because the forearm remained upright throughout the motion range, the cable hung freely rather than pulling against the mechanism. This eliminated parasitic drag on the already-limited mechanical advantage — a direct consequence of the pulley ratios constrained by the existing backpack frame. There was no need for voltage drop calculations; the current draw was negligible. The real calculation was geometric: ensuring the catenary never went taut at full extension or tangled at full retraction.</p>
+
+					<h3>PCB HOUSING: MECHANICAL PROTECTION OVER ELECTRICAL COMPLEXITY</h3>
+					<p class="para">The wireless cameras came with their own PCBs, removed from original casings and re-hosted inside a custom cavity machined into the forearm. Since there were no active components generating heat, thermal management was irrelevant. The design priority was <strong>mechanical isolation</strong>: protecting sensitive solder joints and connectors from vibration and impact during dynamic use.</p>
+					<p class="para">Validation was entirely physical. No oscilloscopes, no signal integrity tests — just repeated deployment cycles under load until the camera feed remained stable. If the image didn’t drop, the integration worked.</p>
+
+					<h3>THE TRADE-OFF: WHERE MECHANICS LIMITS ELECTRONICS</h3>
+					<p class="para">This integration revealed the system’s core compromise. The pulley ratios needed to reduce deployment force exceeded the space available in the existing backpack frame. Combined with 3D-printed belt drives that could skip under high torque, the arm required more operator effort than ideal.</p>
+					<p class="para">A chain drive and optimized gearing would have solved this — but the time and budget for a film prop couldn’t justify redesigning the entire transmission. <strong>The electronics integration succeeded within the mechanical constraints, even when those constraints limited overall performance.</strong> This is the reality of mechatronics: every subsystem exists in tension with the others, and the best solution is often the one that balances competing failures gracefully.</p>
 				</div>
 
 				<div class="project-section">
