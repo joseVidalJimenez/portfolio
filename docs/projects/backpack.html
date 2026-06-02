@@ -121,13 +121,14 @@
 				</div>
 
 				<div class="project-section">
-					<h2>The Insight: Let the Performer Be the Motor</h2>
+					<h2>THE INSIGHT: REPLACE PID WITH KINEMATICS</h2>
 					<div class="brief-body">
-						<p class="para">The turning point was rethinking what "no electricity" actually freed up. Without a motor to fight or assist, gravity becomes the dominant force — and gravity is consistent, predictable, and free.</p>
-						<p class="para">The solution was a cross-pull cord system: a parachute-style deployment where raising the left arm pulls the right arm out, and vice versa. The performer becomes the actuator. There's no external trigger, no electronics, no separate operator. The action of reaching is the command.</p>
-						<p class="para">The arm doesn't move because a motor tells it to. It moves because the performer's body does — and the geometry is designed so those two motions are inseparable.</p>
-						<p class="para">Return and hold were solved by a magnetic damper at the lock point. When the arm reaches the stowed position, it snaps into place and stays there — passively, quietly, with no input required. Gravity handles the descent; the magnet handles the catch.</p>
-						<p class="para">This meant the entire mechanism — deployment, hold, and return — required no active control at any stage.</p>
+						<p class="para">The turning point was realizing that “no electricity” wasn’t just a constraint—it was an architectural advantage. In conventional mechatronics, stability requires sensors, a microcontroller, and a PID loop constantly correcting error. But every active component adds latency, weight, and failure points.</p>
+						<p class="para">I asked: <em>What if the mechanism itself enforced the setpoint?</em></p>
+						<p class="para">The solution was a cross-pull cord system where raising one arm mechanically forces the other to retract in perfect inverse proportion. The performer’s body becomes the actuator; the geometry becomes the controller. There is no external trigger, no separate operator, and crucially, <strong>no need for position sensing or feedback correction.</strong></p>
+						<p class="para">This eliminated the entire control stack. No encoders to calibrate, no control boards to program, no PID tuning to drift over time. Stability wasn't achieved through computation—it was baked into the linkage ratios. The arm doesn’t move because a motor tells it to; it moves because the performer’s body does—and the geometry guarantees those two motions are inseparable.</p>
+						<p class="para">Return and hold were solved by a magnetic damper at the lock point. When the arm reaches the stowed position, it snaps into place and stays there—passively, quietly, with no input required. Gravity handles the descent; the magnet handles the catch.</p>
+						<p class="para">This meant the entire mechanism—deployment, hold, and return—required zero active control at any stage. <strong>I had traded computational complexity for mechanical certainty.</strong></p>
 					</div>
 				</div>
 
