@@ -52,15 +52,16 @@
 					<div class="overview-grid">
 						<div class="overview-block">
 							<h4>Description</h4>
-							<p>Designed a mechanical, human-powered robotic arm system for a video production client. Two arms mounted on a backpack, capable of full shoulder and elbow movement, with zero electrical input.</p>
+							<p class="para">Robotic arms mounted on a backpack, capable of full shoulder and elbow movement. Built for a live video shoot. Zero electrical input.</p>
+							<p class="para">Designed for dynamic on-set use.</p>
 						</div>
 						<div class="overview-block">
 							<h4>My Role</h4>
-							<p>Translated the client's vision into a fixed-pulley orbital drive mechanism, designed entirely within the physical constraints of an existing backpack. Responsible for both the mechanical system and the electronics integration.</p>
+							<p class="para">Translated an impossible brief into a working mechanical system — designed entirely within the constraints of an existing backpack frame. Responsible for both mechanism and electronics.</p>
 						</div>
 						<div class="overview-block">
 							<h4>Outcome</h4>
-							<p>Delivered a self-contained robotic arm system driven entirely by human power. A fixed shoulder pulley synchronises both arm and forearm movement through geometry alone — no motors, no controllers, no electrical components.</p>
+							<p class="para">A fully wearable, self-contained robotic arm system that deploys, holds, and returns on command. The mechanism has no motors, no batteries, and no control signals — and it works.</p>
 						</div>
 					</div>
 				</div>
@@ -96,7 +97,7 @@
 								<img src="../images/projects/backpack/Cardbox_prototype_a.webp" alt="Card box prototype" class="pair-img" style="display:block; width:100%; height:auto;" loading="lazy">
 								<button class="img-expand-btn" aria-label="View full image"></button>
 							</div>
-							<p class="media-caption">Cardboard prototype — enough to prove the cross-pull principle works</p>
+							<p class="media-caption">Cardboard prototype — enough to prove the concept</p>
 								</div>
 							</div>
 						</div>
@@ -129,19 +130,19 @@
 					<div class="analysis-grid">
 						<div class="analysis-card">
 							<h4>1. Single Input, Dual Joint Movement</h4>
-							<p>The shoulder uses a coaxial arrangement: two concentric shafts sharing a single axis. One shaft seats on a bearing, forming the revolute joint the arm rotates around. The second shaft carries the driving pulley, positioned so the arm sits sandwiched between the pulley and the shoulder — transferring motion directly into the arm without additional linkages. Two degrees of freedom, one compact joint.</p>
+							<p class="para">The shoulder uses a coaxial arrangement: two concentric shafts sharing a single axis. One shaft seats on a bearing, forming the revolute joint the arm rotates around. The second shaft carries the driving pulley, positioned so the arm sits sandwiched between the pulley and the shoulder — transferring motion directly into the arm without additional linkages. Two degrees of freedom, one compact joint.</p>
 						</div>
 						<div class="analysis-card">
 							<h4>2. Pulley-Belt Synchronisation</h4>
-							<p>A toothed timing belt connects two toothed pulleys: one fixed at the shoulder (0 DOF), one at the elbow (1 DOF). The fixed shoulder pulley acts as an orientation lock — the belt constrains the elbow pulley to maintain a constant angular relationship with it. As the arm sweeps upward, the elbow pulley orbits the fixed point while the belt enforces that lock, rotating the forearm synchronously. One cable pull coordinates both joints. No elbow actuator required.</p>
+							<p class="para">A toothed timing belt connects two toothed pulleys: one fixed at the shoulder (0 DOF), one at the elbow (1 DOF). The fixed shoulder pulley acts as an orientation lock — the belt constrains the elbow pulley to maintain a constant angular relationship with it. As the arm sweeps upward, the elbow pulley orbits the fixed point while the belt enforces that lock, rotating the forearm synchronously. One cable pull coordinates both joints. No elbow actuator required.</p>
 						</div>
 						<div class="analysis-card">
 							<h4>3. Fixed Pulley, Dynamic Elbow</h4>
-							<p>Most mechanisms that coordinate two joints require active control at each — gear trains, multi-link kinematic chains, or independent actuators. Here, fixing the shoulder pulley eliminates all of that. The forearm's rotation is not commanded — it is a passive consequence of the arm's position, enforced entirely by geometry. The fixed point does the work that a motor would otherwise do — no power, no signal, no moving parts beyond the belt itself.</p>
+							<p class="para">Most mechanisms that coordinate two joints require active control at each — gear trains, multi-link kinematic chains, or independent actuators. Here, fixing the shoulder pulley eliminates all of that. The forearm's rotation is not commanded — it is a passive consequence of the arm's position, enforced entirely by geometry. The fixed point does the work that a motor would otherwise do — no power, no signal, no moving parts beyond the belt itself.</p>
 						</div>
 						<div class="analysis-card">
 							<h4>4. Gravity-Assisted Return + Magnetic Damper</h4>
-							<p>Gravity returns the arm to rest without any actuator input — the return phase requires no dedicated motor or control logic. A magnetic damper at the shoulder catches the arm in the final moment before it reaches the body, serving two distinct functions: absorbing the descent to prevent impact against the wearer, and locking the arm in place during dynamic movement so it cannot swing freely when the wearer runs or changes direction. Passive return, active hold.</p>
+							<p class="para">Gravity returns the arm to rest without any actuator input — the return phase requires no dedicated motor or control logic. A magnetic damper at the shoulder catches the arm in the final moment before it reaches the body, serving two distinct functions: absorbing the descent to prevent impact against the wearer, and locking the arm in place during dynamic movement so it cannot swing freely when the wearer runs or changes direction. Passive return, active hold.</p>
 						</div>
 					</div>
 					<div class="image-pair" style="margin-top: 28px;">
@@ -168,20 +169,25 @@
 						<img src="../images/projects/backpack/electronics_integration.webp" alt="Electronics integration inside the BackPack Arm" class="pair-img" style="object-fit: contain; background: #fff;" loading="lazy">
 					</div>
 
-					<h3>CABLE ROUTING: DYNAMIC BENDING ON A BUDGET</h3>
-					<p class="para">The cabling had to travel from the forearm's end-effector, through the rotating elbow joint, and into the backpack battery pack — all while the arm deployed and retracted continuously during takes.</p>
-					<p class="para">I used spiral-sheathed conduit, the same type found in 3D printer cable chains. It wasn't the most elegant solution, but it was the right one for the constraints: low budget, rapid iteration, and proven resistance to torsion and repeated flexing. The spiral geometry distributes bending stress across multiple points rather than concentrating it at a single hinge — critical when the forearm rotates back-to-front dozens of times per shoot.</p>
+					<div class="elec-grid">
+						<div class="elec-card">
+							<h4>Cable Routing: Dynamic Bending on a Budget</h4>
+							<p class="para">The cabling had to travel from the forearm's end-effector, through the rotating elbow joint, and into the backpack battery pack — all while the arm deployed and retracted continuously during takes.</p>
+							<p class="para">I used spiral-sheathed conduit, the same type found in 3D printer cable chains. It wasn't the most elegant solution, but it was the right one for the constraints: low budget, rapid iteration, and proven resistance to torsion and repeated flexing. The spiral geometry distributes bending stress across multiple points rather than concentrating it at a single hinge — critical when the forearm rotates back-to-front dozens of times per shoot.</p>
+						</div>
+						<div class="elec-card">
+							<h4>Power Path: Designing for Catenary, not Tension</h4>
+							<p class="para">A rigid cable run would have acted as a tether, resisting deployment and creating snag points during dynamic movement. Instead, I routed the power cable out through the <em>back</em> of the forearm so that gravity naturally formed a <strong>catenary curve</strong> as the arm moved — always upright.</p>
+							<p class="para">This eliminated parasitic drag on the already-limited mechanical advantage — a direct consequence of the pulley ratios constrained by the existing backpack frame. There was no need for voltage drop calculations; the current draw was negligible. The real calculation was geometric: ensuring the catenary never went taut at full extension or tangled at full retraction.</p>
+						</div>
+						<div class="elec-card">
+							<h4>PCB Housing: Mechanical Protection over Electrical Complexity</h4>
+							<p class="para">The wireless cameras came with their own PCBs, removed from original casings and re-hosted inside a custom cavity machined into the forearm. Since there were no active components generating heat, thermal management was irrelevant. The design priority was <strong>mechanical isolation</strong>: protecting sensitive solder joints and connectors from vibration and impact during dynamic use.</p>
+							<p class="para">Validation was entirely physical. No oscilloscopes, no signal integrity tests — just repeated deployment cycles under load until the camera feed remained stable. If the image didn't drop, the integration worked.</p>
+					</div>
+					</div>
 
-					<h3>POWER PATH: DESIGNING FOR CATENARY, NOT TENSION</h3>
-					<p class="para">A rigid cable run would have acted as a tether, resisting deployment and creating snag points during dynamic movement. Instead, I routed the power cable out through the <em>back</em> of the forearm so that gravity naturally formed a <strong>catenary curve</strong> as the arm moved.</p>
-					<p class="para">Because the forearm remained upright throughout the motion range, the cable hung freely rather than pulling against the mechanism. This eliminated parasitic drag on the already-limited mechanical advantage — a direct consequence of the pulley ratios constrained by the existing backpack frame. There was no need for voltage drop calculations; the current draw was negligible. The real calculation was geometric: ensuring the catenary never went taut at full extension or tangled at full retraction.</p>
-
-					<h3>PCB HOUSING: MECHANICAL PROTECTION OVER ELECTRICAL COMPLEXITY</h3>
-					<p class="para">The wireless cameras came with their own PCBs, removed from original casings and re-hosted inside a custom cavity machined into the forearm. Since there were no active components generating heat, thermal management was irrelevant. The design priority was <strong>mechanical isolation</strong>: protecting sensitive solder joints and connectors from vibration and impact during dynamic use.</p>
-					<p class="para">Validation was entirely physical. No oscilloscopes, no signal integrity tests — just repeated deployment cycles under load until the camera feed remained stable. If the image didn't drop, the integration worked.</p>
-
-					<h3>THE TRADE-OFF: WHERE MECHANICS LIMITS ELECTRONICS</h3>
-					<p class="para">This integration revealed the system's core compromise. The pulley ratios needed to reduce deployment force exceeded the space available in the existing backpack frame. Combined with 3D-printed belt drives that could skip under high torque, the arm required more operator effort than ideal.</p>
+					<p class="para" style="margin-top: 28px;">This integration revealed the system's core compromise. The pulley ratios needed to reduce deployment force exceeded the space available in the existing backpack frame. Combined with 3D-printed belt drives that could skip under high torque, the arm required more operator effort than ideal.</p>
 					<p class="para">A chain drive and optimized gearing would have solved this — but the time and budget for a film prop couldn't justify redesigning the entire transmission. <strong>The electronics integration succeeded within the mechanical constraints, even when those constraints limited overall performance.</strong> This is the reality of mechatronics: every subsystem exists in tension with the others, and the best solution is often the one that balances competing failures gracefully.</p>
                 </div>
 
@@ -216,18 +222,17 @@
 				<div class="project-section">
 					<h2>Key Innovation</h2>
 					<div class="innovation-body">
-						<p>In conventional robotic arms, both pulleys rotate — one drives, one follows. The BackPack Arm inverts this: the shoulder pulley is fixed, with zero degrees of freedom. It never rotates. That immobility <em>is</em> the mechanism.</p>
-						<p>As the arm raises, the elbow pulley is forced to orbit the fixed point. Because the timing belt maintains a constant angular relationship between them, the elbow pulley's orbital motion translates into perfect forearm rotation — not because it was commanded to, but because geometry demands it.</p>
-						<p>The input is handled by a coaxial shoulder joint: two concentric shafts sharing a single axis, one defining the arm's elevation, the other carrying the driving pulley. A single cable pull sets everything in motion. Gravity returns the arm to rest, caught at the final moment by a magnetic damper.</p>
-						<p><strong>The result replaces independent actuators, encoders, and control logic at each joint — with a fixed pulley, a timing belt, and a magnet.</strong></p>
-						<p>This kinematic elegance came at a cost. The fixed-pulley architecture constrained the available gear ratios within the existing backpack frame, limiting mechanical advantage and forcing compromises in cable routing and drive selection. But that trade-off was deliberate: I chose geometric certainty over brute-force actuation, accepting higher operator effort in exchange for a system that could never drift, desynchronize, or fail electronically. <strong>The innovation wasn't just the mechanism itself — it was knowing exactly what to sacrifice to make it work.</strong></p>
+						<p class="para">In conventional robotic arms, both pulleys rotate — one drives, one follows. The BackPack Arm inverts this: the shoulder pulley is fixed, with zero degrees of freedom. It never rotates. That immobility <em>is</em> the mechanism.</p>
+						<p class="para">As the arm raises, the elbow pulley is forced to orbit the fixed point. Because the timing belt maintains a constant angular relationship between them, the elbow pulley's orbital motion translates into perfect forearm rotation — not because it was commanded to, but because geometry demands it.</p>
+						<p class="para"><strong>The result replaces independent actuators, encoders, and control logic at each joint — with a fixed pulley, a timing belt, and a magnet.</strong></p>
+						<p class="para">This kinematic elegance came at a cost. The fixed-pulley architecture constrained the available gear ratios within the existing backpack frame, limiting mechanical advantage and forcing compromises in cable routing and drive selection. But that trade-off was deliberate: I chose geometric certainty over brute-force actuation, accepting higher operator effort in exchange for a system that could never drift, desynchronize, or fail electronically. <strong>The innovation wasn't just the mechanism itself — it was knowing exactly what to sacrifice to make it work.</strong></p>
 					</div>
 				</div>
 
 				<div class="project-cta">
 					<div class="project-cta__text">
 						<h3>Let's build smart things together.</h3>
-						<p>Looking to work on systems that move, sense, and respond.</p>
+						<p class="para">Looking to work on systems that move, sense, and respond.</p>
 					</div>
 					<a href="../portfolio.html" class="project-cta__btn">Back to Portfolio &rarr;</a>
 				</div>
