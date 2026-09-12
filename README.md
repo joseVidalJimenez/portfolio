@@ -26,6 +26,24 @@ npx serve docs
 npm test
 ```
 
+### Updating screenshots
+
+The site is served locally from `docs/` during tests. To start the server manually:
+
+```bash
+# Serve docs/ locally
+python3 -m http.server 5500 --directory docs
+```
+
+To regenerate screenshots for a single project (e.g. `curler`) rather than all pages:
+
+```bash
+npx playwright test tests/projects-screenshots.spec.js --grep "curler"
+```
+
+Screenshots are saved to `tests/screenshots/{viewport}/proj-{project}.png`.
+A Playwright `webServer` is configured, so tests start the server automatically.
+
 ## Files
 
 | File / Directory | Purpose |
