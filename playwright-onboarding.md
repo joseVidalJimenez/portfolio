@@ -1,11 +1,11 @@
-# Playwright onboarding — Visual tests & screenshots
+# Playwright onboarding — Tests & screenshots
 
-This short guide explains how to run the repository's Playwright visual tests and where screenshots and baselines are saved.
+This guide explains how to run the repository's Playwright tests and where screenshots are saved.
 
 ## Purpose
 
-- Capture full-page screenshots for pages under `docs/` and run visual snapshot comparisons.
-- Keep instructions generic — screenshots for any page are saved under a shared folder.
+- Capture full-page screenshots for **every** page on the site (from `build.config.json`) across three viewports.
+- Run functional (layout/behavior) assertions on the pages.
 
 ## Prerequisites
 
@@ -31,12 +31,26 @@ npx playwright install
 
 `npx playwright install` downloads browser binaries. `npx playwright install-deps` attempts to install OS deps (may require `sudo`).
 
-## How tests run here
+## How tests are organised here
 
-- Tests are in [tests/visual.spec.js](tests/visual.spec.js).
-- Playwright config is in [playwright.config.js](playwright.config.js). This config sets a `webServer` to serve the `docs/` folder at `http://localhost:5500`, so running tests will start the local static server automatically.
+- [tests/projects-screenshots.spec.js](tests/projects-screenshots.spec.js) — generates a full-page screenshot for every page in `build.config.json` across mobile/tablet/desktop. The page list is **not hardcoded**: it reads `build.config.json` (the same source of truth the build script uses), so adding/removing a page there updates the screenshot set automatically.
+- [tests/projects.spec.js](tests/projects.spec.js) — functional tests (correct `<title>`, navbar, headings, no horizontal overflow, images have alt text, no text/image overlap) for each project page.
+- [tests/svg-diagram.spec.js](tests/svg-diagram.spec.js) — verifies the System Architecture Diagram SVG renders on the curler page.
+- Playwright config is in [playwright.config.js](playwright.config.js). The config sets a `webServer` to serve `docs/` at `http://localhost:5500`, so tests start the local static server automatically.
 
 ## Common commands
+
+- Run the screenshot generator (all pages × 3 viewports):
+
+```bash
+npx playwright test tests/projects-screenshots.spec.js
+```
+
+- Run a single page's screenshot (match the page name, derived from the built file's basename in `build.config.json`, e.g. `about`, `index`, `backpack`):
+
+```bash
+npx playwright test tests/projects-screenshots.spec.js --grep "about"
+```
 
 - Run all tests:
 
@@ -44,29 +58,10 @@ npx playwright install
 npx playwright test
 ```
 
-- Run a single page's visual test (match the `name` from the `PAGES` array in `tests/visual.spec.js`):
-
-```bash
-npx playwright test -g proj-<page-slug>
-```
-
-
-Example: to run a page named `proj-example` (replace with your page's name from the PAGES array):
-
-```bash
-npx playwright test -g proj-example
-```
-
 - Run headed (visible browsers) for debugging:
 
 ```bash
-npx playwright test --headed -g proj-<page-slug>
-```
-
-- Update baseline snapshots when changes are intentional:
-
-```bash
-npx playwright test --update-snapshots -g proj-<page-slug>
+npx playwright test --headed
 ```
 
 - Open the HTML report after a run:
@@ -77,43 +72,17 @@ npx playwright show-report tests/report
 
 ## Where screenshots are saved
 
-- Manual/full-page screenshots (the explicit `page.screenshot` calls in the test) are written into the screenshots folder organized by viewport: `tests/screenshots/<viewport>/<page>.png`.
-- Playwright snapshot baselines used by `expect(page).toHaveScreenshot(...)` are kept under the repository snapshot directory configured in `playwright.config.js` (by default `tests/screenshots/`).
+- Full-page screenshots are written to `tests/screenshots/<viewport>/<name>.png`, where `<name>` is the built page's basename (e.g. `index.png`, `about.png`, `backpack.png`) and `<viewport>` is `mobile`, `tablet`, or `desktop`.
 
-In short: check `tests/screenshots/` for all captured images and baselines.
+In short: check `tests/screenshots/` for all captured images.
 
 ## Troubleshooting
 
 - "Missing libraries" warnings on Linux: run `npx playwright install-deps` or follow https://playwright.dev/docs/linux for the distro-specific package list.
-- If a snapshot comparison fails and the change is intended, refresh baselines with `--update-snapshots`.
-- Fail artifacts (diffs, actual images, error contexts) are saved in `tests/results/` and the HTML report is under `tests/report`.
-
-## Quick single-page screenshot (optional)
-
-If you want a simple script to capture a single page without the full test harness, create a small Node script (example):
-
-```js
-// scripts/screenshot.js
-const { chromium } = require('playwright');
-(async () => {
-  const browser = await chromium.launch();
-  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
-  const page = await context.newPage();
-  await page.goto('http://localhost:5500/projects/hapicFinger.html');
-  await page.screenshot({ path: 'tests/screenshots/desktop/proj-hapicFinger.png', fullPage: true });
-  await browser.close();
-})();
-```
-
-Run it after starting the docs server (or rely on the test `webServer`):
-
-```bash
-node scripts/screenshot.js
-```
+- Fail artifacts (screenshots, error contexts) are saved in `tests/results/` and the HTML report is under `tests/report`.
+- If a generated screenshot comes out corrupt (a uniformly 512 KiB, non-PNG file on a tall page), see [troubleshooting.md](troubleshooting.md) — this project captures to a Buffer and writes it manually to avoid Playwright's `page.screenshot({ path, fullPage })` truncation.
 
 ## Notes / tips
 
-- Test names come from the `PAGES` array in [tests/visual.spec.js](tests/visual.spec.js); use those `name` values with `-g` to match a specific page.
-- The tests take care to wait for images/fonts and scroll lazy-loaded content before screenshotting; prefer using the existing test rather than ad-hoc scripts if you want consistent baselines.
-
-If you'd like, I can also add a short npm script to `package.json` for single-page runs (for example `npm run test:page -- proj-hapicFinger`).
+- Page names in the screenshot spec are derived from `build.config.json` `out` paths, so use those basename values with `-g` to match a specific page.
+- The screenshot spec forces eager image loading, scrolls lazy-loaded content, and waits for stability before capturing, so output is consistent.
