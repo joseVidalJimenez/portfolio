@@ -85,6 +85,15 @@ h2{
 	margin-right: auto; /* Pushes the name to the left */
 	align-items: center;
 	white-space: nowrap;
+	text-decoration: none !important;
+  }
+
+  a.navbar-name:visited,
+  a.navbar-name:hover,
+  a.navbar-name:focus,
+  a.navbar-name:active {
+  	color: white;
+  	text-decoration: none !important;
   }
   
   /* Navbar menu items */

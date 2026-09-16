@@ -56,6 +56,15 @@
     max-width: 520px;
 }
 
+.project-hero__description {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ddd;
+    margin: 24px 0 0;
+    max-width: 520px;
+}
+
 .project-hero__img-wrap {
     position: relative;
 }

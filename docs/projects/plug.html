@@ -18,12 +18,9 @@
 		<div class="navbar-icon">
 			<img src="../images/favicon_brand.png" alt="Logo." width="20px" height="20px" loading="eager">
 		</div>
-		<div class="navbar-name">
-			José Vidal
-		</div>
+		<a class="navbar-name" href="../index.html">José Vidal</a>
 		<div class="navbar-menu">
-			<a href="../index.html">Home</a>
-			<a href="../portfolio.html">Portfolio</a>
+			<a href="../index.html">Showcase</a>
 			<a href="../hobbies.html">Hobbies</a>
 			<a href="../about.html">About</a>
 			<a href="../contact.html">Contact</a>
@@ -34,12 +31,12 @@
 
 				<div class="project-hero">
 			<div class="project-hero__inner">
-                    <div class="project-hero__text">
-                    	<span class="project-hero__label">Mechanical Design &middot; Mauro Campisi &middot; 2022</span>
-                     	<h1 class="project-hero__title">UCA - Universal Cable Adapter</h1>
-						<span class="project-hero__label" style="display: none;">Design Engineer &mdash; Mechatronics</span>
-						<p class="project-hero__tagline">The brief — cords for every country, adapters for every socket, clutter for every bag. The challenge was to build something the market hadn't tried: one power cord with an integrated rotary switching mechanism, built from the start.</p>
-                    </div>
+				<div class="project-hero__text">
+					<span class="project-hero__label">Mechanical Design &middot; Mauro Campisi &middot; 2022</span>
+					<h1 class="project-hero__title">Universal Cable Adapter</h1>
+					<span class="project-hero__label" style="display: none;">Design Engineer &mdash; Mechatronics</span>
+					<p class="project-hero__tagline">The brief was simple: one cord, every country. The hard part was building an adapter that wouldn't power anything until you decided it should.</p>
+				</div>
 					<div class="project-hero__img-wrap" style="align-self: center;">
 						<img src="../images/thumbnails/UCA_hp.webp" alt="Universal Cable Adapter — final prototype" class="project-hero__img" style="object-fit: contain; object-position: right center; height: 260px; max-width: 100%;">
 				</div>
@@ -53,59 +50,41 @@
 					<div class="overview-grid">
 						<div class="overview-block">
 							<h4><strong>Description</strong></h4>
-						<p><em>One power cord. Every major international socket. No loose dongles, no exposed contacts &mdash; the switching adapter sits at one end, and the connection only goes live when you choose.</em></p>
+						<p><em>One power cord. Every international socket. No loose dongles, no exposed contacts &mdash; the adapter is built into the cord itself, and the connection only goes live when you choose.</em></p>
 						</div>
 						<div class="overview-block">
 							<h4><strong>My Role</strong></h4>
-						<p><em>Took the project from competitive teardown through mechanism design, prototyping, and crafting &mdash; every part 3D printed, every contact hand-placed in brass.</em></p>
+						<p><em>Took the project from competitive teardown through mechanism design, prototyping, and fabrication &mdash; every part 3D printed, every contact hand-placed in brass.</em></p>
 						</div>
 						<div class="overview-block">
 							<h4><strong>Outcome</strong></h4>
-						<p><em>A working prototype engaging every supported wall plug type, switching reliably across all three positions &mdash; proving the mechanism concept end-to-end.</em></p>
+						<p><em>A working prototype that passes through every international socket geometry and only energises on deliberate rotation &mdash; proving the mechanism concept end to end.</em></p>
 						</div>
 					</div>
 				</div>
 
 				<div class="project-section">
-						<h2>The Problem</h2>
-						<p class="para">The brief set two goals that pulled in opposite directions. Fit the three major international wall plug standards into a single adapter &mdash; and make it smaller than everything already on the market.</p>
-						<p class="para">Existing adapters solve the multi-plug problem the obvious way: stack the plug types side by side, add sliders to select between them, and accept the bulk. The result is always a cube. The UK plug sets the floor &mdash; it's the largest footprint of any standard, and everything has to fit around it.</p>
-						<p class="para">The more plug types you need to support, the bigger the housing gets. Shrinking it wasn't a refinement problem &mdash; it required rethinking the geometry from scratch.</p>
+					<h2>The Problem</h2>
+					<p class="para">The brief had a built-in contradiction. Fit every major international socket into a single adapter &mdash; and make it smaller than everything already on the market.</p>
+					<p class="para">Existing adapters solve the multi-socket problem the obvious way: stack the geometries side by side, add sliders to select between them, and accept the bulk. The result is always a cube. The UK plug sets the floor &mdash; it's the largest footprint of any standard, and everything has to fit around it.</p>
+					<p class="para">The more sockets you need to support, the bigger the housing gets. Shrinking it wasn't a refinement problem &mdash; it was a contradiction at the core of the brief.</p>
 				</div>
 
 				<div class="project-section">
 					<h2>Competitive Teardown</h2>
 					<p class="para">Disassembling several travel adapters revealed how the better-engineered products handled the multi-function challenge of plug heads: pivot, lock, and conduct — each action triggered at the right moment through elegantly simple parts.</p>
-						<p class="para">Some adapters used large brass plates as both guides and conductors. The Europe plug head was even more instructive — each leg held by a single screw that doubled as the contact point when the plug rotated into position. Plastic pivots handled the mechanical side. Two separate systems, each optimised for mass production.</p>
-					<p class="para">The UCA collapsed the same principle further — the brass rods handling pivot, location, and electrical continuity as a single element, by taking the original plug legs from the teardown sample and re-housing them in a 3D printed body. A prototype-scale interpretation of the same logic, with one fewer system.</p>
+					<p class="para">The Chinese adapters used large brass plates as both guides and conductors. The Europe plug head was even more instructive — each leg held by a single screw that doubled as the contact point when the plug rotated into position. Plastic pivots handled the mechanical side. Two separate systems, each optimised for mass production.</p>
+					<p class="para">The UCA worked from the same principle but collapsed it further. The original plug legs were extracted from the teardown sample and re-housed in a 3D printed body — the brass rods now handling pivot, location, and electrical continuity as a single element. A prototype-scale interpretation of the same logic, with one fewer system.</p>
 
-						<div style="margin-bottom: 1.75rem; margin-top: 1.5rem;">
-						<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start;">
-								<div>
-									<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative; height: 320px; display:flex; align-items:center; justify-content:center;">
-										<img src="../images/projects/plug/1780247206468f_edit.png" alt="Travel adapter before disassembly — all plug types deployed simultaneously" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-										<button class="img-expand-btn" aria-label="Expand image"></button>
-									</div>
-									<p class="media-caption">Travel adapter before disassembly — all plug types deployed simultaneously</p>
-								</div>
-								<div>
-									<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative; height: 320px; display:flex; align-items:center; justify-content:center;">
-										<img src="../images/projects/plug/20210121_001741_a_edited.png" alt="Interior of a disassembled travel adapter — variant A" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-										<button class="img-expand-btn" aria-label="Expand image"></button>
-									</div>
-									<p class="media-caption">Internal mechanism — brass plates acting as both guides and electrical conductors, slider mechanism visible.</p>
-								</div>
-								<div>
-									<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative; height: 320px; display:flex; align-items:center; justify-content:center;">
-										<img src="../images/projects/plug/20210121_001741_b_edited.png" alt="Interior of a disassembled travel adapter — variant B" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-										<button class="img-expand-btn" aria-label="Expand image"></button>
-									</div>
-									<p class="media-caption">Housing shell — pivot slots and structural features that locate each plug head.</p>
-								</div>
-							</div>
+					<div style="margin-bottom: 1.75rem; margin-top: 1.5rem;">
+						<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative;">
+							<img src="../images/projects/plug/20210121_001741.jpg" alt="Interior of a disassembled travel adapter — brass plates, slider mechanism and plug pivots visible." style="width: 100%; height: auto; display: block;" loading="lazy">
+							<button class="img-expand-btn" aria-label="Expand image"></button>
 						</div>
+						<p class="media-caption">Interior of a disassembled travel adapter — brass plates, slider mechanism and plug pivots visible.</p>
+					</div>
 
-					<div style="display: grid; grid-template-columns: 0.8810fr 1.0037fr; gap: 1rem; margin-top: 1.5rem; align-items: start; width: 80%; margin-left: auto; margin-right: auto;">
+					<div style="display: grid; grid-template-columns: 0.8810fr 1.0037fr; gap: 1rem; margin-top: 1.5rem; align-items: start;">
 						<div>
 							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); position: relative; aspect-ratio: 785 / 891;">
 								<img src="../images/projects/plug/1779999706b989.png" alt="Europe plug head disassembled" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
@@ -124,140 +103,138 @@
 				</div>
 
 				<div class="project-section">
-						<h2>The Key Insight</h2>
-						<p class="para">Many adapters on the market treat the housing and the selection mechanism as separate problems — a box to contain the plug types, and something else added on to select between them. The mechanism always adds bulk because it was never part of the geometry to begin with.</p>
-						<p class="para">Designing the plug modules independently and arranging them as compactly as possible naturally produces a triangle. Three faces, three plug types. The cylindrical space at the centre — unavoidable, inherent to the arrangement — becomes the functional stack: cable gland, electrical connector, rotating switch, and knob, all sharing the same axis. Turn the knob, feel it lock into position, the circuit closes. Every cubic millimetre occupied. No space to spare.</p>
+					<h2>The Key Insight</h2>
+					<p class="para">Every adapter on the market treats the housing and the selection mechanism as separate problems. A box to fit the sockets in, and something &mdash; sliders, buttons, levers &mdash; bolted on to select between them.</p>
+					<p class="para">The breakthrough was realising they could be the same thing.</p>
+					<p class="para">A triangle has three faces and an inscribed circle. The three faces became the three socket types, each carrying its own plug geometry. The inscribed circle became the shaft &mdash; simultaneously the knob you turn, the rotary switch that indexes the connection, and the structural core of the housing. Rotating the knob doesn't activate a mechanism. Rotating the knob <em>is</em> the mechanism.</p>
+					<p class="para">The result was a housing that couldn't be made any smaller, because every part of it was already doing two jobs.</p>
 				</div>
 
 				<div class="project-section" id="rotary-mechanism">
-						<h2>Rotary Mechanism</h2>
-						<p class="para">This was a technical demonstrator — built to prove that a Compliant Rotary Detent Mechanism, designed entirely from scratch without off-the-shelf components, could reliably switch electrical circuits through geometry alone.</p>
-						<p class="para">The switching action is based on a Compliant Rotary Detent Mechanism — a configuration developed specifically for this prototype. A slotted disk rotates in the horizontal plane. Three spring-steel strips are arranged radially above it, each pre-bent so its tip presses lightly against the disk surface. The disk carries a single slot. As it rotates, only one strip at a time aligns with the slot — the tip drops through, flexing downward onto a central conducting ring below.</p>
-						<p class="para">In conventional rotary switches the detent and the electrical contact are separate components — one indexes the position, the other closes the circuit. Here they are unified. The same flexural strip that locks the disk into position simultaneously closes the electrical path. One element, two functions.</p>
+					<h2>Rotary Mechanism</h2>
+					<p class="para">The rotary selection knob is the UCA's primary mechanical contribution. Rather than repositioning plug geometry through a passive adapter, the knob indexes the cord body directly — rotating between socket positions through a detented selector integrated into the cord head. The brass contact mechanism was developed from scratch to maintain IEC&#8209;60320 electrical continuity across all indexed positions.</p>
 
-						<p class="para">The circuit is a single-pole, triple-throw (SP3T) configuration. The live conductor connects permanently to the central ring. Each strip, when seated, completes the neutral path to its corresponding wall plug position. The two unseated strips remain open, held off the circuit by geometry alone.</p>
-						<p class="para">The entire assembly was 3D printed and hand-fabricated. No PCB, no off-the-shelf encoder.</p>
 
-					<div class="rotary-video-pair" style="display: grid; grid-template-columns: auto auto; gap: 20px; align-items: start;">
-						<div>
-							<div style="position: relative; height: 360px; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
-								<div class="yt-facade" data-id="ImXEYCT7yDI" style="position: absolute; inset: 0; border-radius: 0;">
-									<img src="https://i.ytimg.com/vi/ImXEYCT7yDI/hqdefault.jpg" alt="UCA rotary knob prototype — clip (overview)" class="yt-thumb" loading="lazy">
-									<span class="yt-play">&#9654;</span>
-								</div>
+					<h4>Indexing Logic</h4>
+					<p class="para">Positive detents lock the selector at each socket position. The detent geometry was refined across multiple printed iterations &mdash; each print resolving one issue: tactile feel, end-stop alignment, or grip ergonomics. The black actuator visible in the contact photo is the printed selector slider.</p>
+
+
+
+					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+						<div style="position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
+							<div class="yt-facade" data-id="WF4fnV3sjRw" style="position: absolute; inset: 0; border-radius: 0;">
+								<img src="https://i.ytimg.com/vi/WF4fnV3sjRw/hqdefault.jpg" alt="UCA rotary knob prototype — clip 1" class="yt-thumb" loading="lazy">
+								<span class="yt-play">&#9654;</span>
 							</div>
-							<p class="media-caption">Compliant Rotary Detent Mechanism — CAD animation</p>
 						</div>
-						<div>
-							<div style="position: relative; height: 360px; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
-								<div class="yt-facade" data-id="X4mW6vp9c1s" style="position: absolute; inset: 0; border-radius: 0;">
-									<img src="https://i.ytimg.com/vi/X4mW6vp9c1s/hqdefault.jpg" alt="UCA rotary knob prototype — clip 2" class="yt-thumb" loading="lazy">
-									<span class="yt-play">&#9654;</span>
-								</div>
+						<div style="position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 4px 22px rgba(0,0,0,0.2);">
+							<div class="yt-facade" data-id="X4mW6vp9c1s" style="position: absolute; inset: 0; border-radius: 0;">
+								<img src="https://i.ytimg.com/vi/X4mW6vp9c1s/hqdefault.jpg" alt="UCA rotary knob prototype — clip 2" class="yt-thumb" loading="lazy">
+								<span class="yt-play">&#9654;</span>
 							</div>
-							<p class="media-caption">Detent mechanism validation — continuity confirmed using LEDs</p>
 						</div>
+					</div>
+					<p class="media-caption">Rotary knob prototype in action</p>
+
+					<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
+						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #cb4444; margin-bottom: 1rem;">Why this approach</p>
+						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0 0 1rem;">Most international adapters treat plug geometry as fixed. The UCA treats it as variable — the plug geometry is selectable at the point of use, integrated into the cord body. The rotary switch is the mechanism that enables this: rather than carrying multiple cable types or loose adapter blocks, the user selects the base of the cord to index between connector standards. The switching action is mechanical and direct — no moving electrical components beyond the contact wipe that occurs during rotation.</p>
+						<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0;">Achieving this required a custom brass contact set sized and rated to IEC&#8209;60320 — nothing off-the-shelf could provide what the rotary component needed. The result is a single cable that replaces a travel kit.</p>
 					</div>
 				</div>
 
 				<div class="project-section" id="functional-prototype">
 					<h2>Prototyping &amp; Validation</h2>
-					<p class="para">Each iteration proved one thing in isolation before they were combined. The rotary mechanism demonstrator validated the switching concept independently. The two adapter stages that followed built the complete assembly around it — first the adapter body, then the integrated hub.</p>
+					<p class="para">The UCA reached a working prototype integrating the rotary selector, hand-fabricated brass contacts, and 3D printed PLA housings. The prototype demonstrated indexed switching across socket positions and was tested for basic connection with a UK socket strip — the proof-of-function shown in the photographs below.</p>
 
-					<h3>Iteration 2 — Plug Body & Socket Geometry</h3>
-					<p class="para">With the switching concept proven, the focus shifted to the adapter itself. Three modular plug heads &mdash; UK BS 1363, EU CEE 7, US NEMA 1-15 &mdash; were independently developed and housed in a single printed body, using an off-the-shelf switch as a temporary stand-in for the rotary mechanism. The goal was to validate each plug type and contact continuity independently of the switching solution.</p>
-
-					<p class="para">Each plug module required its own pivot, contact, and housing work. The UK leg was drilled at the pivot point and fitted with a rotary contact &mdash; the brass rod acting simultaneously as the pivot axle and the electrical contact surface. The C5 Cloverleaf connector at the appliance end was used for prototyping, with C13 as the intended production connector.</p>
-					<div class="two-by-two-grid" style="margin-bottom: 1.25rem;">
-						<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/20210224_024705_edit.jpg" alt="Adapter Iteration 2 — three wall plug types, off-the-shelf switch on the left" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Adapter Iteration 2 — three wall plug types, off-the-shelf switch on the left</p>
-							</div>
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/20210223_201758_edit.jpg" alt="UK plug module — inner face showing deployable brass contacts and wiring connections." style="width:auto; height:100%; object-fit:contain; object-position:center; display:block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">UK plug module — inner face showing deployable brass contacts and wiring connections.</p>
-							</div>
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/IMG_20210216_155302_edit.jpg" alt="Modified BS 1363 brass leg — extracted from teardown sample, with crafted brass pivot." style="width:auto; height:100%; object-fit:contain; object-position:center; display:block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Modified BS 1363 brass leg — extracted from teardown sample, with crafted brass pivot.</p>
-							</div>
+					<div class="overview-grid" style="margin-bottom: 1.75rem;">
+						<div class="overview-block">
+							<h4>What was built</h4>
+							<p>A complete cord assembly — rotary selector, two brass spring contacts per position, colour-coded wiring harness, and printed PLA housings in multiple iterations. Built without custom tooling; all fabrication by hand.</p>
 						</div>
-						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px;">
-									<img src="../images/projects/plug/20210223_213554_edit.jpg" alt="Transformer load unit — repurposed parts: DC transformer and C5 male connector." style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Transformer load unit — repurposed parts: DC transformer and C5 male connector.</p>
-							</div>
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 22px rgba(0,0,0,0.13); height: 320px;">
-									<img src="../images/projects/plug/20210224_031732.jpg" alt="Adapter validation — fan powered via DC transformer, confirming functionality across all switching positions." style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Adapter validation — fan powered via DC transformer, confirming functionality across all switching positions.</p>
-							</div>
+						<div class="overview-block">
+							<h4>What was tested</h4>
+							<p>Socket engagement geometry, detent indexing across all positions, contact continuity under insertion and withdrawal cycles.</p>
 						</div>
-						<h3>Iteration 3 &mdash; Integrated Hub</h3>
-						<p class="para">The final iteration brought the rotary switching mechanism into the assembly, replacing the flexural detent demonstrator with a rotary flexural cam follower mechanism. The hub sits inside the space the geometry made available between the adapter's modules. Metal strips bear against the brass raised profiles on the outer cylindrical surface of the hub as cam followers, indexing each wall plug position as the knob rotates.</p>
-
-						<p class="para">The hub connects to the wiring harness via an RCA-style connector &mdash; no soldering required for assembly or disassembly. The knob detaches independently.</p>
-
-						<p class="para">Moving the indexing mechanism inside the hub resolved the width problem the demonstrator had exposed. The centre space &mdash; geometrically inevitable from the triangular arrangement &mdash; became fully occupied by the functional stack. Compact by design, not by compromise.</p>
-				
-					<!-- Iteration 3 — image gallery (2x2) -->
-					<div class="two-by-two-grid" style="margin-top: 12px;">
-						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/6_2_Integrate%20connector%20and%20knob.PNG" alt="Integrate connector and knob" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Hub and knob assembly — detachable knob seated on the hexagonal interface.</p>
-							</div>
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; height:420px;">
-									<img class="top-row-img" src="../images/projects/plug/6_3_prevent%20to%20freely%20spin_edited.png" alt="Prevent free spin" style="width: auto; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Hub isolated — RCA-style male connector at centre, brass raised profiles as cam surfaces on the exterior.</p>
-							</div>
-						</div>
-						<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
-									<img src="../images/projects/plug/7_2_Integrate%20connector%20holder%20with%20G%20lid.PNG" alt="Integrate connector holder with G lid" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Wiring harness — RCA-style female connector, for tool-free assembly.</p>
-							</div>
-							<div>
-								<div style="position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); height: 320px; display:flex; align-items:center; justify-content:center;">
-									<img src="../images/projects/plug/6_1_Thinner%20sheet%20metal_edited_2.png" alt="Thinner sheet metal (edited)" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;" loading="lazy">
-									<button class="img-expand-btn" aria-label="Expand image"></button>
-								</div>
-								<p class="media-caption">Hub connected to harness — cam followers engaged against the hub surface, indexing mechanism complete.</p>
-							</div>
+						<div class="overview-block">
+							<h4>What passed</h4>
+							<p>Dimensional compatibility with IEC&#8209;60320 connector geometry confirmed. Rotary indexing reliable across all socket positions tested.</p>
 						</div>
 					</div>
+
+					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 1.25rem;">
+						<div>
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+								<img src="../images/projects/plug/20210224_024705.jpg" alt="Assembled prototype — multi-position plug face with three IEC socket positions" style="width: 100%; height: 200px; object-fit: cover; object-position: center; display: block;" loading="lazy">
+							</div>
+							<p class="media-caption">Assembled prototype — multi-position plug face with three IEC socket positions. C5 connector shown for scale.</p>
+						</div>
+						<div>
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+								<img src="../images/projects/plug/20210223_200555.jpg" alt="Internal assembly — open housing showing wiring, PLA body, and rotary selector module" style="width: 100%; height: 200px; object-fit: cover; object-position: center; display: block;" loading="lazy">
+							</div>
+							<p class="media-caption">Internal assembly — open housing showing wiring, PLA body, and rotary selector module.</p>
+						</div>
+						<div>
+							<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+								<img src="../images/projects/plug/20210224_021730.jpg" alt="System overview — plug body and selector module connected via colour-coded wiring harness" style="width: 100%; height: 200px; object-fit: cover; object-position: center; display: block;" loading="lazy">
+							</div>
+							<p class="media-caption">System overview — plug body and selector module connected via colour-coded wiring harness.</p>
+						</div>
 					</div>
-					<div class="project-section">
+					<p style="font-family: 'Inter', Arial, sans-serif; font-size: 0.82rem; color: #999; line-height: 1.6; margin: 0;">Full electrical validation to IEC&#8209;60320 load ratings is outside scope of this prototype phase.</p>
+				</div>
+					<div style="margin-bottom: 1.75rem;">
+						<div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 22px rgba(0,0,0,0.13); position: relative;">
+							<img src="../images/projects/plug/20210224_031732.jpg" alt="Prototype plugged into a UK socket — rotary selector indexed to UK BS 1363 position" style="width: 100%; height: auto; display: block;" loading="lazy">
+							<button class="img-expand-btn" aria-label="Expand image"></button>
+						</div>
+						<p class="media-caption">Prototype plugged into a UK socket — rotary selector indexed to UK BS 1363 position.</p>
+					</div>
+				<div class="project-section">
+					<p class="para">Each prototype stage targeted a specific uncertainty before advancing to the next. The brass contacts and rotary mechanism were developed in parallel, combined only when both were sufficiently resolved independently.</p>
+				<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem;">
+
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 01</p>
+						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Research and teardown</p>
+						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Baseline contact quality, switching geometry, and failure modes across current adapters. Teardowns exposed consistent failures at the contact wipe.</p>
+					</div>
+
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 02</p>
+						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Geometry validation</p>
+						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Initial rotary sketches evaluated against IEC&#8209;60320 requirements. Rotary geometry validated against pin spacing before any physical parts were made.</p>
+					</div>
+
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 03</p>
+						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">3D printed housing</p>
+						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Multiple iterations refined grip ergonomics, detent feel, and contact alignment. Each print resolved one dimensional issue before advancing.</p>
+					</div>
+
+					<div style="background:#f9f9f9;border-radius:10px;padding:1.4rem 1.25rem;border-top:3px solid #cb4444;">
+						<p style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin:0 0 0.5rem;">Stage 04</p>
+						<p style="font-size:0.88rem;font-weight:600;color:#111;margin:0 0 0.6rem;line-height:1.3;">Hand-formed assembly</p>
+						<p style="font-size:0.82rem;color:#555;line-height:1.6;margin:0;">Brass contacts fabricated and integrated into final housing, producing functional prototype. Completed socket engagement and indexing tests across all positions.</p>
+					</div>
+
+				</div>
 					<h2>Outcome</h2>
-					<div class="elec-summary">
-						<p class="para">The brief asked for a compact adapter with an innovative rotary switching mechanism — covering the three major international wall plug types in a single cord. The prototype delivered both — a triangular housing roughly 35% smaller by volume than comparable adapters, selectable by a single rotary action.</p>
-						<p class="para">Methodology was one of the most significant outcomes. Every core decision came from looking sideways — a marine isolator suggested the switching principle, triangle geometry solved the space problem, a teardown of well-engineered mass-market adapters taught the value of parts doing double duty. None of it came from iterating on what adapters already looked like.</p>
-						<p class="para">The entire prototype was crafted without industrial tooling. Brass contacts were cut, bent and soldered by hand. Housings went through multiple printed iterations. The mechanism was designed from first principles — a rotary flexural cam follower configuration developed specifically for this application.</p>
-						<p class="para">Lateral thinking, geometric reasoning, and the ability to craft and validate in brass and PLA — that is what the UCA demonstrates.</p>
+					<p class="para">This project sits at the boundary between product design and mechatronics engineering. The UCA required mechanical design, contact physics, manufacturing process selection, and iterative hardware testing — a working method José is actively deepening as he transitions into mechatronics.</p>
+					<div class="elec-grid">
+						<div class="elec-card" style="background: rgba(255,255,255,0.09); border: 0.5px solid rgba(255,255,255,0.18); padding: 16px; border-radius: 6px;">
+						<h4 style="color: #111;">Mechanical design</h4>
+						<p style="color: #666; line-height: 1.6;">Designed a rotary indexing mechanism from first principles — detent geometry, end-stop alignment, grip ergonomics. Iterated across five printed housing versions. All fabrication by hand, no CNC or custom tooling.</p>
+						</div>
+						<div class="elec-card" style="background: rgba(255,255,255,0.09); border: 0.5px solid rgba(255,255,255,0.18); padding: 16px; border-radius: 6px;">
+						<h4 style="color: #111;">Electrical integration</h4>
+						<p style="color: #666; line-height: 1.6;">Specified and hand-fabricated brass spring contacts to IEC&#8209;60320 geometry. Learned to reason about contact pressure, wipe length, and spring-back at prototype scale. No off-the-shelf switch component — the contact mechanism is a custom part.</p>
+						</div>
+						<div class="elec-card" style="background: rgba(255,255,255,0.09); border: 0.5px solid rgba(255,255,255,0.18); padding: 16px; border-radius: 6px;">
+						<h4 style="color: #111;">What&#39;s next</h4>
+						<p style="color: #666; line-height: 1.6;">Pursuing mechatronics roles where mechanical and electrical design are co-developed. Specifically interested in actuator systems, embedded control for physical products, and hardware that operates at the boundary of mechanism and software. Currently building with microcontrollers to close the gap.</p>
+						</div>
 					</div>
 				</div>
 
@@ -320,137 +297,6 @@
 	      el.replaceWith(iframe);
 	    });
 	  });
-
-	// Adjust top-row images so they share the same height and fill available width proportionally
-	(function() {
-		const gridSelector = '.two-by-two-grid';
-
-		function processGrid(grid) {
-			const imgs = Array.from(grid.querySelectorAll('img.top-row-img'));
-			if (imgs.length === 0) return;
-
-			const waitForLoad = imgs.map(img => {
-				if (img.complete && img.naturalWidth) return Promise.resolve();
-				return new Promise(resolve => { img.addEventListener('load', resolve); img.addEventListener('error', resolve); });
-			});
-
-			Promise.all(waitForLoad).then(() => {
-				const style = getComputedStyle(grid);
-				const gap = parseInt(style.columnGap || style.gap || '12', 10) || 12;
-				const containerWidth = grid.clientWidth;
-				const columnCount = imgs.length || 1;
-				const columnWidth = Math.floor((containerWidth - gap * (columnCount - 1)) / columnCount);
-				const fixedHeight = 420; // target height for top row
-				const minHeight = 80;
-				let targetHeight = fixedHeight;
-				if (columnWidth < 200) {
-					const scale = columnWidth / 200;
-					targetHeight = Math.max(minHeight, Math.round(fixedHeight * scale));
-				}
-
-				imgs.forEach(img => {
-					const wrapper = img.parentElement;
-					if (!wrapper) return;
-					wrapper.style.position = 'relative';
-					wrapper.style.height = targetHeight + 'px';
-					wrapper.style.width = '100%';
-					wrapper.style.overflow = 'hidden';
-
-					const nw = img.naturalWidth || img.width || 1;
-					const nh = img.naturalHeight || img.height || 1;
-
-					let angle = 0;
-					const tm = (img.style && img.style.transform) ? img.style.transform : '';
-					const m = tm.match(/rotate\((-?\d+)deg\)/);
-					if (m) angle = parseInt(m[1], 10);
-					angle = ((angle % 360) + 360) % 360;
-					if (angle === 270) angle = -90;
-					if (angle === 180) angle = 180;
-
-					let scale;
-					if (Math.abs(angle) === 90) {
-						scale = Math.max(wrapper.clientWidth / nh, targetHeight / nw);
-					} else {
-						scale = Math.max(wrapper.clientWidth / nw, targetHeight / nh);
-					}
-
-					img.style.position = 'absolute';
-					img.style.left = '50%';
-					img.style.top = '50%';
-					img.style.maxWidth = 'none';
-					img.style.maxHeight = 'none';
-					img.style.width = nw + 'px';
-					img.style.height = nh + 'px';
-					img.style.transformOrigin = 'center center';
-					img.style.objectFit = 'none';
-					img.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scale(${scale})`;
-				});
-			});
-		}
-
-		function adjustTopRowImages() {
-			const grids = Array.from(document.querySelectorAll(gridSelector));
-			if (!grids.length) return;
-			grids.forEach(processGrid);
-		}
-
-		let resizeTimer;
-		window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(adjustTopRowImages, 120); });
-		window.addEventListener('load', adjustTopRowImages);
-		document.addEventListener('DOMContentLoaded', adjustTopRowImages);
-	})();
-
-// Adjust the rotary mechanism video pair so the portrait clip drives row height
-(function() {
-	function adjustRotaryVideos() {
-		const grid = document.querySelector('.rotary-video-pair');
-		if (!grid) return;
-		const cells = Array.from(grid.querySelectorAll(':scope > div'));
-		if (cells.length < 2) return;
-		const leftCell = cells[0].querySelector('div') || cells[0];
-		const rightCell = cells[1].querySelector('div') || cells[1];
-
-		const style = getComputedStyle(grid);
-		const gap = parseFloat(style.columnGap || style.gap) || 0;
-		const containerWidth = Math.max(0, grid.clientWidth - gap);
-
-		// aspect ratios (width / height)
-		const leftAR = 16/9; // animation (landscape)
-		const rightAR = 9/16; // portrait
-
-		// Solve for height h so that leftWidth + rightWidth = containerWidth
-		// leftWidth = leftAR * h ; rightWidth = rightAR * h
-		const sum = leftAR + rightAR;
-		const minHeight = 120;
-		let h = Math.max(minHeight, Math.floor(containerWidth / sum));
-
-		const leftW = Math.round(leftAR * h);
-		const rightW = Math.round(rightAR * h);
-
-		// Apply explicit sizes to cells so columns size naturally
-		leftCell.style.width = leftW + 'px';
-		leftCell.style.height = h + 'px';
-		rightCell.style.width = rightW + 'px';
-		rightCell.style.height = h + 'px';
-
-		// Ensure the yt-facade covers the cell
-		[leftCell, rightCell].forEach(cell => {
-			const facade = cell.querySelector('.yt-facade');
-			if (facade) {
-				facade.style.width = '100%';
-				facade.style.height = '100%';
-				facade.style.position = 'absolute';
-				facade.style.left = '0';
-				facade.style.top = '0';
-			}
-		});
-	}
-
-	let rvTimer;
-	window.addEventListener('resize', () => { clearTimeout(rvTimer); rvTimer = setTimeout(adjustRotaryVideos, 120); });
-	window.addEventListener('load', adjustRotaryVideos);
-	document.addEventListener('DOMContentLoaded', adjustRotaryVideos);
-})();
 	</script>
 
 
