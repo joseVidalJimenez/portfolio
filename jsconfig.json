@@ -3,11 +3,7 @@
     "target": "ES2020",
     "module": "commonjs",
     "checkJs": false,
-    "strict": false,
-    "noImplicitAny": false,
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {},
+    "moduleResolution": "node10",
     "types": ["@playwright/test"]
   },
   "include": ["tests/**/*.js", "docs/scripts/**/*.js"],
