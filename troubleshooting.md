@@ -1,8 +1,8 @@
 # Troubleshooting — Playwright project screenshot capture
 
-This document records a real bug we hit and solved: full-page screenshots of the tall
-project pages coming out as corrupt, un-openable files (`file` reports them as `data`),
-while the `about` page screenshot worked fine.
+A real bug we hit and solved: full-page screenshots of the tall project pages came out as
+corrupt, un-openable files (`file` reports them as `data`), while the short `about` page
+was fine.
 
 ## Symptom
 
@@ -33,20 +33,18 @@ Two clues stood out:
 2. The bytes were completely unrelated to a PNG — not a valid PNG with blank areas, but
    a truncated/garbled write.
 
-## What was NOT the problem
+## Does not apply / red herrings
 
-We checked several hypotheses that turned out to be red herrings:
+Hypotheses we ruled out:
 
-- **"Adding `about` broke it."** Not true. Reverting to the pristine committed spec
-  (which has no `about`, git `66c18e2`) and re-running `--grep "backpack"` still produced
-  corrupt 524288-byte files. The `about` page only *looked* fine because it is short.
-- **"`proj-` prefix is wrong."** Not true. The committed spec always wrote
-  `proj-${project.name}.png`. A separate spec, `visual.spec.js`, produced the other page
-  files (`about.png`, `home.png`, …). Both specs have since been consolidated: the
-  screenshot spec is now generated from `build.config.json` and `visual.spec.js` was
-  removed.
-- **"Lazy loading leaves blank images."** Lazy loading does affect rendering, but the
-  broken files were not valid PNGs with blank regions — they were truncated binary.
+- **"Adding `about` broke it."** No. Reverting to the pristine committed spec (no `about`,
+  git `66c18e2`) and re-running `--grep "backpack"` still produced corrupt 524288-byte
+  files. `about` only *looked* fine because it is short.
+- **"`proj-` prefix is wrong."** No. The committed spec always wrote `proj-${project}.png`;
+  the other page files (`about.png`, `home.png`, …) came from a separate `visual.spec.js`,
+  now removed. The screenshot spec is generated from `build.config.json`.
+- **"Lazy loading leaves blank images."** Lazy loading affects rendering, but the broken
+  files were truncated binary, not valid PNGs with blank regions.
 
 ## Root cause
 
@@ -62,7 +60,7 @@ Why it looked page-dependent:
 | about       | 3800 px              | 347696            | ✅ valid |
 | planter     | 6538 px              | 502547            | ✅ valid |
 | rccar       | 5318 px              | 494011            | ✅ valid |
-| hapicFinger | 7781 px              | 845306 (< 512KiB) | ❌ corrupt |
+| hapicFinger | 7781 px              | 845306 (&gt;512KiB) | ❌ corrupt |
 | backpack    | 9037 px              | 668967            | ❌ corrupt |
 | plug        | 9043 px              | 843921            | ❌ corrupt |
 | curler      | 10869 px             | 658778            | ❌ corrupt |
