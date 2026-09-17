@@ -619,3 +619,20 @@ Video lightbox (use with `.yt-facade`): place alongside the image lightbox, befo
 - [ ] New page added to `docs/sitemap.html`
 
 ---
+
+## 14. Decisions Log
+
+Historical rationale for key architecture/design choices. Read before undoing any of these.
+
+| Date | Decision | Rationale |
+|---|---|---|
+| 2026-02 | Serve from `/docs` not repo root | GitHub Pages convention; keeps build source (`src/`) separate from output |
+| 2026-02 | Rejected Jekyll/SSG for now | Added complexity before the site is complete; revisit if content management becomes painful |
+| 2026-02 | `showcase.html` (curated highlights) vs `portfolio.html` (full index) split | Showcase gives immediate visual impact; portfolio is the complete searchable record |
+| 2026-02 | `hobbies.html` as a separate page | Keeps the professional portfolio clean while hobby projects stay visible and show personality |
+| 2026-02 | Images split into `thumbnails/` and `projects/` | Thumbnails are display assets; project images are content — different lifecycle |
+| 2026-02 | `css/projects/project.css` → `css/project.css` | Unnecessary nesting; single level is simpler |
+| 2026-02 | `images/valkery/` → `images/projects/hapicFinger/` | Folder name should match the project, not the client codename |
+| 2026-02 | `portfolio/` folder renamed to `projects/` | Neutral name; classification (professional vs hobby) belongs in listing pages, not the URL — avoids file moves if a project changes category |
+| 2026-02 | Contact form backend switched to **Web3Forms** | The previous Google Apps Script URL was publicly visible in JS, exposing a spam-able endpoint. Web3Forms uses an opaque access key — the owner's email never appears in code. Includes built-in honeypot spam protection; free with no submission limit |
+| 2026-09 | Navbar drops `Portfolio` / `Journal`; home is `showcase.html` | `portfolio.html` is not used for now; the curated showcase is the landing page. Use `showcase.html` as the primary hub and `Back to Showcase` on project pages |
