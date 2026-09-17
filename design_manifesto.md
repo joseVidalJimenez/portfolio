@@ -21,7 +21,7 @@ The site is hosted on **GitHub Pages** and served from the `/docs` folder.
 
 ```
 docs/
-├── index.html          ← Visual showcase / hero — curated highlights grid only
+├── showcase.html       ← Visual showcase / hero — curated highlights grid only
 ├── portfolio.html      ← Full professional project index (card listing)
 ├── hobbies.html        ← Personal / hobby projects (separate from professional work)
 ├── journal.html        ← Blog / notes (future content)
@@ -59,7 +59,7 @@ Planning notes and content drafts live in `_planning/` at the repo root (not ser
 
 | Page | Role | Should NOT contain |
 |---|---|---|
-| `index.html` | Visual first impression, curated grid of ~6 best projects | Full project descriptions, long text |
+| `showcase.html` | Visual first impression, curated grid of ~6 best projects | Full project descriptions, long text |
 | `portfolio.html` | Complete listing of professional projects with brief summaries | Hobby projects |
 | `hobbies.html` | Personal/hobby projects (RC car, WombleBot, side experiments) | Client/paid work |
 | `portfolio/*.html` | Full project detail: context, role, process, outcome, images | Navigation clutter |
@@ -105,7 +105,7 @@ Planning notes and content drafts live in `_planning/` at the repo root (not ser
 
 ## Layout Patterns
 
-### Homepage Grid (`index.html`)
+### Homepage Grid (`showcase.html`)
 - CSS Grid, 3 columns
 - Item 1 spans 2 rows (tall left feature slot — currently Curler)
 - Item 6 spans 2 columns (wide bottom slot — currently RC Car → hobbies)

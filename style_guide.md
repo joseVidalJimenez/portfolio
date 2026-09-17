@@ -105,7 +105,7 @@ These are the exact values used in `docs/css/project.css`. Do not substitute.
     </div>
     <div class="navbar-name">José Vidal</div>
     <div class="navbar-menu">
-      <a href="../index.html">Home</a>
+      <a href="../showcase.html">Home</a>
       <a href="../portfolio.html">Portfolio</a>
       <a href="../hobbies.html">Hobbies</a>
       <a href="../journal.html">Journal</a>

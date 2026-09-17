@@ -15,7 +15,7 @@ npm install
 # Build the site
 npm run build
 
-# Open docs/index.html in your browser, or serve locally
+# Open docs/showcase.html in your browser, or serve locally
 npx serve docs
 ```
 

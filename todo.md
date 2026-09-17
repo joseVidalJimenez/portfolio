@@ -23,7 +23,7 @@ Items from the May 2026 site audit. Fixed items are struck through.
 ## Performance
 
 - [x] **P-1 / M-5** Google Fonts loaded via CSS `@import` (render-blocking) and duplicated across both CSS files — remove both `@import` rules; add `<link rel="preconnect">` + `<link rel="stylesheet">` in every `<head>`
-- [x] **P-2** No `loading="lazy"` on below-fold images in `index.html`, `portfolio.html`, `hobbies.html`
+- [x] **P-2** No `loading="lazy"` on below-fold images in `showcase.html`, `portfolio.html`, `hobbies.html`
 - [x] **P-3** No `<link rel="icon">` declared — browser tab shows blank icon — add favicon link to all `<head>`s
 
 ---
@@ -53,7 +53,7 @@ Items from the May 2026 site audit. Fixed items are struck through.
 - [ ] **S-1** No `<link rel="canonical">` on any page
 - [ ] **S-2** No Open Graph / Twitter Card meta tags — pages unfurl blank when shared
 - [ ] **S-5** `sitemap.html` has no actual sitemap content (links to pages or XML sitemap)
-- [ ] **S-6** No JSON-LD `Person` schema on `index.html`
+- [ ] **S-6** No JSON-LD `Person` schema on `showcase.html`
 
 ---
 
