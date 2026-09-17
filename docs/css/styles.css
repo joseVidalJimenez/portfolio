@@ -266,6 +266,12 @@ h2{
     grid-row: 3 / 4;    /* Start at row 3, end before row 4 */
 }
 
+/* Base66 tile — bottom-left, next to the RC car (which spans cols 2-3 on row 3) */
+.grid-item--7 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
 /* overlay */
 
 .grid-item {
@@ -624,7 +630,7 @@ h2{
     .footer-layout { flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding: 8px 12px; }
     .footer-text, .footer-link { flex: 0 1 auto; }
     .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; padding-left: 5%; padding-right: 5%; }
-    .grid-item--1,.grid-item--2,.grid-item--3,.grid-item--4,.grid-item--5,.grid-item--6 { grid-column: auto; grid-row: auto; }
+    .grid-item--1,.grid-item--2,.grid-item--3,.grid-item--4,.grid-item--5,.grid-item--6,.grid-item--7 { grid-column: auto; grid-row: auto; }
     .intro { margin-left: 5%; margin-right: 5%; margin-top: 130px; }
     .home-hero { padding: 100px 0 56px; }
     .home-hero__inner { padding: 0 20px; }

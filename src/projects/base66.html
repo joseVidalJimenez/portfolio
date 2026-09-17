@@ -1,0 +1,228 @@
+		<div class="project-hero">
+			<div class="project-hero__inner">
+				<div class="project-hero__text">
+					<span class="project-hero__label">AI &middot; Research &middot; Token Compression</span>
+					<h1 class="project-hero__title">Base66</h1>
+					<p class="project-hero__tagline">Base66: An Experiment in Universal Token Compression</p>
+				</div>
+				<div class="project-hero__img-wrap">
+					<img src="../images/projects/base66/newyork.webp" alt="Base66 — New York skyline" class="project-hero__img">
+				</div>
+			</div>
+		</div>
+
+		<div class="project-body">
+			<div class="project-container">
+
+				<div class="overview-grid" style="margin-bottom: 72px;">
+					<div class="overview-block">
+						<h4>The Goal</h4>
+						<p>Build a deterministic, LLM-agnostic compression pipeline to shrink English text into dense symbolic codes, reducing LLM token costs without neural models or state.</p>
+					</div>
+					<div class="overview-block">
+						<h4>The Hardware Reality</h4>
+						<p>Scaled a 2.5-billion-row frequency dataset on a 32 GB RAM machine by using hash-partitioned bucket processing, streaming state machines, and ordered block-writes to prevent NVMe page thrashing.</p>
+					</div>
+					<div class="overview-block">
+						<h4>The Result</h4>
+						<p>Reached ~99.55% token parity. While it proved that deterministic dictionary compression alone yields marginal token savings against modern tokenizers, the engineering journey unlocked critical insights into hardware primitives, I/O bottlenecks, and token economics.</p>
+					</div>
+				</div>
+
+				<div class="project-article">
+
+					<div class="project-section">
+						<h2>The premise</h2>
+						<p>The idea traces back to &ldquo;Domain-Specific Compression for Efficient Prompting&rdquo; (arXiv, 2023&ndash;2024 era), which showed you can build micro-languages for specific fields &mdash; medicine, law, programming, finance &mdash; where dense jargon tokens get expanded into full meaning by the LLM. The term &ldquo;high-density token compression&rdquo; was used informally in talks for this. My twist was to be greedy about it: instead of a domain micro-language the model already knew, build a <em>universal</em> one and make it token-efficient for any English text.</p>
+						<p>I wanted that translation to be <strong>LLM-agnostic and deterministic</strong> &mdash; losslessly shrink English so it costs fewer LLM tokens for the machine to process, with the receiver needing only a shared dictionary, no model, no context, no shared state.</p>
+
+						<p>The metric was settled early: <strong>tokens, not bytes</strong>. A code that maps one phrase to one symbol saves LLM token count even when the symbol spans several UTF-8 bytes. The dictionary is the primary path; a neural fallback (T5/BART) is the safety net for phrasings no static dictionary can cover.</p>
+
+						<div class="overview-block" style="margin: 32px 0 0;">
+							<h4>Methodology &amp; Execution</h4>
+							<p><strong>Role: System Architect, Performance Profiler &amp; Lead Debugger</strong></p>
+							<p>This project was built using AI-assisted implementation (&ldquo;vibe coding&rdquo;). I designed the underlying algorithms, set the memory constraints, and diagnosed hardware failure modes&mdash;leveraging AI to generate glue code while focusing my effort on memory alignment, DuckDB stream optimization, and I/O bottleneck analysis.</p>
+						</div>
+					</div>
+
+					<div class="project-section">
+						<h2>The architecture</h2>
+						<p>The dictionary is ranked from real frequency data &mdash; the Google Books Ngrams 2020 <a href="https://storage.googleapis.com/books/ngrams/books/datasetsv3.html">corpus</a>. Ngrams are cleaned, unioned, scored, and cut into tiers; each code carries a mode-switch prefix so the decoder can tell code from literal text.</p>
+
+						<h3>How the pipeline fits together</h3>
+						<p>The whole scheme rests on one number per ngram, the <strong>score</strong>:</p>
+						<pre><code>score = token_count &times; frequency</code></pre>
+						<p><code>token_count</code> is how many LLM tokens (<code>cl100k_base</code>) the raw ngram costs, and <code>frequency</code> is its count in the corpus. Ranking by <code>score</code> promotes phrases that both appear often <em>and</em> cost many tokens to leave raw &mdash; those are the ones worth spending a code on.</p>
+
+						<p>A note on code cost: my first scoring formula <em>subtracted</em> the code&rsquo;s own cost, but I dropped it, because it couldn&rsquo;t be known until the encoder had already picked the phrase length &mdash; a chicken-and-egg: a phrase&rsquo;s cost depends on which tier (1/2/3 chars) it finally lands in, which follows ranking, not precedes it. As the post-mortem later made plain, that simplification came with a real cost: by scoring the whole long tail on raw <code>token_count &times; frequency</code> alone, tier-3 ended up holding an enormous number of 2&ndash;3-token phrases that a 3-character code (with its mode-switch overhead) can never pay back. Eligibility filtered the extremes &mdash; <code>token_count &gt;= max(code_width, 2)</code>, so single-token words are excluded from every tier (a code can never beat the raw word&rsquo;s single token) &mdash; but it did not, by itself, stop the tier-3 bloat of marginally-profitable phrases.</p>
+
+						<p>That score orders every ngram into one global list, and the list is then sliced into <strong>tiers</strong> &mdash; not by meaning, but by capacity. The code alphabet has roughly <strong>B = 5,062</strong> usable symbols: it starts from 5,066 single-token visual characters mined from the tokenizer&rsquo;s own vocabulary, minus four reserved for grammar (<code>&#9733; &#9734; &#9679; space</code>). The project is named <strong>Base66</strong> after that 5,066-character pool &mdash; the &ldquo;66&rdquo; is a vestige of the leading digits of 5,066, not a 66-symbol alphabet.</p>
+
+						<p>Those 5,066 characters weren&rsquo;t hand-picked &mdash; they were <em>mined</em> from the tokenizer itself. I walked every byte sequence in the open vocabulary of <strong>tiktoken</strong> (the tokenizer behind GPT-4o and the <code>cl100k_base</code> encoding) and kept every single-codepoint, visually-representable token &mdash; everything the model treats as exactly one token on its own. That yields <strong>5,066 characters</strong>. Then I tested every ordered pair of them and kept only the pairs that did <em>not</em> BPE-merge back into a single token, so a two-character code would never silently collapse into one.</p>
+
+						<p>The heavy CJK look isn&rsquo;t a design choice &mdash; it&rsquo;s arithmetic: Unicode is largely dominated by CJK, which makes up roughly 60&ndash;70% of all encoded characters. When you let the tokenizer&rsquo;s own vocabulary pick the characters, the pool ends up mostly CJK by construction &mdash; I aimed for &ldquo;every single-token visual character the tokenizer knows,&rdquo; and the CJK dominance simply fell out of the numbers.</p>
+
+						<p>A fiddly detail I had to respect: the pool is built by taking the 5,066 chars in codepoint order and <strong>removing the four reserved grammar chars</strong> &mdash; but those four fall <em>anywhere</em> in that order, so the surviving characters are not contiguous. The pool has to be <strong>re-aligned</strong> to that discontinuity: each character&rsquo;s pool index is its position in the filtered, re-numbered list (0&hellip;5,061), and the 13-bit indices stored in <code>codes.bin</code> address exactly that re-aligned pool. Keep the pool and the codes out of sync and a code silently lands on the wrong character &mdash; which is why <code>pool.txt</code> order and <code>codes.bin</code> must always come from the same export.</p>
+
+						<p>The three tiers are ranked score sections sized to fill exactly what that alphabet can express at increasing code widths:</p>
+						<table>
+							<thead>
+								<tr>
+									<th>Tier</th>
+									<th>Mode prefix</th>
+									<th>Code width</th>
+									<th>Entries (top slice by score)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td><code>&#9733;</code></td>
+									<td>1 char</td>
+									<td>the top 5,066 ngrams &mdash; up to <code>B</code> codes</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><code>&#9734;</code></td>
+									<td>2 chars</td>
+									<td>the next 25,664,356 &mdash; up to <code>B&sup2;</code></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><code>&#9679;</code></td>
+									<td>3 chars</td>
+									<td>everything after &mdash; up to <code>B&sup3;</code> (&asymp; 1.3 billion)</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>So the highest-scoring phrases get the shortest one- and two-character codes, and the long tail of ~1.3 billion entries gets three-character codes. That is exactly why the alphabet&rsquo;s size matters: <code>B</code>, <code>B&sup2;</code>, <code>B&sup3;</code> <em>are</em> the tier capacities, so the couple of thousand hottest phrases fit in width 1, tens of millions in width 2, and over a billion in width 3.</p>
+
+						<p>From there the tiers are compiled into a static dictionary. The ranked list is exported into three binary files &mdash; <code>pool.bin</code> (the concatenated key bytes), <code>offsets.bin</code> (the cumulative offsets delimiting each key), and <code>codes.bin</code> (the packed code assigned to each key) &mdash; and those three bins are fed to the <strong>MPHF</strong> builder. A minimal perfect hash maps every one of the ~1.35 billion keys to its own slot with zero collisions, and the slot <em>is</em> the rank, so producing a code is pure arithmetic: <code>base-5062 digits of the slot</code>. A fingerprint array per slot verifies that a candidate phrase is really in the dictionary rather than a lucky hash. The whole thing is read-only and memory-mapped, so every worker shares the same pages.</p>
+
+						<p>I also needed the reverse direction &mdash; turning a code back into the ngram it replaced &mdash; and at first I assumed it was pure arithmetic: that a code&rsquo;s pool indices were base-B digits of its slot. That holds going forward (a rank <em>is</em> the code), but it&rsquo;s <strong>false coming back</strong> for two of the three tiers. Tier-2 codes come from an ordered pool-pair file, not a base-B enumeration of all pairs, so a pair has no arithmetic link to its slot; tier-3 codes are stored by rank in groups <em>permuted</em> against base-B order. The first arithmetic decoder I wired up returned a decode miss for every single tier-3 code.</p>
+
+						<p>The fix was to drop the arithmetic shortcut and resolve codes the honest way: collect the codes that actually appear in the text, pack them, and scan the relevant tier block for their slots in memory-bounded chunks. The neat payoff &mdash; <strong>you never need a separate reverse lookup table</strong>. The same three bins already encode where every key lives: once you know a code&rsquo;s <em>slot</em>, the ngram is simply the <code>pool.bin[offsets[slot] : offsets[slot+1]]</code> slice. Table-free decode that is correct, at the cost of a bounded scan instead of a clever formula.</p>
+
+						<p>Finally, the encoder runs on a test corpus using <strong>Viterbi</strong> &mdash; a dynamic program over the text that, at each position, picks the optimum between emitting a code or the literal characters. The critical subtlety is <em>what cost</em> the Viterbi path minimises, and that cost evolved in two versions. Version 1 minimised output <strong>character/byte</strong> length, which turned out to be a disaster for tokens (see &ldquo;Why it didn&rsquo;t work&rdquo; below) &mdash; it shrank bytes while expanding tokens. Version 2 was rewritten to minimise <strong>LLM token count</strong>, supplemented by a token-aware correction pass that reverts any marginal, token-negative code chunk. The output is the <code>.base66</code> stream, and the win is measured as <code>1 &minus; (cl100k_tokens(encoded) / cl100k_tokens(original))</code> &mdash; a ratio that must stay under the gate, since the whole point is saving tokens, not bytes.</p>
+
+						<p>The test corpus I benchmark against is <strong><a href="https://mattmahoney.net/dc/textdata.html">text8</a></strong>, the streamlined variation of enwiki8: the first 100 MB of cleaned Wikipedia text. It is the standard ingest used throughout the results above.</p>
+
+						<p>Writing that stream is governed by a small piece of design: a <strong>rule-based state machine</strong>. It walks the text character by character and, at each step, decides whether what it emits is raw literal text or a coded unit. The default state is raw (space is just the raw delimiter), but the moment it meets a <code>&#9733;</code>, <code>&#9734;</code>, or <code>&#9679;</code> it switches into that tier&rsquo;s section and emits exactly one, two, or three pool characters as a single code &mdash; then returns to raw. The four reserved characters never appear as data, so there is never any ambiguity about which state you&rsquo;re in. That determinism is what makes the whole scheme lossless in both directions: the same small grammar both <em>produces</em> the stream on encode and <em>verifies</em> it on decode, and it doubles as the classifier that tells you at a glance whether a stream was properly encoded or is leaking raw English.</p>
+					</div>
+
+					<div class="project-section">
+						<h2>Engineering battles &mdash; the sagas</h2>
+
+						<h3>Data ingestion &mdash; the download saga</h3>
+						<p>Before I could test a single hypothesis, I had to actually <em>get</em> the data &mdash; and that was its own adventure. The obvious route was querying Google&rsquo;s BigQuery tables, and that was the first lesson in costs: it&rsquo;s <strong>pay-per-query on terabytes scanned</strong>, needs a billed GCP project, and Google&rsquo;s own ETL pipeline quietly <em>corrupted</em> perfectly valid terms. Legitimate Unicode like <code>&#119891;</code>, <code>&#119908;</code>, <code>&#120597;</code> came back as <code>[U+FFFD]</code> replacement characters, because their pipeline eliminated them. A frequency-based dictionary built on who-knows-what the model would tokenize couldn&rsquo;t start from data that dropped real characters.</p>
+
+						<p>So I went around Google&rsquo;s query service entirely. The same public corpus lives on Google Storage as raw <code>.gz</code> files, and downloading them directly is <strong>completely free</strong> &mdash; no API key, no billing, no quota &mdash; and higher fidelity, because it sees the raw terms BigQuery&rsquo;s pipeline skipped. That was the decision that made the whole project affordable.</p>
+
+						<p>The cost moved from money to <strong>time and disk</strong>. Each ngram level is gigabytes of compressed data that has to come down, decompress, get filtered for POS tags, and aggregate across every year into clean parquet files &mdash; and a pipe cleaner than the official pipeline&rsquo;s. I downloaded in parallel (a handful of HTTP workers), decompressed across a dozen cores, and aggregated through DuckDB spilling to disk as a parquet file. Disk itself became a constraint, so the pipeline ran in <strong>streaming fashion</strong>: never download everything, keep only a bounded number of <code>.gz</code> files on disk, and let a continuous loop replenish them as the decompressor consumed them. Every batch merged ten temp parquets into the cumulative store in a single transaction &mdash; about five times faster than doing it file-by-file, because all the fixed overhead (connection open, commit, table scan) got amortized.</p>
+
+						<p>Resilient by design: the cumulative store was the single source of truth. If a run died halfway, restarting skipped what was already merged, re-downloaded the partial files, and rolled back any interrupted batch &mdash; no data lost, no counts doubled. It took a long while to pull down gigabytes and gigabytes of ngrams, but it was a <em>set-and-forget</em> long while, and the result was a corpus I could trust: validated to 100% precision against the reference, down to the exact frequency of every term, with only the math-symbol encoding cases as deltas.</p>
+
+						<h3>Data ingestion &mdash; the decompression saga</h3>
+						<p>The download saga above reads like the clean, working version &mdash; landing there was the real fight, and this is the short version. Everything had to fit in <strong>32 GB of RAM</strong>, and the naive approach didn&rsquo;t come close.</p>
+
+						<p>First, memory. Aggregating frequencies the obvious way &mdash; one giant in-memory dictionary &mdash; blew past the budget at bigram scale: 134 million rows needed ~29 GB and crashed. The rule became <em>never accumulate in Python</em>: each worker wrote a small temp parquet, and DuckDB merged them with a memory limit and disk spill.</p>
+
+						<p>Second, speed &mdash; and the culprit surprised me. It wasn&rsquo;t decompression or parsing; it was how rows entered the database. A per-batch <code>executemany</code> burned 93% of the runtime (roughly 6.5 hours for the bigram set), and feeding whole Arrow tables into a single insert made it <strong>382&times; faster</strong>, collapsing the whole download to about half an hour.</p>
+
+						<p>Two red herrings cost time too: WSL&rsquo;s 9P filesystem looked guilty but was only ~9% slower than ext4 on sequential reads (the real limiter was RAM, not disk), and recompressing to zstd was a dead end &mdash; the file came out <em>larger</em> and <em>slower</em>. Validation hit the same wall and got the same fix: DuckDB joins that stream instead of building Python sets.</p>
+
+						<h3>Data ingestion &mdash; the cleaning saga</h3>
+						<p>The raw corpus also carried a lot of junk that had to be stripped before any of it could be ranked. Google&rsquo;s ngrams annotate terms with <strong>part-of-speech &ldquo;separation fields&rdquo;</strong> &mdash; a verb, an adjective, a noun, word boundaries &mdash; and those tagged variants are noise for a dictionary of plain English phrases. The pipeline had to replicate what BigQuery&rsquo;s <code>has_tag = FALSE</code> filter did &mdash; drop every POS-tagged term so only the clean, untagged phrase frequencies survive. Anything encoded with those separation markers had no place in a codebook.</p>
+
+						<p>The placeholder characters were a subtler fight. Google uses <code>_</code> as a stand-in for out-of-vocabulary words and punctuation boundaries, and that OOV placeholder <em>survives</em> the first cleaning stage &mdash; it only gets removed later by rejecting entries that still contain it. The cleaning logic thus had to handle a graduated set of artifacts: strip POS suffixes, collapse underscore-separated word pairs into spaces, and reject a specific list of structural placeholders (start/end markers, punctuation stubs) so the final corpus is genuinely just language.</p>
+
+						<p>Was that cleaning ever <em>fully</em> solved? Not quite &mdash; residual <code>_</code>-formatted keys later turned out to be squatting in the top-ranked slots of the dictionary, crowding out real English (that&rsquo;s the B1 cause in the leak diagnosis). But the cleaning pass itself, the part that mirrors Google&rsquo;s official filter, was validated to match the reference output 100% on shared keys.</p>
+
+						<h3>Memory boundaries &mdash; the union that OOM&rsquo;d</h3>
+						<p>With all five levels downloaded, the next step was to merge them into one ranked list &mdash; and that hit a wall far sooner than I expected. The naive union did a single giant aggregation over roughly <strong>2.5 billion rows</strong>, and DuckDB needed a hash table of about <strong>90&ndash;140 GB</strong> to hold it. On a 32 GB box, that was never going to happen; it ran out of memory every time.</p>
+
+						<p>The fix was not to tune memory up, but to <em>stop needing it</em>. Instead of one giant hash table, I broke the work into <strong>buckets</strong>. First each ngram is <strong>normalized</strong> &mdash; put into a canonical form so the same phrase always looks identical (lower-cased, POS tags stripped, underscore-spaces turned into real spaces). Then every normalized ngram is hashed into one of <strong>128 buckets</strong>, with the rule that identical phrases always hash to the same bucket no matter which ngram level they came from.</p>
+
+						<p>That rule is the whole trick: because a phrase never lands in two places, the process never has to hold all 2.5 billion rows at once. Each bucket is small enough to aggregate and sort in RAM on its own, and the final step is a cheap <strong>k-way merge</strong> of the already-sorted buckets &mdash; which, happily, also means the writes to disk come out in sorted order rather than scattered. Peak memory dropped from &ldquo;impossible&rdquo; to &ldquo;one bucket,&rdquo; and the rows finally flowed through.</p>
+					</div>
+
+					<div class="project-section">
+						<h2>Post-mortem &amp; lessons</h2>
+
+						<h3>Choosing the right primitive</h3>
+						<p>The lookup layer was a journey that taught me about primitives. It began as a mutable key-value store holding the dictionary both directions, and encoding probed every phrase length at every position &mdash; hours of work for a modest corpus. An in-memory prefix trie didn&rsquo;t fit in RAM: a billion multi-word phrases share almost no prefixes, and the long tail dominates node count. The lesson there was matching the tool to the shape of the problem &mdash; and once I moved to a minimal perfect hash over the billion keys, the lookup finally stopped being the pain.</p>
+
+						<h3>I/O &amp; disk reality &mdash; 9p, NVMe blocks, and the network-attached trap</h3>
+						<p>But <em>building</em> that billion-key hash taught me a worse lesson &mdash; and the root of it was the disk itself. The whole project lives on <code>/mnt/e</code> inside WSL, which is an NTFS drive reached through a <strong>9p filesystem mount</strong>. For large streaming reads that&rsquo;s fine, but the moment work needs random writes, memory-mapped files, or <code>ftruncate()</code>-based temp files, that path collapses: 9p/NTFS just doesn&rsquo;t behave the way heavy build code assumes. The stubborn answer that kept recurring was that serious stages had to run on a <strong>native ext4</strong> volume &mdash; the ext4 that lives inside the WSL VHDX, or a separately mounted ext4 partition &mdash; where the filesystem semantics actually do what you&rsquo;d expect.</p>
+
+						<p>The second lesson, and the one that actually explained the thrashing, is that <strong>NVMe is not really random access</strong>. It reads and writes in <em>blocks</em>, and random 4 KiB page writes scattered across a multi-gigabyte region are its worst case. If you are going to write a lot of data, what you really want is the write <em>list to be sorted</em> so the writes land in ordered, sequential blocks instead of hopping all over the address space.</p>
+
+						<p>My first fill pass did the naive thing: computed each key&rsquo;s value and wrote it to its slot as it went, effectively in random order. The result was pathological &mdash; the process sat in uninterruptible I/O wait for hours at near-zero CPU while the kernel re-flushed the same dirty pages, until a <em>terabyte</em> of writes had been issued to produce a <em>25 GB</em> file. (Thrashing, in other words, was partly caused by <em>not sorting before writing</em>.) It finally OOM-killed a full-scale run on the 32 GB box when the merge opened one reader per (thread, run) &mdash; hundreds of runs times twelve threads, roughly 45 GB of anonymous buffers.</p>
+
+						<p>The fix was to respect the block and order the writes. The fill now computes each <code>(slot, code, fingerprint)</code> in chunks, <strong>radix-sorts each chunk in RAM</strong>, writes the sorted runs to disk, and k-way-merges them straight into the output &mdash; so the final write pass is sequential and lands in ordered blocks. Byte-identical output, but a build that used to threaten to run for a day now just runs, and the memory is planned against one explicit budget so the merge can&rsquo;t silently balloon again.</p>
+
+						<h3>The remote machine that wasn&rsquo;t faster</h3>
+						<p>Around then I figured the cure for all this was simple: throw the build at a bigger, faster remote box. I stood up a cloud VM &mdash; the &ldquo;oracle&rdquo; &mdash; whose CPU was genuinely quicker per core than my local machine. This would be the answer: get the CPU-bound work off my desk and onto something with real cores.</p>
+
+						<p>The build promptly spent <strong>a day and a half stuck in uninterruptible I/O wait</strong>, more than 1.5&times; my own ~1 hour CPU estimate. The per-core speed was never the problem &mdash; the machine&rsquo;s data path was. What I&rsquo;d attached for storage looked, on paper, like an SSD (it was marketed as block storage), but it was actually a <strong>network-attached</strong> volume. Each little random write had to travel over the network instead of hitting local silicon, and the very thing that had thrashed my local machine &mdash; sustained random 4 KB page writes &mdash; was exactly what a network disk can&rsquo;t do. The throughput that should have been the advantage turned out to be the bottleneck.</p>
+
+						<p>So the remote build was abandoned as a build target, and a hard rule came out of it that now comes first whenever I reach for another machine: the build must run on <strong>real, native non-network block storage</strong>, and the quickest check before believing a disk is &ldquo;NVMe&rdquo; is to confirm it isn&rsquo;t a network-attached volume in disguise. The remote box taught me that a faster CPU can&rsquo;t outrun a slow disk when the workload is write-shaped.</p>
+
+						<h3>Token expansion, not reduction</h3>
+						<p>What genuinely didn&rsquo;t work was the compression itself &mdash; and it was measured, not assumed. My baseline hypothesis assumed the top-tier codes cost roughly zero token overhead. Measured reality: compression <em>expanded</em> tokens &mdash; 126% on one experiment, 157% on another &mdash; with over 60% of the output still raw English. The frustrating part was that the scheme did exactly what a compressor should at the byte level: the byte-optimised runs cut the output to roughly <strong>50% bitwise compression</strong> &mdash; we saved bytes but spent tokens. The causes were independent:</p>
+						<ul>
+							<li>the encoder&rsquo;s dynamic program minimised <strong>characters, not tokens</strong>, emitting codes that shrank bytes while expanding tokens;</li>
+							<li>rendering a code isn&rsquo;t free in tokens: the mode prefix plus boundary-merge effects mean even a short code costs ~3 tokens to express, so it rarely beats a common 2&ndash;4 token phrase;</li>
+							<li>residual placeholder artifacts squatted in the top-ranked slots, crowding out real English and cutting coverage.</li>
+						</ul>
+
+						<h3>The grammar redesign</h3>
+						<p>But the single biggest drop came from a grammar change, and it taught me where the real overhead was hiding. Early on, <strong>mode-1 was the coded default</strong>, and raw text was wrapped in an explicit <code>&#9632;&hellip;&#9632;</code> open/close &mdash; every run of literal characters paid a framing overhead just to exist. We had already excluded the single-token ngrams from the dictionary, but those words still had to be emitted as text, and because raw was a <em>non-default</em>, wrapped mode, they fell into it carrying that wrapper &mdash; so excluding them didn&rsquo;t free them, it just made them raw <em>with</em> overhead.</p>
+
+						<p>The fix was to flip the default. We made <strong>raw mode the default</strong> instead of the coded mode: literal text needs no escape markers, space is simply the raw delimiter, and you only leave raw when you hit a <code>&#9733;</code>/<code>&#9734;</code>/<code>&#9679;</code> to enter a coded section. The single-token words we excluded stay raw, but now raw costs <strong>zero overhead</strong>. That single redesign &mdash; making the common case the free case instead of the bracketed one &mdash; is what drove the ratio down substantially, because it stopped paying a framing cost on the majority of ordinary words that would never be worth coding anyway.</p>
+					</div>
+
+					<div class="project-section">
+						<h2>Key takeaways</h2>
+						<p>The lookup-journey taught me to pick the right primitive, and the numbers made it decisive. A <strong>minimal perfect hash is far faster than RocksDB or marisa-trie</strong> for this job. RocksDB was a mutable store handling a prefix problem as a stream of point lookups &mdash; hours per corpus. marisa-trie couldn&rsquo;t hold the dictionary at all: not only did the billion multi-word keys not fit in memory, but <strong>marisa-trie has a hard file-size cap</strong> &mdash; 4 GiB on 64-bit systems, 2 GiB on 32-bit &mdash; because its matching algorithm packs keys into a read-only in-memory space using fixed address offsets. Our key set is ~49 GB of keys spread over ~1.35 billion entries, orders of magnitude over that ceiling. The MPHF, by contrast, needs ~3 bits per key for the hash itself and turns &ldquo;is this a phrase and what&rsquo;s its code&rdquo; into a hash + one array read + a fingerprint compare &mdash; nanoseconds, not milliseconds.</p>
+
+						<p>But the MPHF <strong>works well only if the keys are not rubbish</strong>. It does not degrade gracefully on junk: if the input contains literals that aren&rsquo;t really language &mdash; the residual <code>_</code>-artifact keys, the POS-tag pollution squatting in the top slots &mdash; they occupy the scarce one-character code slots and crowd out the real English that should be there. That is why the source had to be <strong>sanitized before</strong> the dictionary was built: strip the tags, reject the structural artifacts, and only feed the MPHF clean, genuine language. Garbage in meant the precious short codes went to garbage phrases, and it showed up directly as raw English leaking out of the stream.</p>
+
+						<p>The rest of it was the same lesson in different clothes.</p>
+
+						<blockquote>
+							<p><strong>For parquet, use DuckDB, not pyarrow.</strong> It can issue real SQL calls that stream instead of materialising whole tables, which is what kept a 2.5-billion-row corpus workable inside 32 GB.</p>
+						</blockquote>
+
+						<blockquote>
+							<p><strong>NVMe is not really random access.</strong> It works in blocks, so if you&rsquo;re going to write a lot, sort first so the writes land in order &mdash; that turned a build that thrashed the disk all day into one that just ran.</p>
+						</blockquote>
+
+						<blockquote>
+							<p><strong>Respect the currency &mdash; tokens, not bytes.</strong> Every code prefix costs its own token, so the encoder has to minimise tokens and only emit a code that genuinely saves them; 83% of the dictionary at 3&ndash;5 raw tokens is right on the margin where that math decides everything.</p>
+						</blockquote>
+
+						<p>Base66 did not achieve a dramatic token compression win &mdash; modern BPE tokenizers are already heavily optimized. But building it, hitting the wall, and discovering exactly where the hardware and algorithmic limits stand is what engineering is all about.</p>
+					</div>
+
+					<div class="project-section">
+						<h2>References</h2>
+						<ul>
+							<li><strong>text8</strong> &mdash; a streamlined variation of <code>enwiki8</code>: the first 100 MB of cleaned Wikipedia text. <a href="https://mattmahoney.net/dc/textdata.html">https://mattmahoney.net/dc/textdata.html</a></li>
+							<li><strong>Google Books Ngrams 2020</strong> &mdash; the frequency corpus the dictionary is ranked from, obtained by direct download of the public raw <code>.gz</code> files from Google Storage (not queried through BigQuery). Main listing: <a href="https://storage.googleapis.com/books/ngrams/books/datasetsv3.html">https://storage.googleapis.com/books/ngrams/books/datasetsv3.html</a> &mdash; we used <strong>Version 20200217</strong>. <a href="https://storage.googleapis.com/books/ngrams/books/20200217/">https://storage.googleapis.com/books/ngrams/books/20200217/</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<div class="project-cta">
+					<div class="project-cta__text">
+						<h3>Let&rsquo;s build smart things together.</h3>
+						<p>Looking to work on AI, systems, and applied research.</p>
+					</div>
+					<a href="../portfolio.html" class="project-cta__btn">Back to Portfolio &rarr;</a>
+				</div>
+
+			</div>
+		</div>
