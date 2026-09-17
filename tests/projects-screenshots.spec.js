@@ -28,7 +28,7 @@ const config = JSON.parse(
 );
 
 const PAGES = config.pages.map(p => {
-  // docs/index.html              -> /index.html
+  // docs/showcase.html           -> /showcase.html
   // docs/projects/backpack.html  -> /projects/backpack.html
   const rel = p.out.replace(/^docs[\\/]/, '');
   const url = '/' + rel.split(path.sep).join('/');
