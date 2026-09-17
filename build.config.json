@@ -11,16 +11,6 @@
       "footer": true
     },
     {
-      "src": "src/pages/portfolio.html",
-      "out": "docs/portfolio.html",
-      "title": "Portfolio \u2013 Jos\u00e9 Vidal",
-      "description": "Project portfolio of Jos\u00e9 Vidal, design engineer.",
-      "navActive": "portfolio",
-      "root": ".",
-      "extraCss": "<link rel=\"stylesheet\" href=\"./css/project.css\">",
-      "footer": true
-    },
-    {
       "src": "src/pages/about.html",
       "out": "docs/about.html",
       "title": "About \u2013 Jos\u00e9 Vidal",
